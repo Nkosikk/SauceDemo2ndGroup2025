@@ -14,5 +14,6 @@ This is the readme file that will explain all the setups about the project
 * Nkosi
 
 ## Project Structure
+* Cele
 
 
