@@ -11,6 +11,7 @@ This is the readme file that will explain all the setups about the project
 
 
 ## How to execute
+* Nkosi
 
 ## Project Structure
 
