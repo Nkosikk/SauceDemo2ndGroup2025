@@ -27,15 +27,17 @@ public class StartChrome {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
 
-        String ProductText= driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
-        Assert.assertEquals(ProductText,"Products");
+        String productText= driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+        Assert.assertEquals(productText,"Products");
 
         driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed();
 
     }
 
+
     @AfterTest
     public void closeBrowser(){
+
         driver.quit();
     }
 
