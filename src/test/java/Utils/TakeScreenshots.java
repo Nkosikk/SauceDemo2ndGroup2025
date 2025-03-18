@@ -7,18 +7,26 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 public class TakeScreenshots {
-    private static String screenshotDir = System.getProperty("user.dir") + "/screenshots/";
 
-    public void takeScreenshot(WebDriver driver, String screemshotName ){
+    private static final String screenshotDir = System.getProperty("user.dir") + "/Screenshots";
+
+
+    public void takesSnapShot(WebDriver driver, String ScreenshotName) {
+
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File srcFale = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File destFile = new File(screenshotDir + screemshotName + ".png");
+        File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        File destination = new File(screenshotDir, ScreenshotName + ".jpeg");
+
         try {
-            FileUtils.copyFile(srcFale, destFile);
-        } catch (Exception e) {
+            FileUtils.copyFile(src, destination);
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
+
 }
