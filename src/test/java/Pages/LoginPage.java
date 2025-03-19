@@ -10,4 +10,9 @@ public class LoginPage {
     @FindBy(id="Use-Name")
     WebElement username_Id;
 
+    @FindBy(id="Password")
+    WebElement password_id;
+
+    @FindBy(id="Login")
+    WebElement Login_id;
 }
