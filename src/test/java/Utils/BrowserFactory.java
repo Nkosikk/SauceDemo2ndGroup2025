@@ -8,16 +8,19 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class BrowserFactory {
 
     static WebDriver driver;
+    static TakeScreenshots takeScreenshots = new TakeScreenshots();
 
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("ChrOME")) {
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("chrome");
             driver = new ChromeDriver(chromeOptions);
         } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
             driver = new InternetExplorerDriver();
@@ -30,13 +33,23 @@ public class BrowserFactory {
         }
         driver.manage().window().maximize();
         driver.get(url);
+        takeScreenshots.takesSnapShot(driver, "homepage");
         return driver;
     }
-
-    @Test
-    public void test(){
-        startBrowser("efjbkdfbjkhgdvbjkvgdbkn","https://www.saucedemo.com/");
+    @BeforeTest
+    public void setUp(){
+        driver = startBrowser("chrome", "https://www.saucedemo.com/");
     }
+    @Test
+    public void testTitle(){
+        String expectedTitle = "Swag Labs";
+        String actualTitle = driver.getTitle();
+        takeScreenshots.takesSnapShot(driver,"titlePage");
+        // Add more navigation and screenshot calls as needed
 
-
+    }
+//    @AfterTest
+//    public void tearDown(){
+//        driver.quit();
+//    }
 }
