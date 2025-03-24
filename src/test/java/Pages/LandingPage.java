@@ -1,20 +1,37 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.time.Duration;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class LandingPage {
 
     WebDriver driver;
 
-    @FindBy(id ="add-to-cart-sauce-labs-backpack")
-    WebElement addtocart_id;
+    @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
+    WebElement productText_xpath;
 
-    //Click Add to Cart Button
-    public void clickAddtoCartButton(){
-        addtocart_id.click();
+
+    public LandingPage(WebDriver driver) {
+        this.driver = driver;
     }
+    public void verifyProductText(){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
+        productText_xpath.isDisplayed();
+
+//        String productText = productText_xpath.getText();
+//        Assert.assertEquals(productText, "Products");
+    }
+
+
+
+
+
 }
-
-
