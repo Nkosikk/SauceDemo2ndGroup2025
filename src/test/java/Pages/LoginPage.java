@@ -9,7 +9,7 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class  LoginPage {
+public class LoginPage {
 
     WebDriver driver;
 
@@ -25,11 +25,13 @@ public class  LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
+
     //Input Username
-    public void enterUsername(String username){
+    public void enterUsername(String username) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(username_id));
         username_id.sendKeys(username);
     }
+
     //Input Password
     public void enterPassword(String password) {
         password_id.sendKeys(password);
