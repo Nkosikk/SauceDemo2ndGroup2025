@@ -10,7 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.Test;
 
-public class BrowserFactory {
+public class  BrowserFactory {
 
     static WebDriver driver;
 
