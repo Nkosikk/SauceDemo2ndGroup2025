@@ -22,6 +22,7 @@ public class LoginPage {
     @FindBy(id = "login-button")
     WebElement loginButton_id;
 
+    //Constructor
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
