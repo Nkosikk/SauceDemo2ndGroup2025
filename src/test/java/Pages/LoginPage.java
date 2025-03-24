@@ -39,4 +39,11 @@ public class LoginPage {
     public void clickLoginButton() {
         loginButton_id.click();
     }
+
+    //Products page
+    public void verifyProductSelection()  {
+        ProductPage productPage = new ProductPage(driver);
+        productPage.selectProduct();
+        productPage.addToCart();
+    }
 }
