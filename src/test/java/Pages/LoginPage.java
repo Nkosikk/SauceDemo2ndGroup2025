@@ -39,4 +39,7 @@ public class LoginPage {
     public void clickLoginButton() {
         loginButton_id.click();
     }
-}
+
+
+    }
+
