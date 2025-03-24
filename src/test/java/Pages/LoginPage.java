@@ -15,8 +15,11 @@ public class LoginPage {
     @FindBy(id = "user-name")
     WebElement username_id;
 
-    @FindBy(id = "login-button")
+    @FindBy(id = "password")
     WebElement password_id;
+
+    @FindBy(id = "login-button")
+    WebElement loginButton_id;
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
@@ -29,7 +32,12 @@ public class LoginPage {
     }
 //enter password
     public void enterPassword(String password){
-        new WebDriverWait(driver, Duration.ofSeconds(20)).until(visibilityOf(username_id));
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(visibilityOf(password_id));
         password_id.sendKeys(password);
+    }
+
+    //Click Login Button
+    public void clickLoginButton() {
+        loginButton_id.click();
     }
 }
