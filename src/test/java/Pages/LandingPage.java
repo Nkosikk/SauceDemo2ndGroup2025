@@ -12,6 +12,13 @@ public class LandingPage {
         this.driver = driver;
     }
 
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    WebElement productText;
+
+    public void verifyProductText(){
+        productText.isDisplayed();
+    }
+
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     WebElement addToCartBackpack;
 

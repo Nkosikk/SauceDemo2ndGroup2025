@@ -43,12 +43,7 @@ public class LoginPage extends BrowserFactory {
         loginButton_id.click();
     }
 
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
-    WebElement productText;
 
-    public void verifyProductText(){
-        productText.isDisplayed();
-    }
 
 
 }
