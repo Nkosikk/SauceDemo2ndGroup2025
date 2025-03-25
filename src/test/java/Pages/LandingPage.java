@@ -11,7 +11,8 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class LandingPage {
+public class LandingPage
+{
 
     WebDriver driver;
 
