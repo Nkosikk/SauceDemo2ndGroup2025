@@ -1,30 +1,44 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class LoginPage {
 
     WebDriver driver;
 
+    @FindBy(id = "user-name")
+    WebElement username_id;
+
+    @FindBy(id = "password")
+    WebElement password_id;
+
+    @FindBy(id = "login-button")
+    WebElement loginButton_id;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void login(String username, String password) {
-        // Enter username
-        WebElement usernameField = driver.findElement(By.id("username"));
-        usernameField.sendKeys(username);
+    //Input Username
+    public void enterUsername(String username) {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(username_id));
+        username_id.sendKeys(username);
+    }
 
-        // Enter password
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys(password);
+    //Input Password
+    public void enterPassword(String password) {
+        password_id.sendKeys(password);
+    }
 
-        // Click on login button
-        WebElement loginButton = driver.findElement(By.id("login"));
-        loginButton.click();
-
+    //Click Login Button
+    public void clickLoginButton() {
+        loginButton_id.click();
     }
 }
