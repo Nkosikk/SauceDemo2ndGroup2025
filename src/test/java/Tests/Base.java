@@ -1,15 +1,5 @@
-package Tests;
 
-import Pages.LoginPage;
-import Utils.BrowserFactory;
-import Utils.TakeScreenshots;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
-public class Base {
-    package Tests;
-
-import Pages.LandingPage;
+import Pages.ProductsPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
@@ -22,10 +12,10 @@ import org.testng.annotations.Test;
 
         BrowserFactory browserFactory = new BrowserFactory();
 
-        final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
+        final WebDriver driver = BrowserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
 
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+        ProductsPage ProductPage = PageFactory.initElements(driver, ProductsPage.class);
 
         TakeScreenshots takeScreenshots = new TakeScreenshots();
 

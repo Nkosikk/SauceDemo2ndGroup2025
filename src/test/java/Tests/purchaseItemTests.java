@@ -3,15 +3,12 @@ package Tests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-public class purchaseItemTests {
-    package Tests;
-
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static Utils.BrowserFactory.driver;
 
-
-    @Test
+@Test
     public class purchaseItemTests extends Base{
 
 
@@ -33,7 +30,7 @@ import org.testng.annotations.Test;
         @Test(dependsOnMethods = "clickLoginTests")
         public void verifyLoginSuccess(){
             takeScreenshots.takesSnapShot(driver,"Landing Page");
-            landingPage.verifyProductText();
+            productsPage.verifyProductText();
         }
 
 
