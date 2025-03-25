@@ -11,7 +11,7 @@ public class BasePage {
     protected WebDriver driver;
 
     public BasePage (WebDriver driver){
-        this.driver=driver;
+        this.driver=driver;//this is a BasePage constructor
     }
     protected WebElement find(By locator){
         return driver.findElement(locator);

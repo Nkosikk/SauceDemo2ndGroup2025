@@ -15,15 +15,28 @@ public class LoginPage extends BasePage {
         super(driver); //this is calling the constructor of the BasePage
     }
 
-   // WebDriver driver;
-   // @FindBy(id="Use-Name")
-   // WebElement username_Id;
+    public void setUsernameField(String username) {
+        type(username, usernameField);
+    }
+    public void setPasswordField(String password) {
+        type(password, passwordField);
+    }
 
-   // By username = By.id("username");
+    public LandingPage clickLoginButton(){
+        click(loginButton);
+        return new LandingPage(driver);
+    }
+    public LandingPage loginWith(String username, String password){
+        setUsernameField(username);
+        setPasswordField(password);
+        return clickLoginButton();
+    }
+    public String getErrorMessage(){
+        return find(By.id("errorMessage")).getText();
 
-  //  @FindBy(id="Password")
-  //  WebElement password_id;
-
- //   @FindBy(id="Login")
-    //WebElement Login_id;//
+    }
 }
+
+
+
+
