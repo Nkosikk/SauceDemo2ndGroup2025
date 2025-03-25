@@ -33,10 +33,10 @@ public class  BrowserFactory {
         return driver;
     }
 
-    @Test
-    public void test(){
-        startBrowser("efjbkdfbjkhgdvbjkvgdbkn","https://www.saucedemo.com/");
-    }
+//    @Test
+//    public void test(){
+//        startBrowser("efjbkdfbjkhgdvbjkvgdbkn","https://www.saucedemo.com/");
+//    }
 
 
 }

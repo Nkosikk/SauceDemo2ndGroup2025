@@ -15,7 +15,6 @@ public class TakeScreenshots {
 
 
     public void takesSnapShot(WebDriver driver, String ScreenshotName) {
-
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
         File destination = new File(screenshotDir, ScreenshotName + ".jpeg");
