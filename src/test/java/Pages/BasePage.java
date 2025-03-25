@@ -1,4 +1,4 @@
-package Tests;
+package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ public class BasePage {
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver){
+    public BasePage (WebDriver driver){
         this.driver=driver;//this is a BasePage constructor
     }
     protected WebElement find(By locator){
