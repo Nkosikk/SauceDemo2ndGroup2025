@@ -22,7 +22,8 @@ public class LoginPage {
     @FindBy(id = "login-button")
     WebElement loginButton_id;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver)
+    {
         this.driver = driver;
     }
 
