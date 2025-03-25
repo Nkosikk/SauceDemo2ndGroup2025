@@ -9,8 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-public class Base {
-
+public class Base
+{
     BrowserFactory browserFactory = new BrowserFactory();
 
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
@@ -19,7 +19,4 @@ public class Base {
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
-
-
-
 }
