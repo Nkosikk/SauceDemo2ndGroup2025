@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 public class TestStandardUser extends BaseTest{
     @Test
-    public void TestStandardUser () {
-       LandingPage  LandingPage = loginPage.loginWith("standard_user", "secret_sauce");
+    public void TestStandardUserCanLogin () {
+       LandingPage  landingPage = loginPage.loginWith("standard_user", "secret_sauce");
         Assert.assertTrue(LandingPage.isTitleDisplayed());
     }
 }

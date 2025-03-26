@@ -1,12 +1,7 @@
 package Pages;
 
-import Tests.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-
-
-
 
 public class LandingPage extends BasePage {
     private By title =By.className("title");
@@ -17,6 +12,7 @@ public class LandingPage extends BasePage {
         super(driver);
     }
     public Boolean isTitleDisplayed(){
+
         return isDisplayed(title);
     }
     public void clickBackpack(){
@@ -24,7 +20,8 @@ public class LandingPage extends BasePage {
         click(addToCartButton);
     }
     public String getButtonName(){
+
         return find(addToCartButton).getText();
     }
 
-}
+    }

@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
     private WebDriver driver;
-    private final String AUT_URL= "https://www.saucedemo.com/";
+    private final String URL= "https://www.saucedemo.com/";
     protected LoginPage loginPage;
 
     @BeforeClass
@@ -18,7 +18,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(AUT_URL);
+        driver.get(URL);
         loginPage= new LoginPage(driver);
     }
     @AfterClass
