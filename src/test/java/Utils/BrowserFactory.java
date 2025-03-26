@@ -11,11 +11,19 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.Test;
 
 public class  BrowserFactory {
+    public
 
     static WebDriver driver;
+    //we are creating a method that will return a WebDriver object
+    //this method will take two parameters
+    //one is the browser type
+    //another is the url
+    //this method will return a WebDriver object
+    //we will use this method in our
 
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("Chrome")) {
+            System.setProperty("webdriver.chrome.driver", "/Users/techtorial/Downloads/chromedriver");
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
