@@ -3,9 +3,6 @@ package Tests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-import static Utils.ReadFromExcel.password;
-import static Utils.ReadFromExcel.username;
-
 
 @Test
 public class purchaseItemTests extends Base{
