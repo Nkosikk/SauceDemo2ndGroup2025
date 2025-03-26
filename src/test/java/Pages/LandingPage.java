@@ -7,13 +7,14 @@ import org.openqa.selenium.support.FindBy;
 public class LandingPage {
     WebDriver driver;
 
-    @FindBy (xpath = "//span[contains(.,'Products')]")
+    @FindBy(xpath = "//span[contains(.,'Products')]")
     WebElement productsText;
+
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public boolean isProductsTextDisplayed(){
+    public boolean isProductsTextDisplayed() {
         return productsText.isDisplayed();
     }
 }
