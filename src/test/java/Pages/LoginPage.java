@@ -32,11 +32,13 @@ public class LoginPage {
     }
     //Input Password
     public void enterPassword(String password) {
+
         password_id.sendKeys(password);
     }
 
     //Click Login Button
     public void clickLoginButton() {
+
         loginButton_id.click();
     }
 }
