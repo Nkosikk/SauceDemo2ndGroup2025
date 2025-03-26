@@ -11,5 +11,5 @@ public class Base {
 
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-    LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    //LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 }

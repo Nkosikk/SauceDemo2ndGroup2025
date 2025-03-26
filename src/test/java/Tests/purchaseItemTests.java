@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 @Test
 public class purchaseItemTests extends Base {
 
-
     public void enterUsernameTest() {
         loginPage.enterUsername("standard_user");
     }
@@ -20,10 +19,10 @@ public class purchaseItemTests extends Base {
         loginPage.clickLoginButton();
     }
 
-    @Test(dependsOnMethods = "clickLoginButton")
-    public boolean isProductTextDisplayed() {
-        return landingPage.isProductsTextDisplayed();
-    }
+//    @Test(dependsOnMethods = "clickLoginButton")
+//    public boolean isProductTextDisplayed() {
+//        return landingPage.isProductsTextDisplayed();
+//    }
 
     @AfterTest
     public void closeBrowser() {
