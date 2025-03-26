@@ -28,6 +28,11 @@ public class Listener implements ITestListener {
     }
 
     @Override
+    public void onTestSkipped(ITestResult result) {
+        extentTest.log(Status.SKIP, "Test Case " + result.getMethod().getMethodName() + " Has been Skipped");
+    }
+
+    @Override
     public void onFinish(ITestContext result) {
         extent.flush();
     }
