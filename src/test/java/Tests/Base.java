@@ -1,7 +1,6 @@
 package Tests;
 
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,6 +16,10 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+    CheckoutDetailsPage checkoutDetailsPage = PageFactory.initElements(driver, CheckoutDetailsPage.class);
+    CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+    OrderConfirmationPage orderConfirmationPage = PageFactory.initElements(driver, OrderConfirmationPage.class);g
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
