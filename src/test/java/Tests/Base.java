@@ -1,4 +1,6 @@
+package Tests;
 
+import Pages.CartPage;
 import Pages.ProductsPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
@@ -8,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+
     public class Base {
 
         BrowserFactory browserFactory = new BrowserFactory();
@@ -15,7 +18,9 @@ import org.testng.annotations.Test;
         final WebDriver driver = BrowserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
 
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        ProductsPage ProductPage = PageFactory.initElements(driver, ProductsPage.class);
+        ProductsPage productsPage = PageFactory.initElements(driver, ProductsPage.class);
+        CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+
 
         TakeScreenshots takeScreenshots = new TakeScreenshots();
 

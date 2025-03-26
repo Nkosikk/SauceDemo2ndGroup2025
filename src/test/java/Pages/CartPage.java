@@ -14,7 +14,7 @@ public class CartPage {
     @FindBy(id = "Remove")
     WebElement Remove_id;
 
-    @FindBy (id = "continue-shopping")
+    @FindBy(id = "continue-shopping")
     WebElement ContinueShopping_id;
 
     @FindBy(id = "checkout")
@@ -29,26 +29,24 @@ public class CartPage {
     public void checkInventoryItemName() {
         inventory_item_name_class.getText();
 
-    //Click the remove button if the incorrect inventory item is in the cart.
-
-    public void clickRemove; {
+        //Click the remove button if the incorrect inventory item is in the cart.
+        //public void clickRemove;
         Remove_id.click();
+        {
 
-    //Click back to the continue shopping button to re-select the correct inventory item.
-    public void clickContinueShopping()
-    ContinueShopping_id.click();
+            //Click back to the continue shopping button to re-select the correct inventory item.
+            //public void clickContinueShopping;
+            ContinueShopping_id.click();
 
-    //If the correct inventory item is in the cart, click the checkout button to proceed to the checkout page.
-    public void clickCheckout()    {
-        checkout_id.click();
+            //If the correct inventory item is in the cart, click the checkout button to proceed to the checkout page.
+            //public void clickCheckout;
+            {
+                checkout_id.click();
+
+            }
+
+        }
+
 
     }
-
-}
-
-
-
-
-
-
 }

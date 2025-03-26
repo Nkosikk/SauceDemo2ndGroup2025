@@ -9,8 +9,7 @@ import org.testng.annotations.Test;
 import static Utils.BrowserFactory.driver;
 
 @Test
-    public class purchaseItemTests extends Base{
-
+public class purchaseItemTests  extends Base{
 
         public void enterUsernameTests(){
             loginPage.enterUsername("standard_user");
@@ -32,6 +31,9 @@ import static Utils.BrowserFactory.driver;
             takeScreenshots.takesSnapShot(driver,"Landing Page");
             productsPage.verifyProductText();
         }
+
+        @Test(dependsOnMethods = "verifyLoginSuccess")
+        public void addProductToCart(){}
 
 
         @AfterTest

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class  BrowserFactory {
 
-    static WebDriver driver;
+    public static WebDriver driver;
 
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("ChrOME")) {
