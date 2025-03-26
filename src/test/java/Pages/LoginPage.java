@@ -22,7 +22,7 @@ public class LoginPage {
     @FindBy(id = "login-button")
     WebElement loginButton_id;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage() {
         this.driver = driver;
     }
     //Input Username
@@ -41,9 +41,9 @@ public class LoginPage {
     }
 
     //Products page
-    public void verifyProductSelection()  {
-        ProductPage productPage = new ProductPage(driver);
-        productPage.selectProduct();
-        productPage.addToCart();
+    //public void verifyProductSelection()  {
+    //    ProductPage productPage = new ProductPage(driver);
+      //  productPage.selectProduct();
+        //productPage.addToCart();
     }
-}
+
