@@ -21,4 +21,7 @@ public class CheckoutCompletePage {
     public void clickBackToProducts() {
         backToProducts_id.click();
     }
+
+    public void verifyCompleteText() {
+    }
 }

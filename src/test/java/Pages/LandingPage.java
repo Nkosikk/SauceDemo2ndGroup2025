@@ -16,6 +16,12 @@ public class LandingPage {
 
     // Locators
 
+    //verifying if we are in the Products Page
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    WebElement productText_xpath;
+
+
+    //Adding items to the cart
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     WebElement AddToCartSauceLabsBackpack_id;
 
@@ -49,12 +55,14 @@ public class LandingPage {
     }
     //Methods
 
+    //verifying if we are in the Products Page
+    public void verifyProductText() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
+        String ProductText = productText_xpath.getText();
+        Assert.assertEquals(ProductText, "Products");
+    }
 
     //Select item from the landing page
-    public void clickAddToCart() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(AddToCartSauceLabsBackpack_id));
-        AddToCartSauceLabsBackpack_id.click();
-    }
 
     public void selectItem() {
         AddToCartSauceLabsBackpack_id.click();

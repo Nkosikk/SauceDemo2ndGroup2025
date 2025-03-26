@@ -12,6 +12,11 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 public class CheckoutYourInformationPage {
 
     WebDriver driver;
+
+    //verify the Checkout Your Information page
+
+    @FindBy(xpath = "//*[@id=\"checkout_info_container\"]/div/form/h3")
+    WebElement checkoutYourInformationText_xpath;
     //Locators
     @FindBy(id = "first-name")
     WebElement firstName_id;
@@ -20,12 +25,22 @@ public class CheckoutYourInformationPage {
     @FindBy(id = "postal-code")
     WebElement postalCode_id;
 
-    @FindBy(id = "continue")
-    WebElement continue_id;
+    @FindBy(xpath = "//*[@id=\"continue\"]")
+    WebElement continueButton_xpath;
 
     //Constructor
     public CheckoutYourInformationPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+public void verifyCheckoutYourInformationText() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(checkoutYourInformationText_xpath));
+        String checkoutYourInformationText = checkoutYourInformationText_xpath.getText();
+        if (checkoutYourInformationText.equals("Checkout: Your Information")) {
+            System.out.println("You are in the Checkout: Your Information Page");
+        } else {
+            System.out.println("You are not in the Checkout: Your Information Page");
+        }
     }
 
     //methods
@@ -43,7 +58,11 @@ public class CheckoutYourInformationPage {
     }
 
     public void clickContinue() {
-        continue_id.click();
+        continueButton_xpath.click();
+
+    }
+
+    public void verifyYourInformationText() {
     }
 }
 

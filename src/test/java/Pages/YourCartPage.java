@@ -9,6 +9,11 @@ public class YourCartPage {
     WebDriver driver;
 
     //locators
+    //verify if we are in the Your Cart page
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    WebElement  YourCartText_xpath;
+
     //removing an item from the cart in the Your Cart page
     @FindBy(id = "remove-sauce-labs-bolt-t-shirt")
     WebElement RemoveSauceLabsBoltTShirt_id;
@@ -23,6 +28,11 @@ public class YourCartPage {
     }
 
     //methods
+    //verify if we are in the Your Cart page
+
+    public void verifyYourCartText() {
+        YourCartText_xpath.isDisplayed();
+    }
     public void RemoveSauceLabsBoltTShirt_id(WebElement removeSauceLabsBoltTShirt_id) {
         RemoveSauceLabsBoltTShirt_id = removeSauceLabsBoltTShirt_id;
     }
