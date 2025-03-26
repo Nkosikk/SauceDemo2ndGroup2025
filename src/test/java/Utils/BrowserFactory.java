@@ -8,6 +8,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class  BrowserFactory {
@@ -21,11 +23,12 @@ public class  BrowserFactory {
     //this method will return a WebDriver object
     //we will use this method in our
 
+    @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("Chrome")) {
             System.setProperty("webdriver.chrome.driver", "/Users/techtorial/Downloads/chromedriver");
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless");
+//            chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
         } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
             driver = new InternetExplorerDriver();
