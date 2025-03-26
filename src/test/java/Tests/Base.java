@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.AddtocartPage;
 import Pages.LandingPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
@@ -17,9 +18,9 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    AddtocartPage addtocartPage = PageFactory.initElements(driver, AddtocartPage.class);
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
-
 
 
 }
