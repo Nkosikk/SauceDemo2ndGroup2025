@@ -9,7 +9,8 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class LoginPage {
+public class
+LoginPage {
 
     WebDriver driver;
 
