@@ -46,6 +46,18 @@ public class LandingPage {
     @FindBy(id = "remove-sauce-labs-fleece-jacket")
     WebElement RemoveSauceLabsFleeceJacket_id;
 
+    @FindBy(id = "remove-sauce-labs-backpack")
+    WebElement RemoveSauceLabsBackpack_id;
+
+    @FindBy(id = "remove-sauce-labs-onesie")
+    WebElement RemoveSauceLabsOnesie_id;
+
+    @FindBy(id = "remove-test.allthethings()-t-shirt-(red)")
+    WebElement RemoveTestAllTheThingsTShirtRed_id;
+
+    @FindBy(id = "remove-sauce-labs-bolt-t-shirt")
+    WebElement RemoveSauceLabsBoltTShirt_id;
+
     @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a/span")
     WebElement ShoppingCartContainer_xpath;
 
@@ -99,4 +111,19 @@ public class LandingPage {
     public void clickRemoveItem1() {
         RemoveSauceLabsFleeceJacket_id.click();
     }
+
+    public void clickRemoveItem2() {
+        RemoveSauceLabsBackpack_id.click();
+    }
+    public void clickRemoveItem3() {
+        RemoveSauceLabsOnesie_id.click();
+    }
+    public void clickRemoveItem4() {
+        RemoveTestAllTheThingsTShirtRed_id.click();
+    }
+    public void clickRemoveItem5() {
+        RemoveSauceLabsBoltTShirt_id.click();
+    }
+
+
 }
