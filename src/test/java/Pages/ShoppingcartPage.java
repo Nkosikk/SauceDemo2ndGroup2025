@@ -12,8 +12,8 @@ public class ShoppingcartPage {
     public ShoppingcartPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void clickShoppingCart() {
-        shoppingcart_xpath.click();
+    public void verifyProductText(WebElement productText_xpath) {
+        productText_xpath.isDisplayed();
     }
 }
 
