@@ -28,17 +28,23 @@ public class purchaseItemTests extends Base{
     public void verifyLoginSuccess(){
         takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
+
     }
+    @Test(dependsOnMethods = "verifyLoginSuccess")
+    public void clickAddToCart(){
+        takeScreenshots.takesSnapShot(driver,"Add To Cart");
+        AddToCart.AddToCart();
+//    }
+//    @Test(dependsOnMethods = "clickAddToCart")
+//    public void clickCheckout(){
+//      clickCheckout.clickCheckout();
+    }
+
 
 
     @AfterTest
     public void closeBrowser(){
         driver.quit();
     }
-
-
-
-
-
 
 }

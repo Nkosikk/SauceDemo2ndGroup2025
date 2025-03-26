@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.AddToCart;
 import Pages.LandingPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
@@ -20,6 +21,6 @@ public class Base {
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
-
+    AddToCart AddToCart = PageFactory.initElements(driver, AddToCart.class);
 
 }
