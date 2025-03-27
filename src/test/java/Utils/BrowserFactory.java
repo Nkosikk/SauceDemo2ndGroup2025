@@ -16,7 +16,7 @@ public class  BrowserFactory {
 
     static WebDriver driver;
 
-    @BeforeTest
+    //@BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("ChrOME")) {
             ChromeOptions chromeOptions = new ChromeOptions();
@@ -37,7 +37,8 @@ public class  BrowserFactory {
     }
 
     @Test
-    public void test(){
+    public void test()
+    {
         startBrowser("efjbkdfbjkhgdvbjkvgdbkn","https://www.saucedemo.com/");
     }
 

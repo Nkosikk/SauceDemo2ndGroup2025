@@ -1,10 +1,12 @@
 package Tests;
 
+import Pages.CartPage;
+import org.openqa.selenium.devtools.v131.page.model.Screenshot;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class purchaseItemTests extends Base{
+public class PurchaseItemTests extends Base{
 
     public void enterUsernameTests()
     {
@@ -27,6 +29,20 @@ public class purchaseItemTests extends Base{
         takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
     }
+    @Test
+    public void  CartPageTests()
+    {
+        cartPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
+        cartPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
+        takeScreenshots.takesSnapShot(driver, "Purchased Items");
+    }
+    @Test
+    public void ShoppingCartContainerTests()
+    {
+        CartPage.ClickShoppingCartContainer();
+        takeScreenshots.takesSnapShot(driver, "Your Cart");
+    }
+
     @AfterTest
     public void closeBrowser()
     {
