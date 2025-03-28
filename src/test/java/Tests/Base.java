@@ -1,8 +1,6 @@
 package Tests;
 
-import Pages.ProductPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
@@ -22,5 +20,11 @@ public class Base
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
+
+    CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
+
+    CheckoutOverviewPage checkoutoverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+
+    BackHomePage backhomePage = PageFactory.initElements(driver, BackHomePage.class);
 
 }

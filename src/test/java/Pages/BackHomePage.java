@@ -12,10 +12,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 public class BackHomePage
 {
     WebDriver driver;
+
     @FindBy(id = "back-to-products")
     WebElement backHomeButton_id;
 
     public BackHomePage(WebDriver driver)
+
     {
         this.driver = driver;
     }

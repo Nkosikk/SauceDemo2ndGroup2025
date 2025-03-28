@@ -1,7 +1,6 @@
 package Tests;
 
-import Pages.CheckoutPage;
-import Pages.ProductPage;
+import Pages.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -45,8 +44,46 @@ public class PurchaseItemTests extends Base{
 
     public void CheckoutTests()
     {
-        CheckoutPage.ClickCheckoutButton();
+        checkoutPage.ClickCheckoutButton();
         takeScreenshots.takesSnapShot(driver, "Checkout Page");
+    }
+
+    public void enterFirstnameTests()
+    {
+        YourInformationPage.enterFirstname("Babongile");
+    }
+    @Test(dependsOnMethods = "enterFirstnameTests")
+    public void enterLastnameTests()
+    {
+        YourInformationPage.enterLastname("Mpungose");
+    }
+    @Test(dependsOnMethods = "enterLastnameTests")
+    public void enterPostalcodeTests()
+    {
+        YourInformationPage.enterPostalcode("2188");
+    }
+    public void clickContinueTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"YourInformation Page");
+        YourInformationPage.clickContinueButton();
+    }
+    @Test(dependsOnMethods = "clickContinueTests")
+    public void verifyCheckoutOverview()
+    {
+        takeScreenshots.takesSnapShot(driver,"Checkout Overview Page");
+        CheckoutOverviewPage.verifyCheckoutOverviewText();
+    }
+
+    public void ClickFinishButtonTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"BackHome Page");
+        CheckoutOverviewPage.clickFinishButton();
+    }
+
+    public void ClickBackHomeButtonTests()
+    {
+        BackHomePage.ClickBackHomeButton();
+        takeScreenshots.takesSnapShot(driver,"Product Page");
     }
 
     @AfterTest

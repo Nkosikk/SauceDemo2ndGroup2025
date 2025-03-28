@@ -32,6 +32,4 @@ public class CheckoutPage {
             {
                 checkout_id.click();
             }
-
-
 }
