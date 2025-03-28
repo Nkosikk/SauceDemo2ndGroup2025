@@ -1,7 +1,7 @@
 package Tests;
 
-import Pages.CartPage;
-import org.openqa.selenium.devtools.v131.page.model.Screenshot;
+import Pages.CheckoutPage;
+import Pages.ProductPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -30,17 +30,23 @@ public class PurchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
     @Test
-    public void  CartPageTests()
+    public void  ProductPageTests()
     {
-        cartPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
-        cartPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
+        productPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
+        productPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
         takeScreenshots.takesSnapShot(driver, "Purchased Items");
     }
     @Test
     public void ShoppingCartContainerTests()
     {
-        CartPage.ClickAddToCart("shoppingcartcontainer_id");
+        productPage.ClickAddToCart("shoppingcartcontainer_id");
         takeScreenshots.takesSnapShot(driver, "Your Cart");
+    }
+
+    public void CheckoutTests()
+    {
+        CheckoutPage.ClickCheckoutButton();
+        takeScreenshots.takesSnapShot(driver, "Checkout Page");
     }
 
     @AfterTest

@@ -2,16 +2,14 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v131.page.model.Screenshot;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import Pages.CartPage;
 
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class CartPage {
+public class ProductPage {
 
     WebDriver driver;
 
@@ -29,7 +27,7 @@ public class CartPage {
         @FindBy(id = "shopping_cart_container")
         WebElement shoppingcartcontainer_id;
 
-    public CartPage(WebDriver driver)
+    public ProductPage(WebDriver driver)
         {
             this.driver = driver;
         }
