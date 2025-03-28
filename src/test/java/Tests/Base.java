@@ -2,11 +2,14 @@ package Tests;
 
 import Pages.*;
 import Utils.BrowserFactory;
+import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class Base {
 
@@ -23,6 +26,14 @@ public class Base {
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
+    ReadFromExcel readFromExcel;
 
+    {
+        try {
+            readFromExcel = new ReadFromExcel();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
 }
