@@ -19,7 +19,7 @@ public class Base {
     CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
     CheckoutDetailsPage checkoutDetailsPage = PageFactory.initElements(driver, CheckoutDetailsPage.class);
     CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
-    OrderConfirmationPage orderConfirmationPage = PageFactory.initElements(driver, OrderConfirmationPage.class);g
+    OrderConfirmationPage orderConfirmationPage = PageFactory.initElements(driver, OrderConfirmationPage.class);
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 

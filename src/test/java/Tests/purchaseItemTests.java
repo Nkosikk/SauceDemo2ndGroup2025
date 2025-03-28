@@ -30,6 +30,19 @@ public class purchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
 
+    @Test(dependsOnMethods = "addTwoItemsToCartTests")
+    public void addTwoItemsToCartTests(){
+        landingPage.addTwoItemsToCart();
+    }
+
+    @Test(dependsOnMethods = "clickShoppingCartTests")
+    public void clickShoppingCartTests(){
+        landingPage.clickShoppingCart();
+    }
+    @Test(dependsOnMethods = "clickShoppingCartTests")
+    public void clickCheckoutTests(){
+        cartPage.clickCheckoutButton();
+    }
 
     @AfterTest
     public void closeBrowser(){
