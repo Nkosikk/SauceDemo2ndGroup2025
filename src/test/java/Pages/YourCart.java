@@ -15,10 +15,8 @@ public class YourCart {
     public YourCart(WebDriver driver) {
         this.driver = driver;
     }
-
-
         public void clickCheckoutButton() {
-            checkoutButton_id.click();
+        checkoutButton_id.click();
         }
 
     }
