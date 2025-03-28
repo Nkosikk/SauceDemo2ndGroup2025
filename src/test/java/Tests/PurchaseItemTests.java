@@ -39,7 +39,7 @@ public class PurchaseItemTests extends Base{
     @Test
     public void ShoppingCartContainerTests()
     {
-        CartPage.ClickShoppingCartContainer();
+        CartPage.ClickAddToCart("shoppingcartcontainer_id");
         takeScreenshots.takesSnapShot(driver, "Your Cart");
     }
 
@@ -48,10 +48,5 @@ public class PurchaseItemTests extends Base{
     {
         driver.quit();
     }
-
-
-
-
-
 
 }
