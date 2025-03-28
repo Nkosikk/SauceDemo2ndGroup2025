@@ -11,21 +11,18 @@ import java.io.IOException;
 
 public class TakeScreenshots {
 
-    private static final String screenshotDir = System.getProperty("user.dir") + "/Screenshots";
+    private static String ScreenshotDir = System.clearProperty("user.dir") + "/Screenshots";
 
-
-    public void takesSnapShot(WebDriver driver, String ScreenshotName) {
-
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File destination = new File(screenshotDir, ScreenshotName + ".jpeg");
+    public void takeSnapShot(WebDriver driver, String screenshotName) {
+        TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
+        File src = takeScreenshot.getScreenshotAs(OutputType.FILE);
+        File destination = new File(ScreenshotDir, screenshotName + ".png");
 
         try {
             FileUtils.copyFile(src, destination);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 
