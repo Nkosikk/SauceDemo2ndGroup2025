@@ -1,11 +1,11 @@
 package Tests;
 
-import Utils.ReadFromExcel; // Add this import statement
+import Utils.ReadFromExcel;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class purchaseItemTests extends Base {
+public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
         loginPage.enterUsername(ReadFromExcel.username);
@@ -30,6 +30,7 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void addTwoItemsToCartTests() {
+        takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.addTwoItemsToCart();
     }
 
@@ -40,8 +41,11 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "clickShoppingCartTests")
     public void clickCheckoutTests() {
+        takeScreenshots.takesSnapShot(driver, "Cart Page");
         cartPage.clickCheckoutButton();
     }
+
+
 
     @AfterTest
     public void closeBrowser() {
