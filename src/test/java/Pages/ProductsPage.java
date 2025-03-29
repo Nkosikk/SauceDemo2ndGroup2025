@@ -19,7 +19,8 @@ public class ProductsPage {
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
-//Validate that you in the products page.
+
+    //Validate that you in the products page.
     public void verifyProductText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
@@ -27,7 +28,7 @@ public class ProductsPage {
 //        Assert.assertEquals(productText, "Products");
     }
 
-//Elements on the page.
+    //Elements on the page.
     @FindBy(id = "Add-to-cart")
     WebElement AddToCart_id;
 

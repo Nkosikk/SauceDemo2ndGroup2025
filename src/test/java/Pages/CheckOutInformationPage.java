@@ -11,41 +11,42 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class CheckOutInformationPage {
 
-WebDriver driver;
+    WebDriver driver;
 
-@FindBy(id = "First-name")
-WebElement firstname_id;
+    @FindBy(id = "First-name")
+    WebElement firstname_id;
 
-@FindBy(id = "last-name")
-WebElement   lastname_id;
+    @FindBy(id = "last-name")
+    WebElement lastname_id;
 
-@FindBy(id = "postal-code")
-WebElement postalcode_id;
+    @FindBy(id = "postal-code")
+    WebElement postalCode_id;
 
-@FindBy (id = "continue")
-WebElement continue_id;
+    @FindBy(id = "continue")
+    WebElement continue_id;
 
-public CheckOutInformationPage(WebDriver driver) {
-this.driver = driver;
-
+    public CheckOutInformationPage(WebDriver driver) {
+        this.driver = driver;
 
     }
-    //Input Username
-    public void enterFirstname(String firstname){
+
+    //Input Firstname
+    public void enterFirstname(String firstname) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
         firstname_id.sendKeys(firstname);
     }
-
-    public void enterlastname(String lastname) {
+    public void enterLastname(String lastname) {
         lastname_id.sendKeys(lastname);
     }
 
-  //Input postal code
-    public void enterpostalcode(String postalcode) {
-        postalcode_id.sendKeys(postalcode);
+    //Input postal code
+    public void enterpostalCode(String postalCode) {
+        postalCode_id.sendKeys(postalCode);
+
+        public void clickContinue;
+        {
+            continue_id.click();
+        }
     }
 }
 
-
-
-}
