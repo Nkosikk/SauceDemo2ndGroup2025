@@ -15,7 +15,7 @@ public class StartChrome {
     WebDriver driver;
 
     @Test
-    public void verifyLoginSuccess() throws InterruptedException {
+    public void verifyLoginSuccess() throws InterruptedException 6ll{
         driver= new ChromeDriver();
 //        driver= new FirefoxDriver();
 //        driver= new EdgeDriver();
