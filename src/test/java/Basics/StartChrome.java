@@ -1,5 +1,6 @@
 package Basics;
 
+import Utils.TakeScreenshots;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,21 +24,23 @@ public class StartChrome {
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        Thread.sleep(1000);
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
+        Thread.sleep(1000);
+        TakeScreenshots takeScreenshots = new TakeScreenshots();
 
         String ProductText= driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
         Assert.assertEquals(ProductText,"Products");
-
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed();
+        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
+        driver.findElement(By.cssSelector(".shopping_cart_link")).click();
+        String cartText= driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+        driver.findElement(By.xpath("//span[contains(text(), 'Your Cart')]")).getText();
+        Thread.sleep(2000);
 
     }
 
-    @AfterTest
-    public void closeBrowser(){
-        driver.quit();
-    }
 
 
 }
