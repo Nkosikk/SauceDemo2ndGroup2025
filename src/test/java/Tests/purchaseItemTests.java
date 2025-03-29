@@ -3,9 +3,9 @@ package Tests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-@Test
-public class purchaseItemTests extends Base {
 
+public class purchaseItemTests extends Base {
+    @Test
     public void enterUsernameTests() {
         loginPage.enterUsername("standard_user");
     }
@@ -29,9 +29,14 @@ public class purchaseItemTests extends Base {
         productsPage.verifyProductText("Products");
     }
 
-    @Test(dependsOnMethods = "verifyLoginSuccessTests")
+    @Test (dependsOnMethods = "verifyLoginSuccessTests")
+    public void inventoryItemTests(){
+        productsPage.Inventory_item_name_class("Sauce Labs Fleece Jacket + Sauce Labs Onesie");
+    }
+
+    @Test(dependsOnMethods = "inventoryItemTests")
     public void addToCartTests() {
-        productsPage.clickAddToCart("Sauce Labs Fleece Jacket");
+        productsPage.clickAddToCart_id();
     }
 
     @Test(dependsOnMethods = "addToCartTests")
