@@ -52,6 +52,8 @@ public class InventoryPage {
         item3_id.click();
     }
 
+
+
     //Go to cart
     public void goToCart() {
         cart_id.click();
