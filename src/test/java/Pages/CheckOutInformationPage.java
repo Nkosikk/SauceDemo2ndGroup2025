@@ -35,6 +35,7 @@ public class CheckOutInformationPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
         firstname_id.sendKeys(firstname);
     }
+
     public void enterLastname(String lastname) {
         lastname_id.sendKeys(lastname);
     }
@@ -42,11 +43,11 @@ public class CheckOutInformationPage {
     //Input postal code
     public void enterpostalCode(String postalCode) {
         postalCode_id.sendKeys(postalCode);
-
-        public void clickContinue;
-        {
-            continue_id.click();
-        }
     }
+
+    public void clickContinue() {
+        continue_id.click();
+    }
+
 }
 

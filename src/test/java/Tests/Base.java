@@ -1,8 +1,6 @@
 package Tests;
 
-import Pages.CartPage;
-import Pages.ProductsPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.TakesScreenshot;
@@ -20,6 +18,9 @@ import org.testng.annotations.Test;
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         ProductsPage productsPage = PageFactory.initElements(driver, ProductsPage.class);
         CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+        CheckOutInformationPage checkoutinformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class);
+        CheckOutOverviewPage checkoutoverviewPage = PageFactory.initElements(driver, CheckOutOverviewPage.class);
+        CheckOutCompletePage checkoutcompletePage = PageFactory.initElements(driver, CheckOutCompletePage.class);
 
 
         TakeScreenshots takeScreenshots = new TakeScreenshots();

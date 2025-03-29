@@ -10,7 +10,7 @@ import java.time.Duration;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class CheckOutCompletePage {
-    WebDriver driver
+    WebDriver driver;
 
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     WebElement CheckoutCompleteText_xpath;
@@ -21,23 +21,23 @@ public class CheckOutCompletePage {
     @FindBy(id = "logout_sidebar_link")
     WebElement Logout_id;
 
-    //Verify that you are in the checkout complete page.
-    public void verifyCheckoutCompleteText() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(CheckoutCompleteText_xpath));
-        CheckoutCompleteText_xpath.isDisplayed();
-//        String CheckoutCompleteText = CheckoutCompleteText_xpath.getText();
-//        Assert.assertEquals(CheckoutCompleteText, "Checkout: Complete!");
+    public void CheckOutInformationPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-        // Click on the hamburger  menu
+    //Verify that you are in the checkout complete page.
+    public boolean verifyCheckoutCompleteText() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(CheckoutCompleteText_xpath));
+        return CheckoutCompleteText_xpath.isDisplayed();
+    }
 
-        public void clickMenu () {
-            Menu_id.click();
+    // Click on the hamburger  menu to display the menu options.
+    public void clickMenu() {
+        Menu_id.click();
+    }
 
-            public void clickLogout () {
-                Logout_id.click();
-
-
-
-            }
-        }
+    //Click on the logout button
+    public void clickLogout() {
+        Logout_id.click();
+    }
+}

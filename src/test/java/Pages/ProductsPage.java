@@ -1,6 +1,5 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,7 +20,7 @@ public class ProductsPage {
     }
 
     //Validate that you in the products page.
-    public void verifyProductText() {
+    public void verifyProductText(String products) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
 //        String productText = productText_xpath.getText();
@@ -39,17 +38,17 @@ public class ProductsPage {
     WebElement ShoppingCartLink_class;
 
     // Locate the "Add to Cart" button using its ID and click on it
-    public void clickAddToCart() {
+    public void clickAddToCart(String sauceLabsFleeceJacket) {
         AddToCart_id.click();
     }
 
     //In case you want to remove item "Remove  Cart" button using it's ID and click on it
-    public void clickRemove() {
-        Remove_id.click();
+    //public void clickRemove() {
+        //Remove_id.click();
 
 
 //Locate the "Shopping Cart Container icon" using it's Xpath and click on it
-        public void clickShoppingCartLink () {
+        public void clickShoppingCartLink() {
             ShoppingCartLink_class.click();
         }
 

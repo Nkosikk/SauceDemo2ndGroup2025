@@ -27,70 +27,58 @@ public class CheckOutOverviewPage {
     @FindBy(id = "Finish")
     WebElement Finish_id;
 
-    //Constructor
-    public,
-
-    CheckOutOverviewPage(WebDriver driver) {
+    //Constructor to initialize the driver and web elements
+    public CheckOutOverviewPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     //Verify that you are in the checkout overview page.
     public boolean verifyCheckoutOverviewText() {
         return CheckoutOverviewText_xpath.isDisplayed();
-
-        //Verify Subtotal label Text
-        public boolean verifySubtotalText () {
-            return SubtotalText_xpath.isDisplayed();
-        }
-
-        // Verify Tax label Text
-        public boolean verifyTaxText () {
-            return TaxText_xpath.isDisplayed();
-
-            public boolean TotalText () {
-                return TotalText_xpath.isDisplayed();
-            }
-
-            // Method to verify the correct amount calculation
-            public boolean verifyTotalAmount () {
-                // Retrieve values from the web page
-                WebElement subtotalText;
-                double itemTotal = Double.parseDouble(subtotalText.getText().replace("$", ""));
-
-                WebElement taxAmountElement;
-                double taxAmount = Double.parseDouble(taxAmountElement.getText().replace("$", ""));
-
-                WebElement totalAmountElement;
-                double displayedTotal = Double.parseDouble(totalAmountElement.getText().replace("$", ""));
-
-                // Calculate expected total
-                double expectedTotal = itemTotal + taxAmount;
-
-                // Compare expected and displayed total
-                if (Double.compare(expectedTotal, displayedTotal) != 0){
-                    // If the total amount is incorrect, click the cancel button to cancel the order
-                    clickCancel();
-                    return false;
-                } else {
-                    // If the total amount is correct, click the finish button to complete the order
-                    clickFinish();
-                    return true;
-                }
-
-                //Click the cancel button to cancel the order if the total amount is incorrect.
-                public void clickCancel () {
-                    Cancel_id.click();
-                }
-
-                //Click the finish button to complete the order if the total amount is correct.
-                public void clickFinish () {
-                    Finish_id.click();
-                }
-
-
-            }
-
-
-        }
     }
+
+    //Verify Subtotal label Text
+    public boolean verifySubtotalText() {
+        return SubtotalText_xpath.isDisplayed();
+    }
+
+    // Verify Tax label Text
+    public boolean verifyTaxText() {
+        return TaxText_xpath.isDisplayed();
+    }
+
+    public boolean TotalText() {
+        return TotalText_xpath.isDisplayed();
+    }
+
+    // Method to verify the correct amount calculation
+    public boolean verifyTotalAmount() {
+        // Retrieve values from the web page
+
+        WebElement subtotalText = SubtotalText_xpath;
+        double itemTotal = Double.parseDouble(subtotalText.getText().replace("$", ""));
+
+        WebElement taxAmountElement = TaxText_xpath;
+        double taxAmount = Double.parseDouble(taxAmountElement.getText().replace("$", ""));
+
+        WebElement totalAmountElement = TotalText_xpath;
+        double displayedTotal = Double.parseDouble(totalAmountElement.getText().replace("$", ""));
+
+        // Calculate expected total
+        double expectedTotal = itemTotal + taxAmount;
+
+        // Compare expected and displayed total
+        if (Double.compare(expectedTotal, displayedTotal) != 0) {
+            // If the total amount is incorrect, click the cancel button to cancel the order
+            Cancel_id.click();
+            return false;
+
+        } else {
+            // If the total amount is correct, click the finish button to complete the order
+            Finish_id.click();
+            return true;
+        }
+
+    }
+
+}
