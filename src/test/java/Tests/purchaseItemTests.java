@@ -31,13 +31,14 @@ public class purchaseItemTests extends Base {
 
     @Test (dependsOnMethods = "verifyLoginSuccessTests")
     public void inventoryItemTests(){
-        productsPage.Inventory_item_name_class("Sauce Labs Fleece Jacket + Sauce Labs Onesie");
+        productsPage.verifyInventoryItemName("Sauce Labs Bike Light");
     }
 
-    @Test(dependsOnMethods = "inventoryItemTests")
-    public void addToCartTests() {
-        productsPage.clickAddToCart_id();
+    @Test (dependsOnMethods = "inventoryItemTests")
+    public void addToCartTests(){
+        productsPage.clickAddToCartForItem("Sauce Labs Bike Light");
     }
+
 
     @Test(dependsOnMethods = "addToCartTests")
     public void clickShoppingCartLinkTests() {
@@ -47,7 +48,24 @@ public class purchaseItemTests extends Base {
     //CartPage
     @Test(dependsOnMethods = "clickShoppingCartLinkTests")
     public void verifyCartPageTests() {
+        takeScreenshots.takesSnapShot(driver, "CartPage");
+        cartPage.verifyYourCartText();
     }
+
+    @Test(dependsOnMethods = "verifyCartPageTests")
+    public void verifyInventoryItemNameTests() {
+        cartPage.verifyInventoryItemName("Sauce Labs Fleece Jacket");
+    }
+
+    @Test (dependsOnMethods = "verifyInventoryItemNameTests")
+    public void clickCheckoutButtonTests(){
+        cartPage.handleCart("Sauce Labs Bike Light");
+    }
+
+
+
+
+
 
 
     @AfterTest

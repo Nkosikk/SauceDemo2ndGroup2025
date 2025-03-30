@@ -18,10 +18,10 @@ public class CartPage {
     WebElement removeButton_id;
 
     @FindBy(id = "continue-shopping")
-    WebElement ContinueShopping_id;
+    WebElement ContinueShoppingButton_id;
 
     @FindBy(id = "checkout")
-    WebElement checkout_id;
+    WebElement checkoutButton_id;
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -46,12 +46,12 @@ public class CartPage {
 
     //Click back the 'continue shopping button' to re-select the correct inventory item.
     public void clickContinueShopping() {
-        ContinueShopping_id.click();
+        ContinueShoppingButton_id.click();
     }
 
     //If the correct inventory item is in the cart, click the checkout button to proceed to the checkout page.
     public void clickCheckout() {
-        checkout_id.click();
+        checkoutButton_id.click();
     }
 
     // Combined method to handle the item check and navigation

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -21,11 +22,11 @@ public class ProductsPage {
     WebElement inventory_item_name_class;
 
     //Click add-to-cart button to add inventory into cart.
-    @FindBy(id = "Add-to-cart")
-    WebElement AddToCart_id;
+    @FindBy(xpath = "//*[@id=\"add-to-cart-button\"]")
+    WebElement AddToCartButton_xpath;
 
     @FindBy(id = "Remove")
-    WebElement Remove_id;
+    WebElement RemoveButton_id;
 
     @FindBy(className = "shopping_cart_link")
     WebElement ShoppingCartLink_class;
@@ -43,22 +44,29 @@ public class ProductsPage {
 //        Assert.assertEquals(productText, "Products");
     }
 
-    public void Inventory_item_name_class(String inventoryItemName) {
-        inventory_item_name_class.getText().equals(inventoryItemName);
-    }
-
-    //Click on the "Add to Cart" button using it's ID
     public void verifyInventoryItemName(String inventoryItemName) {
         inventory_item_name_class.getText().equals(inventoryItemName);
     }
 
-    public void clickAddToCart_id() {
-        AddToCart_id.click();
+    // If you want to add a specific item to the cart based on its inventory name, you can do it dynamically:
+    public void clickAddToCartForItem(String inventoryItemName) {
+        WebElement itemAddToCartButton = driver.findElement(By.xpath("//div[contains(@class, 'inventory_item')]//div[text()='" + inventoryItemName + "']" + "/ancestor::div[contains(@class, 'inventory_item')]//button[contains(@class, 'btn_inventory')]"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(itemAddToCartButton));
+        itemAddToCartButton.click();
     }
 
-    //In case you want to remove item "Remove  Cart" button using it's ID and click on it
-    //public void clickRemove() {
-    //Remove_id.click();
+    //to add multiple items to the cart based on different inventory item names
+    public void addMultipleItemsToCart(String[] inventoryItemNames) {
+        for (String inventoryItemName : inventoryItemNames) {
+            clickAddToCartForItem(inventoryItemName);
+        }
+    }
+
+    // Click on the "Remove" button to remove an item from the cart
+    public void clickRemove() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(RemoveButton_id));
+        RemoveButton_id.click();
+    }
 
 
     //Locate the "Shopping Cart Container icon" using it's Xpath and click on it
