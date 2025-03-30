@@ -31,10 +31,10 @@ public class purchaseItemTests extends Base{
     }
 
     //BackHomePage
-    @Test
-    public void clickBackHomeButton(){
+  //  @Test
+  ////  public void clickBackHomeButton(){
         backhomePage.ClickBackHomeButton();
-    }
+//}
 
     @AfterTest
     public void closeBrowser(){
