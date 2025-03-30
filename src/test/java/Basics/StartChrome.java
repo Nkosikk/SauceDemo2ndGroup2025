@@ -62,13 +62,24 @@ public class StartChrome<string> {
         driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed();
 
         driver.findElement(By.id("back-to-products")).click();
+class PercentageCalculator {
+    public static void main(String[] args) {
+        double total = 29.99;
+        double percentage = 8.00;
+
+        double result = calculatePercentage(total, percentage);
+        System.out.println("29.99 " + percentage + "8% of " + total + " is: $" + result);
+    }
+
+    public static double calculatePercentage(double total, double percentage) {
+        return (total * percentage) / 100;
+    }
+}
 
         driver.quit();
 
 
 
     }
-
-
 
 }
