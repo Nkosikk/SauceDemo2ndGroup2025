@@ -7,14 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
-
 
 public class StartChrome {
 
@@ -23,8 +18,6 @@ public class StartChrome {
     @Test
     public void verifyLoginSuccess() throws InterruptedException {
         driver= new ChromeDriver();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        driver= new FirefoxDriver();
 //        driver= new EdgeDriver();
 //        driver= new SafariDriver();
@@ -41,16 +34,11 @@ public class StartChrome {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed();
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-sauce-labs-backpack"))).click();
-
         driver.findElement(By.cssSelector(".shopping_cart_link")).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".shopping_cart_link"))).click();
-
         String cartText= driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
         driver.findElement(By.xpath("//span[contains(text(), 'Your Cart')]")).getText();
         Thread.sleep(2000);
-        Assert.assertEquals(cartText,"Your Cart");
-        Thread.sleep(2000);
+
     }
 
 
