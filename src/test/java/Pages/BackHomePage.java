@@ -14,7 +14,7 @@ public class BackHomePage
     WebDriver driver;
 
     @FindBy(id = "back-to-products")
-    WebElement backHomeButton_id;
+    WebElement backtoproducts_id;
 
     public BackHomePage(WebDriver driver)
 
@@ -24,8 +24,8 @@ public class BackHomePage
    //Click Back Home Button
     public void ClickBackHomeButton()
     {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(backHomeButton_id));
-        backHomeButton_id.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(backtoproducts_id));
+        backtoproducts_id.click();
     }
 
 }
