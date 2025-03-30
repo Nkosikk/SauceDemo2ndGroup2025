@@ -1,5 +1,6 @@
 package Tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -24,13 +25,13 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
-        takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void addProductToCart() {
         landingPage.clickAddToCart();
+        takeScreenshots.takesSnapShot(driver, "Landing Page");
     }
 
     @Test(dependsOnMethods = "addProductToCart")
@@ -39,9 +40,14 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickShoppingCart")
+    public void verifySauceLabsBikeLight() {
+        yourCart.verifySauceLabsBikeLight();
+    }
+
+    @Test(dependsOnMethods = "verifySauceLabsBikeLight")
     public void clickCheckout() {
         takeScreenshots.takesSnapShot(driver, "Your Cart");
-        yourCart.clickCheckoutButton();
+        yourCart.checkoutButton();
     }
 
     @Test(dependsOnMethods = "clickCheckout")
@@ -65,6 +71,30 @@ public class purchaseItemTests extends Base {
         yourInformationPage.clickContinueButton();
     }
 
+    @Test(dependsOnMethods = "clickContinue")
+    public void verifyCheckoutOverviewTest() {
+        CheckoutOverviewPage.verifyCheckoutOverviewText();
+    }
+//
+//    @Test
+//    public void testItemTotal() {
+//        Assert.assertEquals(checkoutOverviewPage.getItemTotal(), "Item total: $9.99", "Item total does not match");
+//    }
+//
+//    @Test
+//    public void testTax() {
+//        Assert.assertEquals(checkoutOverviewPage.getTax(), "Tax: $0.80", "Tax does not match");
+//    }
+//
+//    @Test
+//    public void testTotal() {
+//        Assert.assertEquals(checkoutOverviewPage.getTotal(), "Total: $10.79", "Total does not match");
+//    }
+//    @Test(dependsOnMethods = )
+//    public void clickFinish() {
+//        takeScreenshots.takesSnapShot(driver, "Checkout Overview");
+//        checkoutOverview.clickFinishButton();
+//    }
     @AfterTest
     public void closeBrowser() {
 //        driver.quit();

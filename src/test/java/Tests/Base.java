@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.LandingPage;
-import Pages.LoginPage;
-import Pages.YourCart;
-import Pages.YourInformationPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -25,6 +22,7 @@ public class Base {
 
     YourInformationPage yourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
 
+    CheckoutOverviewPage CheckoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
     ReadFromExcel readFromExcel;
 
     {

@@ -31,10 +31,8 @@ public class YourInformationPage {
         this.driver = driver;
     }
 
-
     public void firstName(String firstname) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstName_id));
-
         firstName_id.sendKeys(firstname);
     }
     public void lastName(String lastname) {
