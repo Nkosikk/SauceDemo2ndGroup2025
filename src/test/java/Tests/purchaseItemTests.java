@@ -30,6 +30,11 @@ public class purchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
 
+    //BackHomePage
+    @Test
+    public void clickBackHomeButton(){
+        backhomePage.ClickBackHomeButton();
+    }
 
     @AfterTest
     public void closeBrowser(){
