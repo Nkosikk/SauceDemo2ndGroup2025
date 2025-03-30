@@ -7,12 +7,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class BrowserFactory {
 
     static WebDriver driver;
 
+    @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("ChroMe")) {
             ChromeOptions chromeOptions = new ChromeOptions();
@@ -28,6 +30,7 @@ public class BrowserFactory {
             driver = new InternetExplorerDriver();
         }
         driver.manage().window().maximize();
+        driver.get(url);
         return driver;
     }
 

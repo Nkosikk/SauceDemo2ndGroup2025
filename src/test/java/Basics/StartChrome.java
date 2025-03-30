@@ -90,15 +90,12 @@ public class StartChrome {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"login-button\"]")).isDisplayed();
 
-
     }
     public void takeScreenshot(String filePath) throws IOException {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         Files.createDirectories(Paths.get("Screenshots"));
         Files.copy(screenshot.toPath(), Paths.get(filePath));
-
     }
-
     @AfterTest
     public void closeBrowser(){
         driver.quit();

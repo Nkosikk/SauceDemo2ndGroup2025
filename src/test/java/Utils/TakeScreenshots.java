@@ -13,19 +13,19 @@ public class TakeScreenshots {
 
     private static final String screenshotDir = System.getProperty("user.dir") + "/Screenshots";
 
-    @Test
-    public void test(){
-        System.out.println(screenshotDir);
-    }
 
-    public void takesSnapshot(WebDriver driver, String ScreenshotName){
+    //public void test(){System.out.println(screenshotDir);}
+
+    public void takesSnapshot(WebDriver driver, String ScreenshotName) {
 
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File destination = new File(screenshotDir, ScreenshotName + ".jpeg");
 
-        try{
-            FileUtils.copyFile(src,destination);
+        //new File(screenshotDir.mkdirs());
+        File destination = new File(screenshotDir, ScreenshotName + ".png");
+
+        try {
+            FileUtils.copyFile(src, destination);
         } catch (IOException e) {
             e.printStackTrace();
         }
