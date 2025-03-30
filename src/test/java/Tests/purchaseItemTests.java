@@ -1,6 +1,8 @@
 package Tests;
 
-import Pages.CartPage;
+
+import Pages.CheckoutinformationPage;
+import Pages.Checkoutoverview;
 import net.bytebuddy.build.Plugin;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -9,7 +11,6 @@ import org.testng.annotations.Test;
 
 @Test
 public class purchaseItemTests extends Base {
-    @Test
 
 
     public void enterUsernameTests() {
@@ -21,7 +22,6 @@ public class purchaseItemTests extends Base {
         loginPage.enterPassword("secret_sauce");
     }
 
-    //@Test(priority = 1)
     @Test(dependsOnMethods = "enterPasswordTests")
     public void clickLoginTests() {
         takeScreenshots.takesSnapShot(driver, "Login Page");
@@ -40,6 +40,22 @@ public class purchaseItemTests extends Base {
         cartPage.verifyYourCartText();
         takeScreenshots.takesSnapShot(driver, "Cart Page");
         cartPage.clickCheckoutButton();
+    }
+    @Test(dependsOnMethods = "cartPageTests")
+    public void checkoutInformationPageTests() {
+        checkoutinformationPage.setYourInformationText_xpath();
+        checkoutinformationPage.setFirstName("Molatelo");
+        checkoutinformationPage.setLastName_id("Pohotona");
+        checkoutinformationPage.setPostalCode_id("1459");
+        takeScreenshots.takesSnapShot(driver, "Checkout Information Page");
+        checkoutinformationPage.clickContinueButton();
+
+
+    }
+    @Test(dependsOnMethods = "checkoutInformationPageTests")
+    public void Checkoutoverview() {
+        checkoutoverview.clickFinishButton();
+        takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
     }
 }
 
