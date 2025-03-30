@@ -23,7 +23,7 @@ public class CartPage {
         this.driver = driver;
     }
 
-    public void verifycartPageText(String username) {
+    public void verifycartPageText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(cartPageText_Xpath));
         cartPageText_Xpath.isDisplayed();
     }

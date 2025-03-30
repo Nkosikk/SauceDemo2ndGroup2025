@@ -32,6 +32,16 @@ public class CheckOutInformationPage {
         this.driver = driver;
     }
 
+    public void verifyCheckOutText(){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourInformationText_Xpath));
+        yourInformationText_Xpath.isDisplayed();
+
+        //   String productText = productText_Xpath.getText();
+        //   Assert.assertEquals(productText,"products");
+
+
+    }
+
     //Input Firstname
     public void enterFirstname(String firstname){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));

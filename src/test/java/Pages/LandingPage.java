@@ -26,7 +26,7 @@ public class LandingPage {
     public LandingPage(WebDriver driver){
         this.driver = driver;
     }
-    public void verifyProductText(String username){
+    public void verifyProductText(){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_Xpath));
         productText_Xpath.isDisplayed();
 
