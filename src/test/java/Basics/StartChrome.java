@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-public class StartChrome {
+public class StartChrome<string> {
 
     WebDriver driver;
 
@@ -38,6 +38,25 @@ public class StartChrome {
         String cartText= driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
         driver.findElement(By.xpath("//span[contains(text(), 'Your Cart')]")).getText();
         Thread.sleep(2000);
+        driver.findElement(By.id("checkout")).click();
+
+        driver.findElement(By.id("first-name")).sendKeys("Sbuko");
+        driver.findElement(By.id("last-name")).sendKeys("Madela");
+        driver.findElement(By.id("postal-code")).sendKeys("1709");
+
+        driver.findElement(By.id("continue")).click();
+
+        String finishText= (String) driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+
+        driver.findElement(By.id("finish")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed();
+
+        driver.findElement(By.id("back-to-products")).click();
+
+        driver.quit();
+
+
 
     }
 
