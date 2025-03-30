@@ -13,7 +13,10 @@ public class CheckOutInformationPage {
 
     WebDriver driver;
 
-    @FindBy(id = "First-name")
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    WebElement CheckoutYourInformationText;
+
+    @FindBy(id = "first-name")
     WebElement firstname_id;
 
     @FindBy(id = "last-name")
@@ -23,11 +26,15 @@ public class CheckOutInformationPage {
     WebElement postalCode_id;
 
     @FindBy(id = "continue")
-    WebElement continue_id;
+    WebElement continueButton_id;
 
     public CheckOutInformationPage(WebDriver driver) {
         this.driver = driver;
+    }
 
+    //VALIDATE THAT YOU ARE IN THE CHECKOUT INFORMATION PAGE
+    public boolean verifyCheckoutYourInformationText() {
+        return CheckoutYourInformationText.isDisplayed();
     }
 
     //Input Firstname
@@ -37,16 +44,18 @@ public class CheckOutInformationPage {
     }
 
     public void enterLastname(String lastname) {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(lastname_id));
         lastname_id.sendKeys(lastname);
     }
 
     //Input postal code
-    public void enterpostalCode(String postalCode) {
+    public void enterPostalCode(String postalCode) {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(postalCode_id));
         postalCode_id.sendKeys(postalCode);
     }
 
     public void clickContinue() {
-        continue_id.click();
+        continueButton_id.click();
     }
 
 }

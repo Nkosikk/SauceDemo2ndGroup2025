@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.CheckOutInformationPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -31,12 +32,12 @@ public class purchaseItemTests extends Base {
 
     @Test (dependsOnMethods = "verifyLoginSuccessTests")
     public void inventoryItemTests(){
-        productsPage.verifyInventoryItemName("Sauce Labs Bike Light");
+        productsPage.verifyInventoryItemName("Sauce Labs Fleece Jacket");
     }
 
     @Test (dependsOnMethods = "inventoryItemTests")
     public void addToCartTests(){
-        productsPage.clickAddToCartForItem("Sauce Labs Bike Light");
+        productsPage.clickAddToCartForItem("Sauce Labs Fleece Jacket");
     }
 
 
@@ -59,8 +60,76 @@ public class purchaseItemTests extends Base {
 
     @Test (dependsOnMethods = "verifyInventoryItemNameTests")
     public void clickCheckoutButtonTests(){
-        cartPage.handleCart("Sauce Labs Bike Light");
+        cartPage.clickCheckout();
     }
+
+    //CheckOutInformationPage
+    @Test(dependsOnMethods = "clickCheckoutButtonTests")
+    public void verifyCheckOutInformationPageTests() {
+        checkoutinformationPage.verifyCheckoutYourInformationText();
+    }
+
+    @Test(dependsOnMethods = "verifyCheckOutInformationPageTests")
+    public void enterFirstnameTests() {
+        checkoutinformationPage.enterFirstname("Precious");
+    }
+
+    @Test(dependsOnMethods = "enterFirstnameTests")
+    public void enterLastNameTests() {
+        checkoutinformationPage.enterLastname("Gem");
+    }
+
+    @Test(dependsOnMethods = "enterLastNameTests")
+    public void enterPostalCodeTests() {
+        checkoutinformationPage.enterPostalCode("1608");
+    }
+
+    @Test(dependsOnMethods = "enterPostalCodeTests")
+    public void clickContinueTests() {
+        takeScreenshots.takesSnapShot(driver, "CheckOutInformationPage");
+        checkoutinformationPage.clickContinue();
+    }
+
+    //CheckOutOverviewPage
+    @Test(dependsOnMethods = "clickContinueTests")
+    public void verifyCheckOutOverviewPageTests() {
+        checkoutoverviewPage.verifyCheckoutOverviewText();
+    }
+
+    @Test(dependsOnMethods = "verifyCheckOutOverviewPageTests")
+    public void verifySubtotalText () {
+        checkoutoverviewPage.verifySubtotalText();
+    }
+
+    @Test(dependsOnMethods = "verifySubtotalText")
+    public void verifyTaxText(){
+        checkoutoverviewPage.verifyTaxText();
+    }
+
+    @Test(dependsOnMethods = "verifyTaxText")
+    public void verifyTotalText(){
+        checkoutoverviewPage.verifyTotalText();
+    }
+
+    @Test (dependsOnMethods = "verifyTotalText")
+    public void verifyTotalAmountTests(){
+        takeScreenshots.takesSnapShot(driver, "CheckOutOverviewPage");
+        checkoutoverviewPage.verifyTotalAmount();
+    }
+
+
+    //CheckOutCompletePage
+    @Test (dependsOnMethods = "verifyTotalAmountTests")
+    public void verifyCheckOutCompletePageTests(){
+        checkoutcompletePage.verifyCheckoutCompleteText();
+    }
+
+
+
+
+
+
+
 
 
 
