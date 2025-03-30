@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 
-public class PurchaseClothes {
+public class  PurchaseClothes {
 
     @Test
     public static void main(String[] args) throws InterruptedException {
