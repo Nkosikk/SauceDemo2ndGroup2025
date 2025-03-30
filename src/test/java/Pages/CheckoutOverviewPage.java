@@ -18,11 +18,13 @@ public class CheckoutOverviewPage {
     @FindBy(id = "finish")
     WebElement finish_id;
 
-    public void CheckoutOviewPage(WebDriver driver) {
+    public void CheckoutOviewPage(WebDriver driver)
+    {
         this.driver = driver;
     }
 
-    public void verifyCheckoutOverviewText() {
+    public void verifyCheckoutOverviewText()
+    {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(checkoutoverviewText_xpath));
         checkoutoverviewText_xpath.isDisplayed();
     }

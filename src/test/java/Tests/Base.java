@@ -21,7 +21,7 @@ public class Base
 
     ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
 
-   //CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
+    CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
 
     //CheckoutOverviewPage checkoutoverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
 

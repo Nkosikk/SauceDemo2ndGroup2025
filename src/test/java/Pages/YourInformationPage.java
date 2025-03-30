@@ -25,6 +25,7 @@ public class YourInformationPage {
     WebElement continueButton_id;
 
     public YourInformationPage(WebDriver driver)
+
     {
         this.driver = driver;
     }
@@ -43,7 +44,8 @@ public class YourInformationPage {
     }
 
     //Input Postalcode
-    public void enterPostalcode(String postalcode) {
+    public void enterPostalcode(String postalcode)
+    {
         postalcode_id.sendKeys(postalcode);
     }
 
