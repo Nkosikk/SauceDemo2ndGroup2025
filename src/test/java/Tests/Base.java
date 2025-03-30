@@ -1,13 +1,10 @@
 package Tests;
 
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.TakeScreenshots;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
 
 public class Base {
 
@@ -17,9 +14,11 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+CheckoutInfoPage checkoutInfoPage = PageFactory.initElements(driver, CheckoutInfoPage.class);
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
-
+    CheckoutOverview checkoutoverview = PageFactory.initElements(driver, CheckoutOverview.class);
 
 
 }
