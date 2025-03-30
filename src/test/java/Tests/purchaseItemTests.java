@@ -121,8 +121,27 @@ public class purchaseItemTests extends Base {
     //CheckOutCompletePage
     @Test (dependsOnMethods = "verifyTotalAmountTests")
     public void verifyCheckOutCompletePageTests(){
+        takeScreenshots.takesSnapShot(driver, "CheckOutCompletePage");
         checkoutcompletePage.verifyCheckoutCompleteText();
     }
+
+    @Test(dependsOnMethods = "verifyCheckOutCompletePageTests")
+    public void verifyCheckOutCompleteContainerTests(){
+        checkoutcompletePage.verifyCheckoutCompleteContainer();
+    }
+
+
+    @Test(dependsOnMethods = "verifyCheckOutCompleteContainerTests")
+    public void clickMenuTests(){
+        checkoutcompletePage.clickMenu();
+    }
+
+    @Test(dependsOnMethods = "clickMenuTests")
+    public void clickLogoutTests(){
+        takeScreenshots.takesSnapShot(driver, "LogoutPage");
+        checkoutcompletePage.clickLogout();
+    }
+
 
 
 

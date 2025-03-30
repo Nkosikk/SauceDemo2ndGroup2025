@@ -15,6 +15,9 @@ public class CheckOutCompletePage {
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     WebElement CheckoutCompleteText_xpath;
 
+    @FindBy(xpath = "//*[@id=\"checkout_complete_container\"]/h2")
+    WebElement CheckoutCompleteContainer_xpath;
+
     @FindBy(id = "react-burger-menu-btn")
     WebElement Menu_id;
 
@@ -29,6 +32,13 @@ public class CheckOutCompletePage {
     public boolean verifyCheckoutCompleteText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(CheckoutCompleteText_xpath));
         return CheckoutCompleteText_xpath.isDisplayed();
+    }
+
+    //Verify that the checkout complete container is displayed.(Thank you for your order)
+    public boolean verifyCheckoutCompleteContainer() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(CheckoutCompleteContainer_xpath));
+        return CheckoutCompleteContainer_xpath.isDisplayed();
+
     }
 
     // Click on the hamburger  menu to display the menu options.
