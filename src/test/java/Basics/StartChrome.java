@@ -68,7 +68,7 @@ class PercentageCalculator {
         double percentage = 8.00;
 
         double result = calculatePercentage(total, percentage);
-        System.out.println("29.99 " + percentage + "8% of " + total + " is: $" + result);
+        System.out.println("29.99 " + "8% of " + total + " is: $" + result);
     }
 
     public static double calculatePercentage(double total, double percentage) {
