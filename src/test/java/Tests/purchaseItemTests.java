@@ -46,6 +46,14 @@ public class purchaseItemTests extends Base{
         productPage.clickShoppingCartContainer();
     }
 
+    //YourCartCheckout
+    @Test
+    public void clickCheckoutButton()
+    {
+        takeScreenshots.takesSnapShot(driver,"Checkout Page");
+        checkoutPage.clickCheckoutButton();
+    }
+
     //BackHomePage
    /* @Test
      public void clickBackHomeButton()

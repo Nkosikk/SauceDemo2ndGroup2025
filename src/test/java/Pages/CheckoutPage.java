@@ -9,8 +9,8 @@ import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class CheckoutPage {
-
+public class CheckoutPage
+{
     WebDriver driver;
 
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")

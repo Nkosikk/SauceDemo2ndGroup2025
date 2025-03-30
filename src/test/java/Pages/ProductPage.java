@@ -52,8 +52,6 @@ public class ProductPage
              addtocartsaucelabsbikelight_id.click();
          }
      */
-
-    //Click shopping cart container
     public void clickShoppingCartContainer()
     {
         shoppingcartcontainer_id.click();
