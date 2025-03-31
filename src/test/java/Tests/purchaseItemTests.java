@@ -4,7 +4,7 @@ import Pages.CheckOutInformationPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-
+@Test
 public class purchaseItemTests extends Base {
     @Test
     public void enterUsernameTests() {
@@ -141,18 +141,6 @@ public class purchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "LogoutPage");
         checkoutcompletePage.clickLogout();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

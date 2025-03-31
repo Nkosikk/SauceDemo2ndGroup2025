@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ReadFromExcel {
 
-    private static String testDataDir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
+    private static final String testDataDir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
 
     FileInputStream fis = new FileInputStream(testDataDir);
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -24,8 +24,4 @@ public class ReadFromExcel {
     public String username=sheet.getRow(1).getCell(0).getStringCellValue();
 
 
-   // @Test
-    public void test(){
-        System.out.println(username);
-    }
 }
