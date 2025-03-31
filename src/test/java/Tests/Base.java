@@ -1,8 +1,6 @@
 package Tests;
 
-import Pages.AddToCart;
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -22,6 +20,7 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 
+
     ReadFromExcel readFromExcel;
 
     {
@@ -34,6 +33,10 @@ public class Base {
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
-    AddToCart AddToCart = PageFactory.initElements(driver, AddToCart.class);
+    AddToCart addToCart = PageFactory.initElements(driver, AddToCart.class);
+    ShoppingCart shoppingCart = PageFactory.initElements(driver, ShoppingCart.class);
+    CheckOut checkoutButton = PageFactory.initElements(driver, CheckOut.class);
+    UserInfo continueButton = PageFactory.initElements(driver, UserInfo.class);
+
 
 }
