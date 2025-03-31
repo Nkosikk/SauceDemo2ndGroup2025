@@ -39,7 +39,7 @@ public class LandingPage {
         addToCartSauceLabsBikeLight.click();
     }
 
-    public void clickshopping_cart_container() {
+    public void clickShopping_Cart_Container() {
         shopping_cart_container.click();
     }
 }

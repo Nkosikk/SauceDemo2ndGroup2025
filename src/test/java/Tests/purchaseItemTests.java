@@ -36,7 +36,7 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "addProductToCart")
     public void clickShoppingCart() {
-        landingPage.clickshopping_cart_container();
+        landingPage.clickShopping_Cart_Container();
     }
 
     @Test(dependsOnMethods = "clickShoppingCart")
@@ -72,29 +72,25 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickContinue")
-    public void verifyCheckoutOverviewTest() {
+    public void verifyCheckoutOverviewText() {
         CheckoutOverviewPage.verifyCheckoutOverviewText();
     }
-//
-//    @Test
-//    public void testItemTotal() {
-//        Assert.assertEquals(checkoutOverviewPage.getItemTotal(), "Item total: $9.99", "Item total does not match");
-//    }
-//
-//    @Test
-//    public void testTax() {
-//        Assert.assertEquals(checkoutOverviewPage.getTax(), "Tax: $0.80", "Tax does not match");
-//    }
-//
-//    @Test
-//    public void testTotal() {
-//        Assert.assertEquals(checkoutOverviewPage.getTotal(), "Total: $10.79", "Total does not match");
-//    }
-//    @Test(dependsOnMethods = )
-//    public void clickFinish() {
-//        takeScreenshots.takesSnapShot(driver, "Checkout Overview");
-//        checkoutOverview.clickFinishButton();
-//    }
+
+    @Test(dependsOnMethods = "verifyCheckoutOverviewText")
+    public void checkSauceLabsBikeLight() {
+        takeScreenshots.takesSnapShot(driver, "Checkout Overview");
+        CheckoutOverviewPage.verifySauceLabsBikeLight();
+    }
+
+    @Test(dependsOnMethods = "checkSauceLabsBikeLight")
+    public void verifyTotalItem() {
+        CheckoutOverviewPage.verifyTotalItem();
+    }
+    @Test(dependsOnMethods = "verifyTotalItem")
+    public void clickFinish() {
+        CheckoutOverviewPage.clickFinish();
+    }
+
     @AfterTest
     public void closeBrowser() {
 //        driver.quit();
