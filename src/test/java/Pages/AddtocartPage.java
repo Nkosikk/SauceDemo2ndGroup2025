@@ -13,6 +13,7 @@ public class AddtocartPage{
         this.driver = driver;
     }
 
+
     public static void clickAddToCartButton() {
     }
 
