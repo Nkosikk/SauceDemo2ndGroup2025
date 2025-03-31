@@ -19,13 +19,15 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
-    TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
     AddtocartPage addtocartPage = PageFactory.initElements(driver, AddtocartPage.class);
     ShoppingcartPage shoppingcartPage = PageFactory.initElements(driver, ShoppingcartPage.class);
     ContinuePage continuePage = PageFactory.initElements(driver, ContinuePage.class);
-    TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
     CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
-    
+    Finishpage finishpage = PageFactory.initElements(driver, Finishpage.class);
+    BackHomePage backHomePage = PageFactory.initElements(driver, BackHomePage.class);
+
+    TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+
 
     ReadFromExcel readFromExcel;
 
