@@ -13,7 +13,7 @@ public class AddtocartPage{
     public AddtocartPage(WebDriver driver) {
         this.driver = driver;
 
-        AddtocartPage addtocartPage = PageFactory.initElements(driver, AddtocartPage.class);
+        PageFactory.initElements(driver, this);
     }
 
 
