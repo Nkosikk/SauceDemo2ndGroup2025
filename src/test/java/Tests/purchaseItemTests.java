@@ -35,12 +35,14 @@ public class purchaseItemTests extends Base {
         landingPage.clickAddToCartSauceLabsBackpack();
         landingPage.clickCart();
     }
+
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void cartPageTests() {
         cartPage.verifyYourCartText();
         takeScreenshots.takesSnapShot(driver, "Cart Page");
         cartPage.clickCheckoutButton();
     }
+
     @Test(dependsOnMethods = "cartPageTests")
     public void checkoutInformationPageTests() {
         checkoutinformationPage.setYourInformationText_xpath();
@@ -50,19 +52,20 @@ public class purchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Checkout Information Page");
         checkoutinformationPage.clickContinueButton();
 
-
     }
+
     @Test(dependsOnMethods = "checkoutInformationPageTests")
     public void Checkoutoverview() {
-        checkoutoverview.clickFinishButton();
+       // checkoutoverview.clickFinishButton();
+        checkoutoverview.verifyCheckoutOverviewText();
         takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
     }
+    @AfterTest
+    public void closeBrowser(){
+        driver.quit();
 }
 
-   //@AfterTest
-    //public void closeBrowser(){
-        //driver.quit();
-    //}
+    }
 
 
 
