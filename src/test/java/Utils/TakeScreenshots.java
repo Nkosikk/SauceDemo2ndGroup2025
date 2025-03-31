@@ -1,5 +1,6 @@
 package Utils;
 
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,6 +22,7 @@ public class TakeScreenshots {
         File destination = new File(screenshotDir, ScreenshotName + ".jpeg");
 
         try {
+            DocFile FileUtils;
             FileUtils.copyFile(src, destination);
         } catch (IOException e) {
             e.printStackTrace();

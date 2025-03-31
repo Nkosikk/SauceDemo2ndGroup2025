@@ -1,7 +1,11 @@
 package Tests;
 
+import Pages.LandingPage;
+import Pages.LoginPage;
 import Utils.BrowserFactory;
+import Utils.TakeScreenshots;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class Base {
     BrowserFactory browserFactory = new BrowserFactory();
