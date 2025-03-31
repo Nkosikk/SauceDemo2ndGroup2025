@@ -9,6 +9,8 @@ public class Base {
     BrowserFactory browserFactory = new BrowserFactory();
     final WebDriver driver = browserFactory.startBrowser("Chrome","saucedemo.com");
 
+    LoginPage loginPage = driver.initElement(driver,loginPage);
+
 }
 
 
