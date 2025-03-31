@@ -29,7 +29,7 @@ public class CheckoutOverviewPage {
         checkoutoverviewText_xpath.isDisplayed();
     }
 
-    public void ClickFinishButton()
+    public void clickFinishButton()
     {
         finish_id.click();
     }
