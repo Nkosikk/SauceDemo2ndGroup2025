@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.CheckoutOverviewPage;
 import Pages.YourInformationPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -55,7 +56,8 @@ public class purchaseItemTests extends Base{
         checkoutPage.ClickCheckoutButton();
     }
 
-    //YourInformation
+    //YourInformationPage
+    @Test
     public void enterFirstNameTests()
     {
         YourInformationPage.enterFirstname("Babongile");
@@ -77,12 +79,19 @@ public class purchaseItemTests extends Base{
         YourInformationPage.clickContinueButton();
     }
 
+    //CheckoutOverviewPage
+    public void clickFinishButtonTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"CheckoutOverview Page");
+        CheckoutOverviewPage.clickFinishButton();
+    }
+
     //BackHomePage
-   /* @Test
+    @Test
      public void clickBackHomeButton()
     {
         backhomePage.ClickBackHomeButton();
-    }*/
+    }
 
     @AfterTest
     public void closeBrowser(){

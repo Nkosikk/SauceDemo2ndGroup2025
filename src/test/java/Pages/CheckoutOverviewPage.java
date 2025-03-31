@@ -18,7 +18,7 @@ public class CheckoutOverviewPage {
     @FindBy(id = "finish")
     WebElement finish_id;
 
-    public void CheckoutOviewPage(WebDriver driver)
+    public void CheckoutOverviewPage(WebDriver driver)
     {
         this.driver = driver;
     }
@@ -29,7 +29,7 @@ public class CheckoutOverviewPage {
         checkoutoverviewText_xpath.isDisplayed();
     }
 
-    public void ClickFinishButton ()
+    public void ClickFinishButton()
     {
         finish_id.click();
     }
