@@ -4,14 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Finishpage {
+public class FinishPage {
     WebDriver driver;
 
     @FindBy
             (xpath = "//*[@id='checkout_complete_container']/h2")
     WebElement finish_xpath;
 
-    public Finishpage(WebDriver driver) {
+    public FinishPage(WebDriver driver) {
         this.driver = driver;
 
 

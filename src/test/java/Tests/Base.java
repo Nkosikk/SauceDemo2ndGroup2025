@@ -7,13 +7,14 @@ import Utils.TakeScreenshots;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
+
+
 
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
 
@@ -23,7 +24,7 @@ public class Base {
     ShoppingcartPage shoppingcartPage = PageFactory.initElements(driver, ShoppingcartPage.class);
     ContinuePage continuePage = PageFactory.initElements(driver, ContinuePage.class);
     CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
-    Finishpage finishpage = PageFactory.initElements(driver, Finishpage.class);
+    FinishPage finishpage = PageFactory.initElements(driver, FinishPage.class);
     BackHomePage backHomePage = PageFactory.initElements(driver, BackHomePage.class);
 
     TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
