@@ -1,4 +1,4 @@
 package Tests;
 
-public class purchaseItemTests {
+public class purchaseItemTests extends Base{
 }
