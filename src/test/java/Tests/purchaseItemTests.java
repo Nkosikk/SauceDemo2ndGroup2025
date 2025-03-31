@@ -4,18 +4,20 @@ import Pages.CartPage;
 import Pages.LandingPage;
 import org.testng.annotations.Test;
 
+import static Utils.ReadFromExcel.*;
+
 @Test
 public class purchaseItemTests extends Base{
 
     @Test(priority = 0)
 
     public void enterUsernameTest(){
-        loginpage.enterUsername("standard_user");
+        loginpage.enterUsername(username);
 
     }
     @Test(priority = 1)
     public void enterPasswordTest(){
-        loginpage.enterPassword("secret_sauce");
+        loginpage.enterPassword(password);
 
     }
     @Test(priority = 2)
@@ -70,18 +72,18 @@ public class purchaseItemTests extends Base{
 
     @Test(priority = 9)
     public void enterFirstNameTest(){
-        checkOutInformationPage.enterFirstname("Sithembiso");
+        checkOutInformationPage.enterFirstname(firstname);
 
     }
     @Test(priority = 10)
     public void enterLastNameTest(){
-        checkOutInformationPage.enterLastname("Mthembi");
+        checkOutInformationPage.enterLastname(lastname);
 
     }
 
     @Test(priority = 11)
     public void enterPostalCodeTest(){
-        checkOutInformationPage.enterPostalCode("7441");
+        checkOutInformationPage.enterPostalCode(zipcode);
 
     }
 
@@ -102,13 +104,20 @@ public class purchaseItemTests extends Base{
 
     }
 
+ //   @Test(priority = 13)
+ //   public void calculateTotalPrice(){
+//        checkOutOverviewPage.calculateTotalPrice();
+ //   }
+
+
+
     @Test(priority = 14)
     public void clickFinishButton(){
         checkOutOverviewPage.clickFinish();
 
     }
 
-    // Checkout complete page
+    //
 
     @Test(priority = 15)
     public void verifyCompleteText(){
