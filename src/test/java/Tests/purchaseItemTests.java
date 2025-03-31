@@ -33,20 +33,19 @@ public class purchaseItemTests extends Base
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
-
     //Product Page
     @Test
     public void ProductPageTests()
     {
        productPage.addToCartPack("addtocartsaucelabsbackpack_id");
        productPage.addToCartLight("addtocartsaucelabsbikelight_id");
-       takeScreenshots.takesSnapShot(driver, "Purchased Items");
+        takeScreenshots.takesSnapShot(driver, "Purchased Items");
     }
     @Test
-    public void clickCartContainerTests()
+    public void clickShoppingCartContainerTests()
     {
-        takeScreenshots.takesSnapShot(driver, "Product Page");
         productPage.clickShoppingCartContainer();
+        takeScreenshots.takesSnapShot(driver, "Your Cart");
     }
 /*
     //CheckoutPage

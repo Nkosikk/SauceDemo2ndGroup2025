@@ -25,17 +25,25 @@ public class ProductPage
     @FindBy(id = "shopping_cart_container")
     WebElement shoppingcartcontainer_id;
 
+    //@FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    //WebElement yourCartText_xpath;
+
     public ProductPage(WebDriver driver)
     {
         this.driver = driver;
     }
-
     public void verifyProductText()
     {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
     }
-
+  /*  public void clickAddToCart(String itemId) {
+        if (itemId.equals("addtocartsaucelabsbackpack_id")) {
+            addtocartsaucelabsbackpack_id.click();
+        } else if (itemId.equals("addtocartsaucelabsbikelight_id")) {
+            addtocartsaucelabsbikelight_id.click();
+        }
+    }*/
     public void addToCartPack(String itemId)
     {
         addtocartsaucelabsbackpack_id.click();
@@ -48,6 +56,7 @@ public class ProductPage
     public void clickShoppingCartContainer()
     {
         shoppingcartcontainer_id.click();
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourCartText_xpath));
     }
 }
 
