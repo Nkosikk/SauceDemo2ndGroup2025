@@ -63,12 +63,15 @@ public class StartChrome<string> {
 
         driver.findElement(By.id("back-to-products")).click();
 class PercentageCalculator {
+    private static String[] args;
+
     public static void main(String[] args) {
+        PercentageCalculator.args = args;
         double total = 29.99;
         double percentage = 8.00;
 
         double result = calculatePercentage(total, percentage);
-        System.out.println("29.99 " + "8% of " + total + " is: $" + result);
+        System.out.println(percentage + "% of " + total + " is: $" + result);
     }
 
     public static double calculatePercentage(double total, double percentage) {
