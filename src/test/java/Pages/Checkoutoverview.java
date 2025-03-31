@@ -4,11 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.javaScriptThrowsNoExceptions;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class Checkoutoverview {
@@ -17,13 +19,13 @@ public class Checkoutoverview {
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     WebElement checkoutOverviewText_xpath;
 
-    @FindBy(id = "itemTotal")
+    @FindBy(css = "[data-test = item_total]")
     WebElement itemTotalElement;
 
-    @FindBy(id = "tax")
+    @FindBy(css = "[data-test = tax]")
     WebElement taxElement;
 
-    @FindBy(id = "total")
+    @FindBy(css = "[data-test = 'total_price']")
     WebElement totalElement;
 
     public Checkoutoverview(WebDriver driver) {
@@ -36,9 +38,9 @@ public class Checkoutoverview {
     }
 
     public void verifyTotal() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(itemTotalElement));
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(taxElement));
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(totalElement));
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(itemTotalElement));
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(taxElement));
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(totalElement));
 
         double itemTotal = Double.parseDouble(itemTotalElement.getText().replace("$", ""));
         double tax = Double.parseDouble(taxElement.getText().replace("$", ""));

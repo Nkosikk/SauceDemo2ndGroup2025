@@ -55,10 +55,10 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "checkoutInformationPageTests")
-    public void Checkoutoverview() {
-       // checkoutoverview.clickFinishButton();
+    public void CheckoutOverviewTests() {
         checkoutoverview.verifyCheckoutOverviewText();
         takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
+        checkoutoverview.verifyTotal();
     }
     @AfterTest
     public void closeBrowser(){
