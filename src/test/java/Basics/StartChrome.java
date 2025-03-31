@@ -17,9 +17,6 @@ public class StartChrome {
     @Test
     public void verifyLoginSuccess() throws InterruptedException {
         driver= new ChromeDriver();
-//        driver= new FirefoxDriver();
-//        driver= new EdgeDriver();
-//        driver= new SafariDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
