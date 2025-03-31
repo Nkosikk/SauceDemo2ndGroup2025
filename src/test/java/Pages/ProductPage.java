@@ -40,18 +40,11 @@ public class ProductPage
     {
         addtocartsaucelabsbackpack_id.click();
     }
-    public void addToCartLight(String itemId) {
+    public void addToCartLight(String itemId)
+    {
         addtocartsaucelabsbikelight_id.click();
     }
 
-    /* if (itemId.equals("addtocartlabsbackpack_id"))
-         {
-             addtocartsaucelabsbackpack_id.click();
-         } else if (itemId.equals("addtocartsaucelabsbikelight_id"))
-         {
-             addtocartsaucelabsbikelight_id.click();
-         }
-     */
     public void clickShoppingCartContainer()
     {
         shoppingcartcontainer_id.click();

@@ -1,13 +1,16 @@
 package Tests;
-
-import Pages.CheckoutOverviewPage;
+import Pages.LoginPage;
+import Pages.ProductPage;
+import Pages.CheckoutPage;
 import Pages.YourInformationPage;
+import Pages.CheckoutOverviewPage;
+import Pages.BackHomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class purchaseItemTests extends Base {
-
+public class purchaseItemTests extends Base
+{
     public void enterUsernameTests()
     {
         loginPage.enterUsername("standard_user");
@@ -25,28 +28,27 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickLoginTests")
-    public void verifyLoginSuccess() {
+    public void verifyLoginSuccessTests()
+    {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
 
     //Product Page
     @Test
-    public void AddToCartPack() {
-        productPage.addToCartPack("addtocartsaucelabsbackpack_id");
+    public void ProductPageTests()
+    {
+       productPage.addToCartPack("addtocartsaucelabsbackpack_id");
+       productPage.addToCartLight("addtocartsaucelabsbikelight_id");
+       takeScreenshots.takesSnapShot(driver, "Purchased Items");
     }
-
     @Test
-    public void AddToCartLight() {
-        productPage.addToCartLight("addtocartsaucelabsbacklight_id");
-    }
-
-    @Test
-    public void clickCartContainer() {
+    public void clickCartContainerTests()
+    {
         takeScreenshots.takesSnapShot(driver, "Product Page");
         productPage.clickShoppingCartContainer();
     }
-
+/*
     //CheckoutPage
     @Test
     public void clickCheckoutButton() {
@@ -54,28 +56,20 @@ public class purchaseItemTests extends Base {
         checkoutPage.ClickCheckoutButton();
     }
 
-   /* public void enterUsernameTests()
-    {
-        loginPage.enterUsername("standard_user");
-    }*/
-
     //YourInformationPage
     @Test
     public void enterFirstNameTests()
     {
         yourInformationPage.enterFirstname("Babongile");
     }
-
     @Test(dependsOnMethods = "enterFirstNameTests")
     public void enterLastNameTests() {
         yourInformationPage.enterLastname("Mpungose");
     }
-
     @Test(dependsOnMethods = "enterLastNameTests")
     public void enterPostalCodeTests() {
         yourInformationPage.enterPostalcode("2188");
     }
-
     @Test(dependsOnMethods = "enterPostalCodeTests")
     public void clickContinueButtonTests() {
         takeScreenshots.takesSnapShot(driver, "YourInformation Page");
@@ -95,8 +89,9 @@ public class purchaseItemTests extends Base {
     }
 
     @AfterTest
-    public void closeBrowser() {
+    public void closeBrowser()
+    {
         driver.quit();
-    }
+    }*/
 
 }
