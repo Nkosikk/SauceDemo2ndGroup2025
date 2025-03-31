@@ -15,7 +15,7 @@ public class AddtocartPage {
     static WebElement addtocart_xpath;
 
     public AddtocartPage(WebDriver driver) {
-        this.driver = driver;
+        super();
         PageFactory.initElements(driver, this);
     }
 

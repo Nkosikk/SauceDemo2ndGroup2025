@@ -21,13 +21,6 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     AddtocartPage addtocartPage = PageFactory.initElements(driver, AddtocartPage.class);
-    ShoppingcartPage shoppingcartPage = PageFactory.initElements(driver, ShoppingcartPage.class);
-    ContinuePage continuePage = PageFactory.initElements(driver, ContinuePage.class);
-    CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
-    FinishPage finishpage = PageFactory.initElements(driver, FinishPage.class);
-    BackHomePage backHomePage = PageFactory.initElements(driver, BackHomePage.class);
-
-
     TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
 
