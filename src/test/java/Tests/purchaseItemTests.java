@@ -2,12 +2,12 @@ package Tests;
 
 public class purchaseItemTests extends Base {
     public void enterUsernameTests(){
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername("username");
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests(){
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword("password");
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -21,6 +21,8 @@ public class purchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
     }
+
+
 
 
     @AfterTest

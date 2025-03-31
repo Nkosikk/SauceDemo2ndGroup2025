@@ -1,5 +1,8 @@
 package Tests;
 
+import Utils.BrowserFactory;
+import org.openqa.selenium.WebDriver;
+
 public class Base {
     BrowserFactory browserFactory = new BrowserFactory();
 
