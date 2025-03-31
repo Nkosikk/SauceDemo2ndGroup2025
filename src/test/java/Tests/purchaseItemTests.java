@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.AddtocartPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,11 @@ public class purchaseItemTests extends Base{
         takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
     }
-
+    @Test(dependsOnMethods = "addToCartTests")
+    public void addToCartTests(){
+        takeScreenshots.takesSnapShot(driver,"Add to Cart");
+        AddtocartPage.clickAddToCartButton();
+    }
 
     @AfterTest
     public void closeBrowser(){
