@@ -2,7 +2,16 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+import org.w3c.dom.html.HTMLInputElement;
 
+import java.time.Duration;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+
+@Test
 public class InformationPage {
     WebDriver driver;
 
@@ -14,6 +23,9 @@ public class InformationPage {
 
     @FindBy(id = "postal-code")
     WebElement postalcode_id;
+
+    @FindBy(id = "continue")
+    WebElement continueButton_id;
 
     public void InformationPage(WebDriver driver) {
         this.driver = driver;
@@ -33,7 +45,7 @@ public class InformationPage {
     }
 
     public void clickContinueButton() {
-        continueButton_id.click();
+       continueButton_id.click();
     }
 
 

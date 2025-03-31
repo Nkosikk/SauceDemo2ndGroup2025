@@ -1,5 +1,8 @@
 package Tests;
 
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
 public class purchaseItemTests extends Base {
     public void enterUsernameTests(){
         loginPage.enterUsername("username");

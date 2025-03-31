@@ -2,7 +2,12 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.FindBy;
+
+import java.time.Duration;
 
 public class LoginPage {
     WebDriver driver;
@@ -22,7 +27,7 @@ public class LoginPage {
 
     //Input Username
     public void enterUsername(String username) {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(username_id));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(username_id));
         username_id.sendKeys(username);
     }
 
