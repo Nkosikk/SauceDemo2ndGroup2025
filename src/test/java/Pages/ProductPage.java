@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -24,6 +25,7 @@ public class ProductPage
 
     @FindBy(id = "shopping_cart_container")
     WebElement shoppingcartcontainer_id;
+    private String addtocartsaucelabsbackpackId;
 
     //@FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     //WebElement yourCartText_xpath;
@@ -59,5 +61,13 @@ public class ProductPage
     }
 
     public void ClickAddToCart(String addtocartsaucelabsbackpackId) {
+        this.addtocartsaucelabsbackpackId = addtocartsaucelabsbackpackId;
     }
+ /*
+    @Test
+    public void Test()
+    {
+        System.out.println("Test");
+    }
+  */
 }

@@ -3,6 +3,7 @@ package ExtentReports;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.testng.annotations.Test;
 
 import java.io.File;
 
@@ -23,5 +24,11 @@ public class ExtentReportManager {
         extentReports.setSystemInfo("Execution Machine",System.getProperty("user.name"));
         return extentReports;
     }
-
+/*
+    @Test
+    public void Test()
+    {
+        System.out.println("Test");
+    }
+*/
 }

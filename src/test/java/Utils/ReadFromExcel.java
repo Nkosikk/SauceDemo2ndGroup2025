@@ -3,6 +3,7 @@ package Utils;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -39,6 +40,11 @@ public class ReadFromExcel {
 
     public static String username=sheet.getRow(1).getCell(0).getStringCellValue();
     public static String password=sheet.getRow(1).getCell(1).getStringCellValue();
-
-
+/*
+    @Test
+    public void Test()
+    {
+        System.out.println("Test");
+    }
+*/
 }
