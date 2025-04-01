@@ -22,16 +22,40 @@ public class LandingPage {
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void verifyProductText(){
+
+    public void verifyProductText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
 
-//        String productText = productText_xpath.getText();
-//        Assert.assertEquals(productText, "Products");
+        String ProductText = driver.findElement(By.xpath("(//span[@class='title'])[1]")).getText();
+        Assert.assertEquals(ProductText, "Products");
     }
 
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement addToCartBackpack_id;
 
+    public void addToCartBackpack() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(addToCartBackpack_id));
+        addToCartBackpack_id.click();
+    }
 
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    WebElement addToCartBikeLight_id;
 
+    public void addToCartBikeLight() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(addToCartBikeLight_id));
+        addToCartBikeLight_id.click();
+    }
 
+    @FindBy(id = "shopping_cart_container")
+    WebElement shoppingCart_id;
+
+    public void shoppingCart() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(shoppingCart_id));
+        shoppingCart_id.click();
+
+        String YourCart = driver.findElement(By.xpath("//span[@class='title']")).getText();
+        Assert.assertEquals(YourCart, "Your Cart");
+    }
 }
+

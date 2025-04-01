@@ -1,7 +1,9 @@
 package Tests;
 
+import Pages.CheckOutPage;
 import Pages.LandingPage;
 import Pages.LoginPage;
+import Pages.YourCartPage;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -20,6 +22,10 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+    YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
+    CheckOutPage checkOutPage = PageFactory.initElements(driver, CheckOutPage.class);
+
 
     ReadFromExcel readFromExcel;
 
