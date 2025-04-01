@@ -12,21 +12,36 @@ public class ReadFromExcel {
 
     private static String testDataDir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
 
-    FileInputStream fis = new FileInputStream(testDataDir);
+    static FileInputStream fis;
 
-    XSSFWorkbook workbook = new XSSFWorkbook(fis);
+    static {
+        try {
+            fis = new FileInputStream(testDataDir);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static XSSFWorkbook workbook;
+
+    static {
+        try {
+            workbook = new XSSFWorkbook(fis);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public ReadFromExcel() throws IOException {
     }
 
-    XSSFSheet sheet = workbook.getSheet("Login Details");
+    static XSSFSheet sheet = workbook.getSheet("Login Details");
 
-    public String username = sheet.getRow(3).getCell(0).getStringCellValue();
+    public static String username = sheet.getRow(1).getCell(0).getStringCellValue();
 
-    @Test
-    public void  test(){
-        System.out.println(username);
-    }
+    public static String password = sheet.getRow(1).getCell(1).getStringCellValue();
+
+
 
 
 }

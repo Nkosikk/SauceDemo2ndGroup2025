@@ -12,13 +12,13 @@ public class purchaseItemTests extends Base {
 
     @Test(priority = 0)
     public void enterUsernameTests() throws InterruptedException {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
         Thread.sleep(1000);
     }
 
     @Test(priority = 1)
     public void enterPasswordTests() throws InterruptedException {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
         Thread.sleep(1000);
     }
 
