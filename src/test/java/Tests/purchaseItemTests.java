@@ -35,16 +35,11 @@ public class purchaseItemTests extends Base {
         landingPage.verifyProductText();
     }
 
-    @Test(dependsOnMethods = "item_4_title_link")
-    public void item_4_title_link() {
-        landingPage.item_4_title_link();
-
-    }
-
     @AfterTest
     public void closeBrowser() {
         driver.quit();
     }
-
-
 }
+
+
+

@@ -17,10 +17,6 @@ public class LandingPage {
 
     @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
     WebElement productText_xpath;
-    @FindBy(id = "item_4_title_link")
-    WebElement item_4_title_link_id;
-    @FindBy(id="item_0_title_link")
-    WebElement item_0_title_link_id;
 
 
     public LandingPage(WebDriver driver) {
@@ -35,14 +31,9 @@ public class LandingPage {
 //        Assert.assertEquals(productText, "Products");
     }
 
-    public void item_4_title_link() {
-        item_4_title_link_id.click();
 
     }
-    public void item_0_title_link() {
-        item_0_title_link_id.click();
-    }
-}
+
 
 
 
