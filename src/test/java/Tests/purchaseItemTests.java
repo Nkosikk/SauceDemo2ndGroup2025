@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.AddToCart;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -10,6 +11,8 @@ import static Utils.ReadFromExcel.username;
 
 @Test
 public class purchaseItemTests extends Base {
+
+
 
 
     public void enterUsernameTests() {
@@ -34,12 +37,20 @@ public class purchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
+    @Test(dependsOnMethods = clickAddToCartTests)
+    public void clickAddToCartTests() {
+        AddToCart.clickAddToCart();
+        takeScreenshots.takesSnapShot(driver, "Add to Cart");
+    }
+
 
     @AfterTest
     public void closeBrowser() {
         driver.quit();
     }
 }
+
+
 
 
 
