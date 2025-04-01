@@ -1,5 +1,6 @@
 package Tests;
 
+import Utils.ReadFromExcel;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -40,17 +41,27 @@ public class purchaseItemTests extends Base{
     }
 
     @Test(dependsOnMethods = "clickCartTests")
-    public void informationPageTests(){
-        informationPage.enterFirstName(readFromExcel.firstName);
-        informationPage.enterLastName(readFromExcel.lastName);
-        informationPage.enterPostalCode(readFromExcel.postalCode);
+    public void enterFirstNameTests(){
+        checkOutPage.enterFirstName(readFromExcel.firstName);
+    }
+
+    public void enterLastNameTests(){
+        checkOutPage.enterLastName(ReadFromExcel.lastName);
+    }
+
+    public void enterPostalCodeTests(){
+        checkOutPage.enterPostalCode(readFromExcel.postalCode);
+    }
+
+    @Test(dependsOnMethods = "enterPostalCodeTest")
+    public void continueButtonTests(){
+        checkOutPage.clickCheckout();
     }
 
     @Test(dependsOnMethods = "informationPageTests")
     public void clickCheckOutTests(){
-        takeScreenshots.takesSnapShot(driver, "Information Page");
+        takeScreenshots.takesSnapShot(driver, "Checkout Page");
         cartPage.proceedToCheckout();
-
     }
 
     @AfterTest

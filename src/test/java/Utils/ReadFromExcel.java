@@ -2,8 +2,6 @@ package Utils;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.Test;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +29,9 @@ public class ReadFromExcel {
             throw new RuntimeException(e);
         }
     }
+    public String firstName;
+    public static String lastName;
+    public String postalCode;
 
     public ReadFromExcel() throws IOException {
     }
@@ -40,10 +41,10 @@ public class ReadFromExcel {
     public static String username=sheet.getRow(1).getCell(0).getStringCellValue();
     public static String password=sheet.getRow(1).getCell(1).getStringCellValue();
 
-    static XSSFSheet sheetInfPag =workbook.getSheet("Information Page");
+    static XSSFSheet sheetOverview =workbook.getSheet("User Information");
 
-    public static String firstname=sheetInfPag.getRow(0).getCell(1).getStringCellValue();
-    public static String lastName=sheetInfPag.getRow(0).getCell(1).getStringCellValue();
-    public static String zipCode=sheetInfPag.getRow(0).getCell(1).getStringCellValue();
+    public static String firstName=sheetOverview.getRow(0).getCell(0).getStringCellValue();
+    public static String lastName=sheetOverview.getRow(1).getCell(1).getStringCellValue();
+    public static String postalCode=sheetOverview.getRow(1).getCell(2).getStringCellValue();
 
 }

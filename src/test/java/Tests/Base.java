@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.CartPage;
-import Pages.InformationPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -24,8 +21,9 @@ public class Base {
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 
     CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+    CheckOutPage checkOutPage = PageFactory.initElements(driver, CheckOutPage.class);
 
-    InformationPage informationPage = PageFactory.initElements(driver, InformationPage.class);
+    OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
 
 
     ReadFromExcel readFromExcel;
