@@ -100,45 +100,42 @@ public class purchaseItemTests extends Base{
     public void verifyCheckOverviewText(){
         checkOutOverviewPage.verifyCheckoutOverviewText();
         takeScreenshots.takesSnapShot(driver,"CheckoutOverviewPage");
-        ;
 
     }
 
- //   @Test(priority = 13)
- //   public void calculateTotalPrice(){
-//        checkOutOverviewPage.calculateTotalPrice();
- //   }
-
-
-
     @Test(priority = 14)
-    public void clickFinishButton(){
+    public void calculateTotalPrice(){
+        checkOutOverviewPage.calculateTotalPrice();
+        System.out.println("Total price calculated");
+
+    }
+
+    @Test(priority = 15)
+    public void clickFinish(){
         checkOutOverviewPage.clickFinish();
 
     }
 
-    //
-
-    @Test(priority = 15)
+    @Test(priority = 16)
     public void verifyCompleteText(){
         CompletePage.verifyCompleteText();
         takeScreenshots.takesSnapShot(driver,"CompletePage");
 
     }
 
-    @Test(priority = 16)
+    @Test(priority = 17)
     public void clickBackToProductsButton(){
         CompletePage.clickBackHome();
 
     }
 
-    @Test(priority = 17)
+    @Test(priority = 18)
     public void clickMenuButton(){
         CompletePage.clickMenu();
 
     }
 
-    @Test(priority = 18)
+    @Test(priority = 19)
     public void clickLogOutButton() {
         CompletePage.clickLogOut();
     }

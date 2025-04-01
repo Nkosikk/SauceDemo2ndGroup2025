@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -42,30 +43,47 @@ public class CheckOutOverviewPage {
     //Method to calculate the total price
 
     public void calculateTotalPrice() {
-        //      String itemTotalPrice = itemTotalPrice_Xpath.getText().replace("$", "").trim();
-        //     String tax = tax_Xpath.getText().replace("$", "").trim();
-        //       String total = total_Xpath.getText().replace("$", "").trim();
-//     itemTotalPrice="9.99";
+        String itemTotalPrice = itemTotalPrice_Xpath.getText();
+        double itemTotalPriceDouble = extractNumericValue(itemTotalPrice);
+        System.out.println("Item Total Price: " + itemTotalPriceDouble);
 
-        //      double itemTotalPriceDouble = Double.parseDouble(itemTotalPrice);
-        //      double taxDouble = Double.parseDouble(tax);
-        //       double totalDouble = Double.parseDouble(total);
+        String tax = tax_Xpath.getText();
+        double taxDouble = extractNumericValue(tax);
+        System.out.println("Tax: " + taxDouble);
 
-        //calculate the total price
-        //      double expectedTotal = itemTotalPriceDouble + taxDouble;
+        double expectedTotal = itemTotalPriceDouble + taxDouble;
+        double expectedTotalsum = Math.round(expectedTotal * 100.0) / 100.0;
+        System.out.println("Expected Total: " + expectedTotalsum);
 
-        //      if (totalDouble == expectedTotal) {
-        //          System.out.println("Total price is correct");
-        //           finishButton_id.click();
-        //      } else {
-//           System.out.println("Total price is incorrect");
-//       }
-
-//       System.out.println("Item Total Price: " + itemTotalPrice);
-        //       System.out.println("Tax: " + tax);
-//       System.out.println("Total: " + total);
+        String total = total_Xpath.getText();
+        double totalDouble = extractNumericValue(total);
+        System.out.println("Total: " + totalDouble);
     }
 
+    /**
+     * Helper method to extract numeric values from a string.
+     */
+    private double extractNumericValue(String text) {
+        // Replace all non-numeric characters except dot
+        String numericText = text.replaceAll("[^0-9.]", "").trim();
+
+        // Handle empty or invalid cases
+        if (numericText.isEmpty()) {
+            throw new NumberFormatException("No numeric value found in: " + text);
+        }
+
+        return Double.parseDouble(numericText);
+
+//        Assert.assertEquals(totalDouble, expectedTotalsum,"Total price is incorrect");
+        //calculate the total price
+//         if (totalDouble == expectedTotal) {
+ //               System.out.println("Total price is correct");
+//                  finishButton_id.click();
+//              } else {
+//          System.out.println("Total price is incorrect");
+//      }
+
+    }
 
     public void clickFinish() {
         finishButton_id.click();
