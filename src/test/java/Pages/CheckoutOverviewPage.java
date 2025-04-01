@@ -10,26 +10,26 @@ import java.time.Duration;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class CheckoutOverviewPage {
-    WebDriver driver;
+    static WebDriver driver;
 
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
-    WebElement checkoutoverviewText_xpath;
+    static WebElement checkoutoverviewText_xpath;
 
     @FindBy(id = "finish")
-    WebElement finish_id;
+    static WebElement finish_id;
 
-    public void CheckoutOverviewPage(WebDriver driver)
+    public CheckoutOverviewPage(WebDriver driver)
     {
         this.driver = driver;
     }
 
-    public void verifyCheckoutOverviewText()
+    public static void verifyCheckoutOverviewText()
     {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(checkoutoverviewText_xpath));
         checkoutoverviewText_xpath.isDisplayed();
     }
 
-    public void clickFinishButton()
+    public static void clickFinishButton()
     {
         finish_id.click();
     }

@@ -10,19 +10,19 @@ import java.time.Duration;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class YourInformationPage {
-    WebDriver driver;
+    static WebDriver driver;
 
     @FindBy(id = "first-name")
-    WebElement firstname_id;
+    static WebElement firstname_id;
 
     @FindBy(id = "last-name")
-    WebElement lastname_id;
+    static WebElement lastname_id;
 
     @FindBy(id = "zip/postal-code")
-    WebElement postalcode_id;
+    static WebElement postalcode_id;
 
     @FindBy(id = "continue-button")
-    WebElement continueButton_id;
+    static WebElement continueButton_id;
 
     public YourInformationPage(WebDriver driver)
 
@@ -31,26 +31,26 @@ public class YourInformationPage {
     }
 
     //Input Firstname
-    public void enterFirstname(String firstname)
+    public static void enterFirstname(String firstname)
     {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
         firstname_id.sendKeys(firstname);
     }
 
     //Input Lastname
-    public void enterLastname(String lastname)
+    public static void enterLastname(String lastname)
     {
         lastname_id.sendKeys(lastname);
     }
 
     //Input Postalcode
-    public void enterPostalcode(String postalcode)
+    public static void enterPostalcode(String postalcode)
     {
         postalcode_id.sendKeys(postalcode);
     }
 
     //Click Login Button
-    public void clickContinueButton()
+    public static void clickContinueButton()
     {
         continueButton_id.click();
     }

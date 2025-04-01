@@ -57,4 +57,7 @@ public class ProductPage
         shoppingcartcontainer_id.click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourCartText_xpath));
     }
+
+    public void ClickAddToCart(String addtocartsaucelabsbackpackId) {
+    }
 }

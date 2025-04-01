@@ -23,10 +23,10 @@ public class Base
 
     CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
 
-    YourInformationPage yourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
+    YourInformationPage YourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
 
-    CheckoutOverviewPage checkoutoverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+    CheckoutOverviewPage CheckoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
 
-    BackHomePage backhomePage = PageFactory.initElements(driver, BackHomePage.class);
+    BackHomePage BackHomePage = PageFactory.initElements(driver, BackHomePage.class);
 
 }
