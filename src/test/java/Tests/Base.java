@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.CheckOutPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
-import Pages.YourCartPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -25,16 +22,13 @@ public class Base {
     TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
     YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
     CheckOutPage checkOutPage = PageFactory.initElements(driver, CheckOutPage.class);
-
+    OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+    CheckCompletePage checkCompletePage = PageFactory.initElements(driver, CheckCompletePage.class);
 
     ReadFromExcel readFromExcel;
 
     {
-        try {
-            readFromExcel = new ReadFromExcel();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        readFromExcel = new ReadFromExcel();
     }
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();

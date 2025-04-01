@@ -1,50 +1,61 @@
 package Utils;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ReadFromExcel {
 
-    private static String testDataDir = System.getProperty("user.dir") + "/src/test/java/testData/Datafile.xlsx";
-
-    static FileInputStream fis;
-
-    static {
-        try {
-            fis = new FileInputStream(testDataDir);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    static XSSFWorkbook workbook;
+    private static final String FILE_PATH = System.getProperty("user.dir") + "/src/test/java/testData/Datafile.xlsx";
+    private static Workbook workbook;
 
     static {
-        try {
-            workbook = new XSSFWorkbook(fis);
+        try (FileInputStream fileInputStream = new FileInputStream(FILE_PATH)) {
+            workbook = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error reading Excel file at " + FILE_PATH, e);
         }
     }
 
-    public ReadFromExcel() throws IOException {
+    public static String getCellValue(String sheetName, int rowNumber, int cellNumber) {
+        Sheet sheet = workbook.getSheet(sheetName);
+        if (sheet == null) {
+            throw new IllegalArgumentException("Sheet " + sheetName + " does not exist in the Excel file");
+        }
+        Row row = sheet.getRow(rowNumber);
+        if (row == null) {
+            return "";
+        }
+        Cell cell = row.getCell(cellNumber);
+        if (cell == null) {
+            return "";
+        }
+
+        switch (cell.getCellType()) {
+            case STRING:
+                return cell.getStringCellValue();
+            case NUMERIC:
+                if (DateUtil.isCellDateFormatted(cell)) {
+                    return cell.getDateCellValue().toString();
+                } else {
+                    return String.valueOf(cell.getNumericCellValue());
+                }
+            case BOOLEAN:
+                return String.valueOf(cell.getBooleanCellValue());
+            case FORMULA:
+                return cell.getCellFormula();
+            case BLANK:
+                return "";
+            default:
+                return "";
+        }
     }
 
-    static XSSFSheet sheet = workbook.getSheet("Login Details");
-
-    public static String username = sheet.getRow(1).getCell(0).getStringCellValue();
-    public static String password = sheet.getRow(1).getCell(1).getStringCellValue();
-
-
-    static XSSFSheet UserInformation = workbook.getSheet("User Information");
-
-    public static String firstname = UserInformation.getRow(1).getCell(0).getStringCellValue();
-//    public static String lastanme = UserInformation.getRow(1).getCell(1).getStringCellValue();
-//    public static String postalcode = UserInformation.getRow(2).getCell(2).getStringCellValue();
-//}
+    public static String username = getCellValue("Login Details", 1, 0);
+    public static String password = getCellValue("Login Details", 1, 1);
+    public static String firstname = getCellValue("User Information", 1, 0);
+    public static String lastname = getCellValue("User Information", 1, 1);
+    public static String postalcode = getCellValue("User Information", 1, 2);
 }
