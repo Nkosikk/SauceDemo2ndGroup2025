@@ -1,89 +1,89 @@
 package Tests;
-import Pages.LoginPage;
-import Pages.ProductPage;
-import Pages.CheckoutPage;
-import Pages.YourInformationPage;
-import Pages.CheckoutOverviewPage;
-import Pages.BackHomePage;
+
+import Pages.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class purchaseItemTests extends Base
-{
+public class PurchaseItemTests extends Base{
+
     public void enterUsernameTests()
     {
         loginPage.enterUsername("standard_user");
     }
-
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests() {
+    public void enterPasswordTests()
+    {
         loginPage.enterPassword("secret_sauce");
     }
-
     @Test(dependsOnMethods = "enterPasswordTests")
-    public void clickLoginTests() {
-        takeScreenshots.takesSnapShot(driver, "Login Page");
+    public void clickLoginTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"Login Page");
         loginPage.clickLoginButton();
     }
-
     @Test(dependsOnMethods = "clickLoginTests")
-    public void verifyLoginSuccessTests()
+    public void verifyLoginSuccess()
     {
-        takeScreenshots.takesSnapShot(driver, "Landing Page");
+        takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
     }
-    //Product Page
     @Test
-    public void ProductPageTests()
+    public void  ProductPageTests()
     {
-       productPage.addToCartPack("addtocartsaucelabsbackpack_id");
-       productPage.addToCartLight("addtocartsaucelabsbikelight_id");
+        productPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
+        productPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
         takeScreenshots.takesSnapShot(driver, "Purchased Items");
     }
     @Test
-    public void clickShoppingCartContainerTests()
+    public void ShoppingCartContainerTests()
     {
-        productPage.clickShoppingCartContainer();
+        productPage.ClickAddToCart("shoppingcartcontainer_id");
         takeScreenshots.takesSnapShot(driver, "Your Cart");
     }
-    //CheckoutPage
-    @Test
-    public void clickCheckoutButton() {
-        takeScreenshots.takesSnapShot(driver, "Checkout Page");
-        checkoutPage.ClickCheckoutButton();
-    }
 
-    //YourInformationPage
-    @Test
-    public void enterFirstNameTests()
+    public void CheckoutTests()
     {
-        yourInformationPage.enterFirstname("Babongile");
-    }
-    @Test(dependsOnMethods = "enterFirstNameTests")
-    public void enterLastNameTests() {
-        yourInformationPage.enterLastname("Mpungose");
-    }
-    @Test(dependsOnMethods = "enterLastNameTests")
-    public void enterPostalCodeTests() {
-        yourInformationPage.enterPostalcode("2188");
-    }
-    @Test(dependsOnMethods = "enterPostalCodeTests")
-    public void clickContinueButtonTests() {
-        takeScreenshots.takesSnapShot(driver, "YourInformation Page");
-        yourInformationPage.clickContinueButton();
+        checkoutPage.ClickCheckoutButton();
+        takeScreenshots.takesSnapShot(driver, "Checkout Page");
     }
 
-    //CheckoutOverviewPage
-    public void clickFinishButtonTests() {
-        takeScreenshots.takesSnapShot(driver, "CheckoutOverview Page");
-        checkoutoverviewPage.clickFinishButton();
+    public void enterFirstnameTests()
+    {
+        YourInformationPage.enterFirstname("Babongile");
+    }
+    @Test(dependsOnMethods = "enterFirstnameTests")
+    public void enterLastnameTests()
+    {
+        YourInformationPage.enterLastname("Mpungose");
+    }
+    @Test(dependsOnMethods = "enterLastnameTests")
+    public void enterPostalcodeTests()
+    {
+        YourInformationPage.enterPostalcode("2188");
+    }
+    public void clickContinueTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"YourInformation Page");
+        YourInformationPage.clickContinueButton();
+    }
+    @Test(dependsOnMethods = "clickContinueTests")
+    public void verifyCheckoutOverview()
+    {
+        takeScreenshots.takesSnapShot(driver,"Checkout Overview Page");
+        CheckoutOverviewPage.verifyCheckoutOverviewText();
     }
 
-    //BackHomePage
-    @Test
-    public void clickBackHomeButton() {
-        backhomePage.ClickBackHomeButton();
+    public void ClickFinishButtonTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"BackHome Page");
+        CheckoutOverviewPage.clickFinishButton();
+    }
+
+    public void ClickBackHomeButtonTests()
+    {
+        BackHomePage.ClickBackHomeButton();
+        takeScreenshots.takesSnapShot(driver,"Product Page");
     }
 
     @AfterTest
@@ -91,11 +91,5 @@ public class purchaseItemTests extends Base
     {
         driver.quit();
     }
-
-   /* @Test
-    public void Test()
-    {
-        System.out.println("Test");
-    }*/
 
 }
