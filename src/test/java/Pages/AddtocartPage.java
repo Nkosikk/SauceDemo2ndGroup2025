@@ -11,6 +11,8 @@ import java.time.Duration;
 
 public class AddtocartPage {
     static WebDriver driver;
+    AddtocartPage addtocartPage = new AddtocartPage(driver);
+
     @FindBy(xpath = "//*[@id='add-to-cart-sauce-labs-backpack']")
     static WebElement addtocart_xpath;
 
