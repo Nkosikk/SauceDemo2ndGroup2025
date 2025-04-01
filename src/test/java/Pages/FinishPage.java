@@ -14,6 +14,7 @@ public class FinishPage {
 
     public FinishPage(WebDriver driver) {
         this.driver = driver;
+        FinishPage finishPage = new FinishPage(driver);
         PageFactory.initElements(driver, this);
 
 
