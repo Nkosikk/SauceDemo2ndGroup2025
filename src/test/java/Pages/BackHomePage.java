@@ -24,7 +24,7 @@ public class BackHomePage
    //Click Back Home Button
     public void ClickBackHomeButton()
     {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(backtoproducts_id));
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(backtoproducts_id));
         backtoproducts_id.click();
     }
 

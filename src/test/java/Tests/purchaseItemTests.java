@@ -47,7 +47,6 @@ public class purchaseItemTests extends Base
         productPage.clickShoppingCartContainer();
         takeScreenshots.takesSnapShot(driver, "Your Cart");
     }
-/*
     //CheckoutPage
     @Test
     public void clickCheckoutButton() {
@@ -91,6 +90,12 @@ public class purchaseItemTests extends Base
     public void closeBrowser()
     {
         driver.quit();
+    }
+
+   /* @Test
+    public void Test()
+    {
+        System.out.println("Test");
     }*/
 
 }

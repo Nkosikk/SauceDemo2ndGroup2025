@@ -37,13 +37,13 @@ public class ProductPage
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
     }
-  /*  public void clickAddToCart(String itemId) {
-        if (itemId.equals("addtocartsaucelabsbackpack_id")) {
-            addtocartsaucelabsbackpack_id.click();
-        } else if (itemId.equals("addtocartsaucelabsbikelight_id")) {
-            addtocartsaucelabsbikelight_id.click();
-        }
-    }*/
+        /* public void clickAddToCart(String itemId) {
+          if (itemId.equals("addtocartsaucelabsbackpack_id")) {
+             addtocartsaucelabsbackpack_id.click();
+          }  else if (itemId.equals("addtocartsaucelabsbikelight_id")) {
+             addtocartsaucelabsbikelight_id.click();
+          }
+         }*/
     public void addToCartPack(String itemId)
     {
         addtocartsaucelabsbackpack_id.click();
@@ -52,11 +52,9 @@ public class ProductPage
     {
         addtocartsaucelabsbikelight_id.click();
     }
-
     public void clickShoppingCartContainer()
     {
         shoppingcartcontainer_id.click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourCartText_xpath));
     }
 }
-
