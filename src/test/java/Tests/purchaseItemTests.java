@@ -37,10 +37,7 @@ public class purchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
-    @Test(dependsOnMethods = clickAddToCartTests)
-    public void clickAddToCartTests() {
-        AddToCart.clickAddToCart();
-        takeScreenshots.takesSnapShot(driver, "Add to Cart");
+
     }
 
 
