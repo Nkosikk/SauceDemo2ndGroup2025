@@ -16,7 +16,7 @@ public class Base
     BrowserFactory browserFactory = new BrowserFactory();
 
     //Why are we not including all browsers like in Browserfactor.java?
-    final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
+    final WebDriver driver = BrowserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 
@@ -43,11 +43,8 @@ public class Base
             throw new RuntimeException(e);
         }
     }
-
-    TakeScreenshots takeScreenshots = new TakeScreenshots();
-
+    //TakeScreenshots takeScreenshots = new TakeScreenshots();
 }
-
 /*
 package Tests;
 
