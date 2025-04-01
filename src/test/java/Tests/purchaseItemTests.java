@@ -1,20 +1,37 @@
 package Tests;
 
+import Utils.ReadFromExcel;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 @Test
 public class purchaseItemTests extends Base {
 
 
-    public void enterUsernameTests() {
-        loginPage.enterUsername(readFromExcel.username);
+    public void enterUsernameTests() throws IOException {
+        loginPage.enterUsername(ReadFromExcel.username);
+        try (InputStream fis = new FileInputStream("src/test/resources/ExcelData.xlsx");
+        XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
+            XSSFSheet sheet = workbook.getSheet("Sheet1");
+            String username = sheet.getRow(1).getCell(0).getStringCellValue();
+        }
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests() {
-        loginPage.enterPassword(readFromExcel.password);
+    public void enterPasswordTests() throws IOException {
+        loginPage.enterPassword(ReadFromExcel.password);
+        try (InputStream fis = new FileInputStream("src/test/resources/ExcelData.xlsx");
+        XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
+        XSSFSheet sheet = workbook.getSheet("Sheet1");
+        String password = sheet.getRow(1).getCell(1).getStringCellValue();
+        }
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -60,17 +77,20 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickCheckOutButton")
-    public void enterFirstName(){
+    public void enterFirstName() {
         continueButton.enterFirstName("Sifiso");
     }
+
     @Test(dependsOnMethods = "enterFirstName")
-    public void enterLastName(){
+    public void enterLastName() {
         continueButton.enterLastName("Qwabe");
     }
+
     @Test(dependsOnMethods = "enterLastName")
     public void enterPostalCode() {
         continueButton.enterPostalCode("3950");
     }
+
     @Test(dependsOnMethods = "enterPostalCode")
     public void clickContinue() throws InterruptedException {
         Thread.sleep(2000);
@@ -78,6 +98,13 @@ public class purchaseItemTests extends Base {
         continueButton.clickContinueButton();
         takeScreenshots.takesSnapShot(driver, "Continue Page");
 
+    }
+
+    @Test(dependsOnMethods = "clickContinue")
+    public void clickFinish() throws InterruptedException {
+        Thread.sleep(2000);
+        checkoutInfo.clickFinishButton();
+        takeScreenshots.takesSnapShot(driver, "Finish Page");
     }
 
 
