@@ -23,18 +23,8 @@ public class Base {
     CheckoutinformationPage checkoutinformationPage = PageFactory.initElements(driver, CheckoutinformationPage.class);
     Checkoutoverview checkoutoverview = PageFactory.initElements(driver, Checkoutoverview.class);
 
-    ReadFromExcel readFromExcel;
-
-    {
-        try {
-            readFromExcel = new ReadFromExcel();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    ReadFromExcel readFromExcel = new ReadFromExcel();
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
-
-
-
 }
+

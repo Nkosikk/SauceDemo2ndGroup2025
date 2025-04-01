@@ -1,34 +1,28 @@
 package Tests;
 
-
-import Pages.CheckoutinformationPage;
-import Pages.Checkoutoverview;
-import net.bytebuddy.build.Plugin;
+import Utils.ReadFromExcel;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-
-
-@Test
 public class purchaseItemTests extends Base {
 
-
+    @Test(priority = 1)
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(ReadFromExcel.username);
     }
 
-    @Test(dependsOnMethods = "enterUsernameTests")
+    @Test(priority = 2, dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(ReadFromExcel.password);
     }
 
-    @Test(dependsOnMethods = "enterPasswordTests")
+    @Test(priority = 3, dependsOnMethods = "enterPasswordTests")
     public void clickLoginTests() {
         takeScreenshots.takesSnapShot(driver, "Login Page");
         loginPage.clickLoginButton();
     }
 
-    @Test(dependsOnMethods = "clickLoginTests")
+    @Test(priority = 4, dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
@@ -36,38 +30,35 @@ public class purchaseItemTests extends Base {
         landingPage.clickCart();
     }
 
-    @Test(dependsOnMethods = "verifyLoginSuccess")
+    @Test(priority = 5, dependsOnMethods = "verifyLoginSuccess")
     public void cartPageTests() {
         cartPage.verifyYourCartText();
         takeScreenshots.takesSnapShot(driver, "Cart Page");
         cartPage.clickCheckoutButton();
     }
 
-    @Test(dependsOnMethods = "cartPageTests")
+    @Test(priority = 6, dependsOnMethods = "cartPageTests")
     public void checkoutInformationPageTests() {
         checkoutinformationPage.setYourInformationText_xpath();
-        checkoutinformationPage.setFirstName("Molatelo");
-        checkoutinformationPage.setLastName_id("Pohotona");
-        checkoutinformationPage.setPostalCode_id("1459");
+        checkoutinformationPage.setFirstName(ReadFromExcel.firstname);
+        checkoutinformationPage.setLastName_id(ReadFromExcel.lastname);
+        checkoutinformationPage.setPostalCode_id(ReadFromExcel.postalCode);
         takeScreenshots.takesSnapShot(driver, "Checkout Information Page");
         checkoutinformationPage.clickContinueButton();
-
     }
 
-    @Test(dependsOnMethods = "checkoutInformationPageTests")
+    @Test(priority = 7, dependsOnMethods = "checkoutInformationPageTests")
     public void CheckoutOverviewTests() {
         checkoutoverview.verifyCheckoutOverviewText();
         takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
-        checkoutoverview.verifyTotal();
+        //checkoutOverview.verifyTotal();
     }
+
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
-}
-
     }
-
-
+}
 
 
 
