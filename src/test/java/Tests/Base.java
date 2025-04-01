@@ -2,11 +2,14 @@ package Tests;
 
 import Pages.*;
 import Utils.BrowserFactory;
+import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class Base {
 
@@ -19,6 +22,16 @@ public class Base {
     CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
     CheckoutinformationPage checkoutinformationPage = PageFactory.initElements(driver, CheckoutinformationPage.class);
     Checkoutoverview checkoutoverview = PageFactory.initElements(driver, Checkoutoverview.class);
+
+    ReadFromExcel readFromExcel;
+
+    {
+        try {
+            readFromExcel = new ReadFromExcel();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
