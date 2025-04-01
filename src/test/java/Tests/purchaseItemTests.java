@@ -4,16 +4,18 @@ import Pages.CheckOutInformationPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static Utils.ReadFromExcel.*;
+
 @Test
 public class purchaseItemTests extends Base {
     @Test
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -71,17 +73,17 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "verifyCheckOutInformationPageTests")
     public void enterFirstnameTests() {
-        checkoutinformationPage.enterFirstname("Precious");
+        checkoutinformationPage.enterFirstname(readFromExcel.firstname);
     }
 
     @Test(dependsOnMethods = "enterFirstnameTests")
     public void enterLastNameTests() {
-        checkoutinformationPage.enterLastname("Gem");
+        checkoutinformationPage.enterLastname(readFromExcel.lastname);
     }
 
     @Test(dependsOnMethods = "enterLastNameTests")
     public void enterPostalCodeTests() {
-        checkoutinformationPage.enterPostalCode("1608");
+        checkoutinformationPage.enterPostalCode(readFromExcel.postalCode);
     }
 
     @Test(dependsOnMethods = "enterPostalCodeTests")
