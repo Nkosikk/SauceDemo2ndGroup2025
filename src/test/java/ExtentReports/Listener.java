@@ -1,4 +1,4 @@
 package ExtentReports;
 
-public class test {
+public class Listener {
 }
