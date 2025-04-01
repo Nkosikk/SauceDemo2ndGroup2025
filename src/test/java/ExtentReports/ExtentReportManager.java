@@ -8,25 +8,20 @@ import java.io.File;
 
 public class ExtentReportManager {
 
-    private static String reportDir=System.getProperty("user.dir")+"/Reports/sauceDemo.html";
-
-    private static ExtentReports extentReports;
-
-    private static ExtentSparkReporter extentSparkReporter;
+    private static final String reportDir=System.getProperty("user.dir")+"/Reports/sauceDemo.html";
 
     public static ExtentReports extentSetup(){
-        extentReports= new ExtentReports();
-        extentSparkReporter = new ExtentSparkReporter(new File(reportDir));
+        ExtentReports extentReports = new ExtentReports();
+        ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(new File(reportDir));
         extentReports.attachReporter(extentSparkReporter);
 
         extentSparkReporter.config().setDocumentTitle("Extent Report");
-//        extentSparkReporter.config().setTheme(Theme.DARK);
+//      extentSparkReporter.config().setTheme(Theme.DARK);
         extentSparkReporter.config().setReportName("Sauce Demo");
 
         extentReports.setSystemInfo("OS",System.getProperty("os.name"));
         extentReports.setSystemInfo("Execution Machine",System.getProperty("user.name"));
         return extentReports;
     }
-
 
 }

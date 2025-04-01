@@ -35,11 +35,13 @@ public class Base
     BackHomePage BackHomePage = PageFactory.initElements(driver, BackHomePage.class);
 
     ReadFromExcel readFromExcel;
-
     {
-        try {
+        try
+        {
             readFromExcel = new ReadFromExcel();
-        } catch (IOException e) {
+        }
+            catch (IOException e)
+        {
             throw new RuntimeException(e);
         }
     }

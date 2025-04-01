@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class ReadFromExcel {
 
-    private static String testDataDir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
+    private static final String testDataDir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
 
     static FileInputStream fis;
 
