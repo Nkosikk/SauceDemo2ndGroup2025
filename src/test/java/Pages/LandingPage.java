@@ -20,8 +20,10 @@ public class LandingPage {
 
 
     public LandingPage(WebDriver driver) {
+
         this.driver = driver;
     }
+
     public void verifyProductText(){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
@@ -29,7 +31,14 @@ public class LandingPage {
 //        String productText = productText_xpath.getText();
 //        Assert.assertEquals(productText, "Products");
     }
-
+    public void addToCart(){
+        WebElement addToCart = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
+        addToCart.click();
+    }
+    public void clickCart(){
+        WebElement clickCart = driver.findElement(By.id("shopping_cart_container"));
+        clickCart.click();
+    }
 
 
 

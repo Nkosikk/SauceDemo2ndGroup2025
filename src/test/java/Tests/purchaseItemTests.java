@@ -30,6 +30,28 @@ public class purchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
 
+    @Test(dependsOnMethods = "verifyLoginSuccess")
+    public void addToCartTest(){
+        landingPage.addToCart();
+    }
+    @Test(dependsOnMethods = "addToCartTest")
+    public void clickCartTests(){
+        landingPage.clickCart();
+    }
+
+    @Test(dependsOnMethods = "clickCartTests")
+    public void informationPageTests(){
+        informationPage.enterFirstName(readFromExcel.firstName);
+        informationPage.enterLastName(readFromExcel.lastName);
+        informationPage.enterPostalCode(readFromExcel.postalCode);
+    }
+
+    @Test(dependsOnMethods = "informationPageTests")
+    public void clickCheckOutTests(){
+        takeScreenshots.takesSnapShot(driver, "Information Page");
+        cartPage.proceedToCheckout();
+
+    }
 
     @AfterTest
     public void closeBrowser(){
