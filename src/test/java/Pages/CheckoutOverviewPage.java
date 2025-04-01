@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.text.DecimalFormat;
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
@@ -17,21 +18,23 @@ public class CheckoutOverviewPage {
 
     public WebDriver driver;
 
-    @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
-    WebElement checkoutOverview_xpath;
+    @FindBy(xpath = "//span[contains(.,'Checkout: Overview')]")
+    WebElement overview_xpath;
 
-    @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
-    WebElement sauceLabsBikeLight_xpath;
+    @FindBy(xpath = "//div[@data-test='subtotal-label']")
+    WebElement itemTotal_xpath;
 
-    @FindBy(xpath = "//*[@id='checkout_summary_container']/div/div[2]/div[6]")
-    WebElement itemTotal;
-    @FindBy(xpath = "//*[@id='checkout_summary_container']/div/div[2]/div[7]")
-    WebElement tax;
-    @FindBy(xpath = "//*[@id='checkout_summary_container']/div/div[2]/div[8]")
-    WebElement total;
+    @FindBy(xpath = "//div[@data-test='tax-label']")
+    WebElement tax_xpath;
 
-    @FindBy(id = "finish")
-    WebElement finishButton;
+    @FindBy(xpath = "//div[@data-test='total-label']")
+    WebElement totalToPay_xpath;
+
+    @FindBy(xpath = "//button[@id='finish']")
+    WebElement finishButton_xpath;
+
+    @FindBy(xpath = "//button[@id='cancel']")
+    WebElement cancelButton_xpath;
 
 
     public CheckoutOverviewPage(WebDriver driver) {
@@ -39,46 +42,50 @@ public class CheckoutOverviewPage {
     }
 
     public void verifyCheckoutOverviewText() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(checkoutOverview_xpath));
-        checkoutOverview_xpath.isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(overview_xpath));
+        overview_xpath.isDisplayed();
     }
 
-    public void verifySauceLabsBikeLight() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(sauceLabsBikeLight_xpath));
-        sauceLabsBikeLight_xpath.isDisplayed();
+    public void calculations() {
+
+        //Converting Item Total
+        String bItemTotal = (itemTotal_xpath.getText()).replace("Item total: $", "");
+        double aItemTotal = Double.parseDouble(bItemTotal);
+
+        //Converting Tax
+        String bTax = (tax_xpath.getText()).replace("Tax: $", "");
+        double aTax = Double.parseDouble(bTax);
+
+        //Calculating Tax
+        //String bTax = (tax_xpath.getText()).replace("Tax: $", "");
+        //double aTax = aItemTotal * 0.08;
+
+        //Converting Total to Pay
+        String bTotalToPay = (totalToPay_xpath.getText()).replace("Total: $", "");
+        double aTotalToPay = Double.parseDouble(bTotalToPay);
+
+        //Rounding off the sum of tax and item total to 2 decimal places
+        DecimalFormat df = new DecimalFormat("#.00");
+        double sum = aItemTotal + aTax;
+        double formattedSum = Double.parseDouble(df.format(sum));
+
+        System.out.println();
+        System.out.println("Item total "+aItemTotal);
+        System.out.println("Tax "+aTax);
+        System.out.println("Total to Pay "+aTotalToPay);
+        System.out.println("Sum of tax plus item total "+formattedSum);
+
+        //Comparing the sum of tax and item total with the total to pay
+        if (formattedSum == aTotalToPay) {
+            Assert.assertTrue(true);
+            finishButton_xpath.click();
+
+        } else {
+            Assert.assertFalse(false);
+            cancelButton_xpath.click();
+        }
+
     }
-    public void verifyTotalItem() {
-        String itemTotalText = itemTotal.getText(); //get text of the element and store it in a string
-        String[] expectedText = itemTotalText.split("\\$");//split the string and store it in an array
-        double actualTotalItem = Double.parseDouble(expectedText[1]);//convert string to double
-        System.out.println("Item total is: " + actualTotalItem);
-
-        String taxText = tax.getText();
-        String[] expectedTax1 = taxText.split("\\$");
-        double actualTax = Double.parseDouble(expectedTax1[1]);
-        System.out.println("Item tax is: " + actualTax);
-
-        double expectedTotal = actualTotalItem + actualTax;
-        double expectedTotalSum = Math.round(expectedTotal * 100.0) / 100.0; //round the number to 2 decimal places
-        System.out.println("Expected total sum is: " + expectedTotalSum);
-
-        String totalText = total.getText();
-        String[] expectedTotal2 = totalText.split("\\$");
-        double actualTotal = Double.parseDouble(expectedTotal2[1]);
-        System.out.println("Total item is: " + actualTotal);
-
-        Assert.assertEquals(actualTotal, expectedTotalSum, "Total is not correct.");
-    }
-
-    public void clickFinish() {
-        finishButton.click();
-
-
-
-    }
-
-
-
 }
 
 

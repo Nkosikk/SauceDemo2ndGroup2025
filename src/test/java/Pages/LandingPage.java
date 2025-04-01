@@ -18,11 +18,14 @@ public class LandingPage {
     @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
     WebElement productText_xpath;
 
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement addtocartsaucelabsbackpack_id;
+
     @FindBy(id = "add-to-cart-sauce-labs-bike-light")
-    WebElement addToCartSauceLabsBikeLight;
+    WebElement addToCartSauceLabsBikeLight_id;
 
     @FindBy(id = "shopping_cart_container")
-    WebElement shopping_cart_container;
+    WebElement shopping_cart_container_id;
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -36,11 +39,12 @@ public class LandingPage {
     }
 
     public void clickAddToCart() {
-        addToCartSauceLabsBikeLight.click();
+        addToCartSauceLabsBikeLight_id.click();
+        addtocartsaucelabsbackpack_id.click();
     }
 
     public void clickShopping_Cart_Container() {
-        shopping_cart_container.click();
+        shopping_cart_container_id.click();
     }
 }
 

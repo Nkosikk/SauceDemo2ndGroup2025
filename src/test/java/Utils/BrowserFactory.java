@@ -18,11 +18,11 @@ public class  BrowserFactory {
 
    // @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
-        if (browserChoice.equalsIgnoreCase("ChrOME")) {
+        if (browserChoice.equalsIgnoreCase("Chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
 //            chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
-        } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
+        } else if (browserChoice.equalsIgnoreCase("internet explore")) {
             driver = new InternetExplorerDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
@@ -38,7 +38,7 @@ public class  BrowserFactory {
 
     @Test
     public void test(){
-        startBrowser("efjbkdfbjkhgdvbjkvgdbkn","https://www.saucedemo.com/");
+        startBrowser("Chrome","https://www.saucedemo.com/");
     }
 
 

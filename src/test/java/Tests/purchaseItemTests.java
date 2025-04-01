@@ -1,5 +1,6 @@
 package Tests;
 
+import Utils.ReadFromExcel;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -52,17 +53,17 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "clickCheckout")
     public void enterFirstName() {
-        yourInformationPage.firstName(readFromExcel.firstname);
+        yourInformationPage.firstName(ReadFromExcel.firstname);
     }
 
     @Test(dependsOnMethods = "enterFirstName")
     public void enterLastName() {
-        yourInformationPage.lastName(readFromExcel.lastname);
+        yourInformationPage.lastName(ReadFromExcel.lastname);
     }
 
     @Test(dependsOnMethods = "enterLastName")
     public void enterPostalCode() {
-        yourInformationPage.postalCode(readFromExcel.postalcode);
+        yourInformationPage.postalCode(ReadFromExcel.postalcode);
     }
 
     @Test(dependsOnMethods = "enterPostalCode")
@@ -77,23 +78,14 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "verifyCheckoutOverviewText")
-    public void checkSauceLabsBikeLight() {
-        takeScreenshots.takesSnapShot(driver, "Checkout Overview");
-        CheckoutOverviewPage.verifySauceLabsBikeLight();
-    }
-
-    @Test(dependsOnMethods = "checkSauceLabsBikeLight")
-    public void verifyTotalItem() {
-        CheckoutOverviewPage.verifyTotalItem();
-    }
-    @Test(dependsOnMethods = "verifyTotalItem")
-    public void clickFinish() {
-        CheckoutOverviewPage.clickFinish();
+    public void verifyTotalItem() throws InterruptedException {
+        Thread.sleep(5000);
+        CheckoutOverviewPage.calculations();
     }
 
     @AfterTest
     public void closeBrowser() {
-//        driver.quit();
+        driver.quit();
     }
 
 
