@@ -1,7 +1,5 @@
 package Tests;
 
-import Pages.CheckoutInfoPage;
-import Pages.CheckoutOverview;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -9,11 +7,13 @@ import org.testng.annotations.Test;
 public class purchaseItemTests extends Base {
 
     public void enterUsernameTests() {
+
         loginPage.enterUsername("standard_user");
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests() {
+    public void enterPasswordTests(){
+
         loginPage.enterPassword("secret_sauce");
     }
 
@@ -46,24 +46,37 @@ public class purchaseItemTests extends Base {
         checkoutInfoPage.setLastName("Neo");
         checkoutInfoPage.setPostalCode("0022");
         takeScreenshots.takesSnapShot(driver, "Checkout Info Page");
-        checkoutInfoPage.clickContinueButton();
-    }
-        @Test(dependsOnMethods = checkoutinfoPageTests)
-        public void checkoutOverviewTests () {
-            checkoutOverviewPage.clickFinishButton();
-            takeScreenshots.takesSnapShot(driver, "Checkout Info Page");
-        }
-
+        // checkoutInfoPage.clickContinueButton();
     }
 
-    //@Test(dependsOnMethods = "enterFirstNameTests")
-   // public void clickContinueTests(){
+    @Test(dependsOnMethods = "checkoutInfoPageTests")
+    public void CheckoutOverview() {
+        checkoutoverview.verifyCheckoutOverviewText();
+        takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
+        //checkoutOverview.clickFinishButton();
+    }
+
+    //@Test(dependsOnMethods = "checkoutinfoPageTests")
+    //public void CheckoutOverview() {
+       // checkoutoverview.verifyCheckoutOverviewText();
+       // takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
+        // checkoutOverview.clickFinishButton();
+    }
+
+
+    //}
+
+
+   // @Test(dependsOnMethods = "enterFirstNameTests")
+    //public void clickContinueTests() {
        // cartPage.clickContinueButton();
-    //}}
+    //}
+//}
 
 
     //@AfterTest
     //public void closeBrowser(){
-       //driver.quit();
+    //driver.quit();
     //}
 
+//}}
