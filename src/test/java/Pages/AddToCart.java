@@ -1,11 +1,18 @@
 package Pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AddToCart {
     WebDriver driver;
-    //Locators
+    @FindBy(id ="add-to-cart")
+    WebElement addToCart_id;
     public AddToCart(WebDriver driver) {
+
         this.driver = driver;
+    }
+    public void clickAddToCart(){
+        addToCart_id.click();
     }
 }
