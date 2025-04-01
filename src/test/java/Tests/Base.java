@@ -21,6 +21,7 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     AddtocartPage addtocartPage = PageFactory.initElements(driver, AddtocartPage.class);
+    FinishPage finishPage = PageFactory.initElements(driver, FinishPage.class);
     TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
 
