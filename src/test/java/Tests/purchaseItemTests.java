@@ -40,6 +40,20 @@ public class purchaseItemTests extends Base{
         landingPage.clickshopping_cart_container();
     }
 
+    @Test(dependsOnMethods = "clickShoppingCart")
+    public void clickCheckoutButtonTest(){
+        yourCart.clickCheckoutButton();
+    }
+
+    @Test(dependsOnMethods = "clickCheckoutButtonTest")
+    public void verifyTotalTest(){
+        yourCart.enterFirstName();
+        yourCart.enterLastName();
+        yourCart.enterPostalCode();
+        yourCart.clickContueButton();
+        yourCart.validateTotal();
+    }
+
     @AfterTest
     public void closeBrowser(){
         driver.quit();
