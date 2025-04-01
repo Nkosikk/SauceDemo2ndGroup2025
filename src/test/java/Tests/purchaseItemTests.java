@@ -29,7 +29,11 @@ public class purchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
-
+    @Test(dependsOnMethods = "clickOnSauceLabsBackpack")
+    public void clickOnSauceLabsBackpack() {
+        takeScreenshots.takesSnapShot(driver, "Product Page");
+        landingPage.clickOnSauceLabsBackpack();
+    }
     @AfterTest
     public void closeBrowser() {
         driver.quit();

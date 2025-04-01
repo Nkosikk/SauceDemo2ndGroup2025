@@ -17,7 +17,8 @@ public class LandingPage {
 
     @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
     WebElement productText_xpath;
-
+    @FindBy(id="item_4_title_link")
+    WebElement sauceLabsBackpack_id;
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -27,8 +28,12 @@ public class LandingPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
 
-//        String productText = productText_xpath.getText();
-//        Assert.assertEquals(productText, "Products");
+        String productText = productText_xpath.getText();
+        Assert.assertEquals(productText, "Products");
+    }
+    public void clickOnSauceLabsBackpack() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(sauceLabsBackpack_id));
+        sauceLabsBackpack_id.click();
     }
 }
 
