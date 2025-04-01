@@ -31,14 +31,14 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(priority = 5, dependsOnMethods = "verifyLoginSuccess")
-    public void cartPageTests() {
+    public void cartTests() {
         cartPage.verifyYourCartText();
         takeScreenshots.takesSnapShot(driver, "Cart Page");
         cartPage.clickCheckoutButton();
     }
 
-    @Test(priority = 6, dependsOnMethods = "cartPageTests")
-    public void checkoutInformationPageTests() {
+    @Test(priority = 6, dependsOnMethods = "cartTests")
+    public void checkoutInformationTests() {
         checkoutinformationPage.setYourInformationText_xpath();
         checkoutinformationPage.setFirstName(ReadFromExcel.firstname);
         checkoutinformationPage.setLastName_id(ReadFromExcel.lastname);
@@ -47,11 +47,11 @@ public class purchaseItemTests extends Base {
         checkoutinformationPage.clickContinueButton();
     }
 
-    @Test(priority = 7, dependsOnMethods = "checkoutInformationPageTests")
+    @Test(priority = 7, dependsOnMethods = "checkoutInformationTests")
     public void CheckoutOverviewTests() {
         checkoutoverview.verifyCheckoutOverviewText();
         takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
-        //checkoutOverview.verifyTotal();
+        checkoutoverview.verifyTotal();
     }
 
     @AfterTest
