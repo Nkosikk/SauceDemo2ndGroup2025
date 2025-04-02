@@ -33,10 +33,36 @@ public class  BrowserFactory {
         return driver;
     }
 
-    @Test
-    public void test(){
-        startBrowser("efjbkdfbjkhgdvbjkvgdbkn","https://www.saucedemo.com/");
-    }
+
 
 
 }
+
+//
+//public static WebDriver startBrowser(String browserChoice, String url) {
+//    // Convert browserChoice to lowercase for case-insensitivity
+//    String lowerCaseBrowserChoice = browserChoice.toLowerCase();
+//
+//    switch (lowerCaseBrowserChoice) {
+//        case "chrome":
+//            ChromeOptions chromeOptions = new ChromeOptions();
+//            chromeOptions.addArguments("--headless");
+//            driver = new ChromeDriver(chromeOptions);
+//            break;
+//        case "internetexplorer":
+//            driver = new InternetExplorerDriver();
+//            break;
+//        case "firefox":
+//            driver = new FirefoxDriver();
+//            break;
+//        case "safari":
+//            driver = new SafariDriver();
+//            break;
+//        default:
+//            driver = new EdgeDriver();
+//            break;
+//    }
+//    driver.manage().window().maximize();
+//    driver.get(url);
+//    return driver;
+//}

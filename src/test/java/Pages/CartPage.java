@@ -46,35 +46,58 @@ public class CartPage {
     }
 
     // Verify if a specific item is in the cart
-    public boolean isItemInCart(String itemName) {
+    public boolean isItemInCart() {
         try {
-            WebElement item = driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='" + itemName + "']"));
+            WebElement item = driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='']"));
             return item.isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
 
-    // Verify all items in the cart
-    public void verifyItemsInCart(String[] expectedItems) {
-        for (String itemName : expectedItems) {
-            Assert.assertTrue(isItemInCart(itemName), itemName + " is not in the cart.");
-        }
-    }
-
-    // Take a screenshot
-    public void takeScreenshot(String fileName) {
-        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileHandler.copy(src, new File("Screenshots/" + fileName + ".png"));
-            System.out.println("The screenshot taken is of: " + fileName);
-        } catch (IOException e) {
-            System.out.println("Exception while taking screenshot: " + e.getMessage());
-        }
-    }
 
     // Proceed to checkout
     public void checkout() {
         checkout_button_id.click();
     }
 }
+
+//
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
+//import org.testng.Assert;
+//import org.testng.annotations.Test;
+//
+//public class VerifyCartItemTest {
+//
+//    private WebDriver driver; // Assuming you have your WebDriver initialized
+//
+//    @Test
+//    public void testVerifyItemInCart() {
+//        // 1. Navigate to the cart page (assuming this is done in a setup method or previous step)
+//        driver.get("YOUR_CART_PAGE_URL");
+//
+//        // 2. Define the expected item details
+//        String expectedProductName = "Awesome T-Shirt";
+//
+//        // 3. Locate the element containing the product name in the cart
+//        // You'll need to inspect the HTML of your cart page to find the correct locator
+//        WebElement cartItemElement = driver.findElement(By.xpath("//div[@class='cart-item']//h3[@class='product-name']"));
+//
+//        // 4. Extract the actual product name from the cart
+//        String actualProductName = cartItemElement.getText();
+//
+//        // 5. Assert that the expected product name matches the actual product name
+//        Assert.assertEquals(actualProductName, expectedProductName, "Product name in cart does not match the expected name.");
+//
+//        // You can add more assertions to verify other details like quantity or price
+//        // For example:
+//        // WebElement quantityElement = driver.findElement(By.xpath("//div[@class='cart-item']//span[@class='quantity']"));
+//        // int actualQuantity = Integer.parseInt(quantityElement.getText());
+//        // int expectedQuantity = 1;
+//        // Assert.assertEquals(actualQuantity, expectedQuantity, "Product quantity in cart is incorrect.");
+//
+//        System.out.println("Successfully verified that '" + expectedProductName + "' is in the cart.");
+//    }
+//}
