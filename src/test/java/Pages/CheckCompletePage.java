@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,5 +24,19 @@ public class CheckCompletePage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(BackToHome_id));
         BackToHome_id.click();
     }
+    @FindBy( id= "react-burger-menu-btn")
+    WebElement Menu_id;
+    public void clickMenuBtn() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(Menu_id));
+        Menu_id.click();
+    }
+
+    @FindBy( id= "logout_sidebar_link")
+    WebElement Logout_id;
+    public void clickLogoutBtn() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(Logout_id));
+        Logout_id.click();
+    }
+
 }
 

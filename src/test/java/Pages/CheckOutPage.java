@@ -1,9 +1,11 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -23,6 +25,13 @@ public class CheckOutPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(CheckOutButton_id));
         CheckOutButton_id.click();
     }
+    @FindBy(xpath= "(//span[@class='title'])[1]")
+    WebElement CheckOutInfo_id;
+    public void VerifyCheckOutInfo() {
+            new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(CheckOutInfo_id));
+            String CheckOutInfo = driver.findElement(By.xpath("(//span[@class='title'])[1]")).getText();
+            Assert.assertEquals(CheckOutInfo,"Checkout: Your Information");
+}
 
     @FindBy(id = "first-name")
     WebElement fistName_id;
