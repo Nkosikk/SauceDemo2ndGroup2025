@@ -51,7 +51,7 @@ public class purchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickCart")
     public void enterDeliveryInfo(){
         deliveryInfo.enterFirstName(name);
-        deliveryInfo.enterLastName(username);
+        deliveryInfo.enterLastName(surname);
         deliveryInfo.enterPostalCode(postalCode);
         takeScreenshots.takesSnapShot(driver, "Delivery Info Page");
         deliveryInfo.clickContinueButton();
