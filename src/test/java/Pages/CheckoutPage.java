@@ -22,6 +22,9 @@ public class CheckoutPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         checkout_xpath.click();
     }
+
+    public void clickCheckoutButton() {
+    }
 }
 
 

@@ -27,7 +27,10 @@ public class FinishPage {
     public void clickFinish() {
         finish_xpath.click();
     }
-            }
+
+    public void clickFinishButton() {
+    }
+}
 
 
 

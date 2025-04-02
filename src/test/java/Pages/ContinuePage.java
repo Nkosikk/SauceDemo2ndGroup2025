@@ -37,4 +37,7 @@ public void enterlastname(WebElement lastname_id, String lastname) {
     public void clickContinue(WebElement continue_id) {
         continue_id.click();
     }
+
+    public void clickContinueButton() {
+    }
 }

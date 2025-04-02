@@ -38,6 +38,32 @@ public class purchaseItemTests extends Base{
         addtocartPage.clickaddtocartButton();
     }
 
+    @Test(dependsOnMethods = "shoppingCartTests")
+    public void shoppingCartTests(){
+        takeScreenshots.takesSnapShot(driver,"Shopping Cart");
+        shoppingCartPage.verifyProductText();
+    }
+    @Test(dependsOnMethods = "checkoutTests")
+    public void checkoutTests(){
+        takeScreenshots.takesSnapShot(driver,"Checkout");
+        checkoutPage.clickCheckoutButton();
+    }
+    @Test(dependsOnMethods = "continueTests")
+    public void continueTests(){
+        takeScreenshots.takesSnapShot(driver,"Continue");
+        continuePage.clickContinueButton();
+    }
+    @Test(dependsOnMethods = "finishTests")
+    public void finishTests(){
+        takeScreenshots.takesSnapShot(driver,"Finish");
+        finishPage.clickFinishButton();
+    }
+    @Test(dependsOnMethods = "backHomeTests")
+    public void backHomeTests(){
+        takeScreenshots.takesSnapShot(driver,"Back Home");
+        backHomePage.clickBackHomeButton();
+    }
+
 
 
     @AfterTest
