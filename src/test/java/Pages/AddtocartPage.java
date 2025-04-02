@@ -33,6 +33,10 @@ public class AddtocartPage {
 
     }
 
-    public void clickaddtocartButton() {
+    public void clickaddtocartButton() {AddtocartButton();
+        addtocart_xpath.click();
+    }
+
+    private void AddtocartButton() {
     }
 }
