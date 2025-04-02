@@ -12,7 +12,7 @@ public class CheckoutOverview {
    // WebElement PaymentInformation_xpath;
 
     @FindBy(id = "Finish")
-    WebElement Finishbutton_id;
+    WebElement FinishButton_id;
 
     @FindBy(className = "complete-header")
     WebElement orderConfirmationMessage_id;
@@ -27,11 +27,11 @@ public class CheckoutOverview {
        // PaymentInformation_xpath.getText()
    // }
 
-    public void clickthefinishbutton() {
-        Finishbutton_id.click();
+    public void clickTheFinishButton() {
+        FinishButton_id.click();
     }
 
     public String getConfirmationMessage() {
-        return orderConfirmationMessage.getText();
+        return orderConfirmationMessage_id.getText();
     }
 }

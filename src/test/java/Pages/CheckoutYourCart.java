@@ -18,7 +18,7 @@ public class CheckoutYourCart {
     }
 
     //Actions
-    public void clickCheckoutButton(String checkout) {
+    public void clickCheckoutButton() {
         checkoutButton_id.click();
     }
 }

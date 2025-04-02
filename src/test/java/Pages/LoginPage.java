@@ -22,15 +22,21 @@ public class LoginPage {
     @FindBy(id = "login-button")
     WebElement loginButton_id;
 
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    WebElement loginSuccess_xpath;
+
+
     //Constructor
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
+
     //Input Username
     public void enterUsername(String username){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(username_id));
         username_id.sendKeys(username);
     }
+
     //Input Password
     public void enterPassword(String password) {
         password_id.sendKeys(password);
@@ -40,4 +46,13 @@ public class LoginPage {
     public void clickLoginButton() {
         loginButton_id.click();
     }
+
+    //verifying successful login
+
+    public String getLoginSuccessText() {
+        return loginSuccess_xpath.getText();
+    }
+
+
+
 }

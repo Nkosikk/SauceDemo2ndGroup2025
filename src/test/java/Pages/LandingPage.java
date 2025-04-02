@@ -15,8 +15,8 @@ public class LandingPage {
     @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
     WebElement AddToCartSauceLabsFleeceJacket_id;
 
-    @FindBy(xpath = "//*[@id=shopping_cart_container]/a")
-    WebElement ShoppingCartContainer_xpath;
+    @FindBy(id = "shopping_cart_container")
+    WebElement ShoppingCart_id;
 
     //Constructor
     public LandingPage(WebDriver driver) {
@@ -33,7 +33,7 @@ public class LandingPage {
         AddToCartSauceLabsFleeceJacket_id.click();
     }
 
-    public void clickShoppingCartContainer() {
-        ShoppingCartContainer_xpath.click();
+    public void clickShoppingCart() {
+        ShoppingCart_id.click();
     }
 }
