@@ -71,6 +71,7 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    TakeScreenshots takeScreenshots = new TakeScreenshots();
     AddToCartPage addToCartPage = PageFactory.initElements(driver, AddToCartPage.class);
 
     ReadFromExcel readFromExcel;
@@ -81,6 +82,6 @@ public class Base {
             throw new RuntimeException(e);
         }
     }
-    TakeScreenshots takeScreenshots = new TakeScreenshots();
+    //TakeScreenshots takeScreenshots = new TakeScreenshots();
 }
 
