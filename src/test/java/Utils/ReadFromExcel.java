@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class ReadFromExcel {
 
-    private static final String testDataDir=System.getProperty("user.dir")+"/src/ExtentReportManager/java/TestData/data.xlsx";
+    private static final String testDataDir=System.getProperty("user.dir")+"/src/test/java/TestData/data.xlsx";
 
     static FileInputStream fis;
 
@@ -46,6 +46,7 @@ public class ReadFromExcel {
     public  String firstname=sheet1.getRow(1).getCell(0).getStringCellValue();
     public  String lastname=sheet1.getRow(1).getCell(1).getStringCellValue();
     public String postalCode=sheet1.getRow(1).getCell(2).getStringCellValue();
+
 
 
 
