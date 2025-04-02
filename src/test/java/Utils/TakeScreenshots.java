@@ -25,8 +25,6 @@ public class TakeScreenshots {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-
 }
+
