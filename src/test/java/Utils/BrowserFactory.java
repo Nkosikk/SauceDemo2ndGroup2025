@@ -19,7 +19,7 @@ public class  BrowserFactory {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
-        } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
+        } else if (browserChoice.equalsIgnoreCase("internetexplorer")) {
             driver = new InternetExplorerDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();

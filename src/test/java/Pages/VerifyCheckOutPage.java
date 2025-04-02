@@ -10,7 +10,7 @@ public class VerifyCheckOutPage
 
 WebElement checkout_id;
 
-public void setCheckout_id(WebElement checkout_id)
+public void verifyCheckOutPage_id(WebElement checkout_id)
 
 {this.checkout_id = checkout_id;}
 
