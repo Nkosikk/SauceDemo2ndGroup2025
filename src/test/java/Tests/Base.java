@@ -1,4 +1,4 @@
-package Tests;
+/*package Tests;
 
 import Pages.*;
 import Utils.BrowserFactory;
@@ -15,7 +15,7 @@ public class Base
 {
     BrowserFactory browserFactory = new BrowserFactory();
 
-    //Why are we not including all browsers like in Browserfactor.java?
+    //Why are we not including all browsers like in BrowserFactor.java?
     final WebDriver driver = BrowserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -46,8 +46,8 @@ public class Base
         }
     }
     //TakeScreenshots takeScreenshots = new TakeScreenshots();
-}
-/*
+}*/
+
 package Tests;
 
 import Pages.LandingPage;
@@ -72,7 +72,6 @@ public class Base {
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 
     ReadFromExcel readFromExcel;
-
     {
         try {
             readFromExcel = new ReadFromExcel();
@@ -80,9 +79,6 @@ public class Base {
             throw new RuntimeException(e);
         }
     }
-
     TakeScreenshots takeScreenshots = new TakeScreenshots();
-
 }
 
- */

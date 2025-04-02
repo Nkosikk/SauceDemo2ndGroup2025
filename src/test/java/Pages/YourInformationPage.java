@@ -25,7 +25,6 @@ public class YourInformationPage {
     static WebElement continueButton_id;
 
     public YourInformationPage(WebDriver driver)
-
     {
         this.driver = driver;
     }
@@ -43,15 +42,16 @@ public class YourInformationPage {
         lastname_id.sendKeys(lastname);
     }
 
-    //Input Postalcode
-    public static void enterPostalcode(String postalcode)
-    {
-        postalcode_id.sendKeys(postalcode);
+    //Input PostalCode
+    public static void enterPostalCode
+    (String PostalCode) {
+        postalcode_id.sendKeys(PostalCode);
     }
 
     //Click Login Button
     public static void clickContinueButton()
     {
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(continueButton_id));
         continueButton_id.click();
     }
 }

@@ -1,4 +1,4 @@
-package Tests;
+/*package Tests;
 
 import Pages.*;
 import org.testng.annotations.AfterTest;
@@ -47,7 +47,6 @@ public class PurchaseItemTests extends Base{
         checkoutPage.ClickCheckoutButton();
         takeScreenshots.takesSnapShot(driver, "Checkout Page");
     }
-
     public void enterFirstnameTests()
     {
         YourInformationPage.enterFirstname("Babongile");
@@ -58,9 +57,9 @@ public class PurchaseItemTests extends Base{
         YourInformationPage.enterLastname("Mpungose");
     }
     @Test(dependsOnMethods = "enterLastnameTests")
-    public void enterPostalcodeTests()
+    public void enterPostalCodeTests()
     {
-        YourInformationPage.enterPostalcode("2188");
+        YourInformationPage.enterPostalCode("2188");
     }
     public void clickContinueTests()
     {
@@ -92,15 +91,15 @@ public class PurchaseItemTests extends Base{
         driver.quit();
     }
 
-}
-/*
+}*/
+
 package Tests;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class purchaseItemTests extends Base{
+public class PurchaseItemTests extends Base{
 
     public void enterUsernameTests(){
         loginPage.enterUsername(readFromExcel.username);
@@ -129,4 +128,4 @@ public class purchaseItemTests extends Base{
     }
 }
 
- */
+
