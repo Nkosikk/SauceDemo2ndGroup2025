@@ -12,7 +12,7 @@ public class purchaseItemTests extends Base{
 
 
     public void enterUsernameTests(){
-        LoginPage loginPage;
+
         loginPage.enterUsername(readFromExcel.username);
     }
 
@@ -35,6 +35,7 @@ public class purchaseItemTests extends Base{
     @Test(dependsOnMethods = "addToCartTests")
     public void addToCartTests(){
         takeScreenshots.takesSnapShot(driver,"Add to Cart");
+        addtocartPage.clickaddtocartButton();
     }
 
     @AfterTest
