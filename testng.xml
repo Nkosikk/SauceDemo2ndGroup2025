@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/Slindokuhle Mkhwanaz/Documents/Framework1/SauceDemo2ndGroup2025/target">
-
-        <classes/>
+    <listeners>
+        <listener class-name="ExtentReports.Listener"></listener>
+    </listeners>
+    <test name="Sauce Demo Test">
+        <classes>
+            <class name="Tests.purchaseItemTests"></class>
+        </classes>
     </test>
 </suite>

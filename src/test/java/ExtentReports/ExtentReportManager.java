@@ -17,7 +17,7 @@ public class ExtentReportManager {
         extentReports.attachReporter(extentSparkReporter);
 
         extentSparkReporter.config().setDocumentTitle("Extent Report");
-//      extentSparkReporter.config().setTheme(Theme.DARK);
+        extentSparkReporter.config().setTheme(Theme.DARK);
         extentSparkReporter.config().setReportName("Sauce Demo");
 
         extentReports.setSystemInfo("OS",System.getProperty("os.name"));
