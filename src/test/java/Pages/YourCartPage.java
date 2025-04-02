@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -33,7 +34,7 @@ public class YourCartPage
                 checkout_id.click();
             }
 
-  /*  @Test
+  /* @Test
     public void Test()
     {
         System.out.println("Test");

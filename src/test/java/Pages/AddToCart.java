@@ -1,16 +1,15 @@
-package Pages;
+/*package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class ProductPage
+public class AddToCartPage
 {
     WebDriver driver;
 
@@ -23,29 +22,43 @@ public class ProductPage
     @FindBy(id = "add-to-cart-sauce-labs-bike-light")
     WebElement addtocartsaucelabsbikelight_id;
 
-    @FindBy(id = "shopping_cart_container")
-    WebElement shoppingcartcontainer_id;
-    private String addtocartsaucelabsbackpackId;
-
+    // @FindBy(id = "shopping_cart_container")
+   // WebElement shoppingcartcontainer_id;
+    //private String addtocartsaucelabsbackpackId;
     //@FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
     //WebElement yourCartText_xpath;
 
-    public ProductPage(WebDriver driver)
+    public void AddToCart(WebDriver driver)
     {
         this.driver = driver;
     }
-    public void verifyProductText()
-    {
+    //Verify product page by checking the product text
+    public void verifyProductText(String products) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
     }
-        /* public void clickAddToCart(String itemId) {
+    //Add to cart
+    /*public void addBackpack(String addtocartsaucelabsbackpackId)
+    {
+        addtocartsaucelabsbackpack_id.click();
+    }
+    public void addBikelight(String addtocartsaucelabsbikelightId)
+    {
+        addtocartsaucelabsbikelight_id.click();
+    }*/
+    //public void verifyProductText()
+//{
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
+       // productText_xpath.isDisplayed();
+  /* }
+        public void clickAddToCart(String itemId) {
           if (itemId.equals("addtocartsaucelabsbackpack_id")) {
              addtocartsaucelabsbackpack_id.click();
           }  else if (itemId.equals("addtocartsaucelabsbikelight_id")) {
              addtocartsaucelabsbikelight_id.click();
           }
-         }*/
+         }
+/*
     public void addToCartPack(String itemId)
     {
         addtocartsaucelabsbackpack_id.click();
@@ -54,8 +67,8 @@ public class ProductPage
     {
         addtocartsaucelabsbikelight_id.click();
     }
-    public void clickShoppingCartContainer()
-    {
+   // public void clickShoppingCartContainer()
+    /*{
         shoppingcartcontainer_id.click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourCartText_xpath));
     }
@@ -63,11 +76,32 @@ public class ProductPage
     public void ClickAddToCart(String addtocartsaucelabsbackpackId) {
         this.addtocartsaucelabsbackpackId = addtocartsaucelabsbackpackId;
     }
- /*
-    @Test
+
+   /* @Test
     public void Test()
     {
         System.out.println("Test");
+    }*/
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class AddToCart {
+    WebDriver driver;
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement addtocartsaucelabsbackpack_id;
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    WebElement addtocartsaucelabsbikelight_id;
+
+    public AddToCart(WebDriver driver) {
+        this.driver = driver;
     }
-  */
+    public void AddToCartBackPack(String itemId) {
+        addtocartsaucelabsbackpack_id.click();
+    }
+    public void AddToCartBikeLight(String itemId) {
+        addtocartsaucelabsbikelight_id.click();
+    }
 }

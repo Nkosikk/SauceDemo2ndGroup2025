@@ -29,22 +29,22 @@ public class PurchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
     @Test
-    public void  YourCartPageTests()
+    public void  AddToCartTests()
     {
-        yourCartPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
-        yourCartPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
-        takeScreenshots.takesSnapShot(driver, "Purchased Items");
+        addToCartPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
+        addToCartPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
+        //takeScreenshots.takesSnapShot(driver, "Purchased Items");
     }
     @Test
     public void ShoppingCartContainerTests()
     {
-        yourCartPage.ClickAddToCart("shoppingcartcontainer_id");
-        takeScreenshots.takesSnapShot(driver, "Your Cart");
+        addToCartPage.ClickAddToCart("shoppingcartcontainer_id");
+        //takeScreenshots.takesSnapShot(driver, "Your Cart");
     }
 
-    public void CheckoutTests()
+    public void YourCartTests()
     {
-        checkoutPage.ClickCheckoutButton();
+        yourCartPage.ClickCheckoutButton();
         takeScreenshots.takesSnapShot(driver, "Your Cart Page");
     }
     public void enterFirstnameTests()
@@ -95,6 +95,7 @@ public class PurchaseItemTests extends Base{
 
 package Tests;
 
+import Pages.AddToCartPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -121,6 +122,43 @@ public class PurchaseItemTests extends Base{
         takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
     }
+    //Addtocart
+    @Test(dependsOnMethods = "clickAddToCart")
+    public void clickAddToCart(){
+
+       /* addToCartPage.AddToCartBackPack("addtocartsaucelabsbackpack_id");
+        addToCartPage.AddToCartBikeLight("addtocartsaucelabsbikelight_id");
+
+        addToCartPage.addtocartsaucelabsbackpack_id.click();
+
+        addToCartPage.AddToCartBackPack("addtocartsaucelabsbackpack_id")
+        addToCartPage.clickAddToCart("addtocartsaucelabsbackpack_id");
+        addToCartPage.clickAddToCart("addtocartsaucelabsbikelight_id");
+        //takeScreenshots.takesSnapShot(driver, "Purchased Items");*/
+
+        takeScreenshots.takesSnapShot(driver,"Cart Page");
+        addToCartPage.
+                AddToCartBackPack("addtocartsaucelabsbackpack_id");
+        addToCartPage.checkOutButton();
+    }
+
+    @Test
+    public void  AddToCartTests()
+    {
+        addToCartPage.clickbackpackButton()
+        addToCartPage.clickAddToCart("addtocartsaucelabsbackpack_id");
+        addToCartPage.clickAddToCart("addtocartsaucelabsbikelight_id");
+        //addToCartPage.addBackpack("addtocartsaucelabsbackpack_id");
+        //addToCartPage.addBikelight("addtocartsaucelabsbikelight_id");
+        //takeScreenshots.takesSnapShot(driver, "AddToCart");
+    }
+
+    /*@Test
+    public void ShoppingCartContainerTests()
+    {
+        addToCart.ClickAddToCart("shoppingcartcontainer_id");
+        //takeScreenshots.takesSnapShot(driver, "Your Cart");
+    }*/
 
     @AfterTest
     public void closeBrowser(){
