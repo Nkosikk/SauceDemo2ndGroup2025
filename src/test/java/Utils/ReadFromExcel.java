@@ -2,6 +2,7 @@ package Utils;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
@@ -36,9 +37,21 @@ public class ReadFromExcel {
     }
 
     static XSSFSheet sheet =workbook.getSheet("Login Details");
+    static XSSFSheet sheet2 =workbook.getSheet("User Information");
 
     public static String username=sheet.getRow(1).getCell(0).getStringCellValue();
     public static String password=sheet.getRow(1).getCell(1).getStringCellValue();
 
+    public static String firstName=sheet2.getRow(1).getCell(1).getStringCellValue();
+   public static String lastName=sheet2.getRow(2).getCell(1).getStringCellValue();
+   public static String postalCode = sheet2.getRow(3).getCell(1).getRawValue();
 
+
+    @Test
+    public void test() {
+        System.out.println(lastName);
+        System.out.println(firstName);
+      System.out.println(postalCode);
+
+    }
 }

@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -39,14 +38,20 @@ public class CheckoutPage {
     @FindBy(id = "continue")
     WebElement continueButton_id;
 
-    public void setFirstname_id(String firstName) {firstname_id.sendKeys("thabiso");
+    public void enterFirstname(String firstName) {
+        firstname_id.sendKeys(firstName);
     }
-    public void setLastname_id(String LastName) {lastname_id.sendKeys("ndlovu");
+
+    public void enterLastname(String lastName) {
+        lastname_id.sendKeys(lastName);
 
     }
-    public void setPostalcode_id(String Postalcode) {postalcode_id.sendKeys("7441");
+
+    public void enterPostalcode(String postalcode) {
+        postalcode_id.sendKeys(postalcode);
 
     }
+
     public void clickContinueButton() {
         continueButton_id.click();
     }

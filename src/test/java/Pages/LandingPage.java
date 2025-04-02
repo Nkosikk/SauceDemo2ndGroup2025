@@ -25,10 +25,6 @@ public class LandingPage {
     public void verifyProductText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
-
-        driver.findElement(By.xpath("//*[text()='Sauce Labs Backpack']")).click();
-
-        driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a")).click();
     }
 
 

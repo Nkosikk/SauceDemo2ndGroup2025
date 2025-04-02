@@ -1,7 +1,6 @@
 package Tests;
 
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -10,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Base {
@@ -20,7 +20,10 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
-
+    CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+    CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
+    CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+    CheckoutCompletePage checkoutCompletePage = PageFactory.initElements(driver, CheckoutCompletePage.class);
     ReadFromExcel readFromExcel;
 
     {
