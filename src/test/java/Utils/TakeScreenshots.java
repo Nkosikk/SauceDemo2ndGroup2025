@@ -13,6 +13,9 @@ public class TakeScreenshots {
 
     private static final String screenshotDir = System.getProperty("user.dir") + "/Screenshots";
 
+    public static void takeScreenshot(WebDriver driver, String cart) {
+    }
+
 
     public void takesSnapShot(WebDriver driver, String ScreenshotName) {
 
