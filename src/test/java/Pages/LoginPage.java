@@ -10,7 +10,6 @@ import java.time.Duration;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class LoginPage {
-
     WebDriver driver;
 
     @FindBy(id = "user-name")
@@ -42,3 +41,5 @@ public class LoginPage {
         loginButton_id.click();
     }
 }
+
+
