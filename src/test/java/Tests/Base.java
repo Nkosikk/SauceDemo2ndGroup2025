@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.AddToCart;
 import Pages.LandingPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
@@ -20,6 +21,7 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    AddToCart addToCart = PageFactory.initElements(driver, AddToCart.class);
 
     ReadFromExcel readFromExcel;
 
