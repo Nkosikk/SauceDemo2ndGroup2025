@@ -29,23 +29,23 @@ public class PurchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
     @Test
-    public void  ProductPageTests()
+    public void  YourCartPageTests()
     {
-        productPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
-        productPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
+        yourCartPage.ClickAddToCart("addtocartsaucelabsbackpack_id");
+        yourCartPage.ClickAddToCart("addtocartsaucelabsbikelight_id");
         takeScreenshots.takesSnapShot(driver, "Purchased Items");
     }
     @Test
     public void ShoppingCartContainerTests()
     {
-        productPage.ClickAddToCart("shoppingcartcontainer_id");
+        yourCartPage.ClickAddToCart("shoppingcartcontainer_id");
         takeScreenshots.takesSnapShot(driver, "Your Cart");
     }
 
     public void CheckoutTests()
     {
         checkoutPage.ClickCheckoutButton();
-        takeScreenshots.takesSnapShot(driver, "Checkout Page");
+        takeScreenshots.takesSnapShot(driver, "Your Cart Page");
     }
     public void enterFirstnameTests()
     {

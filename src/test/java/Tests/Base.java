@@ -24,15 +24,15 @@ public class Base
 
     TakeScreenshots takeScreenshots = new TakeScreenshots();
 
-    ProductPage productPage = PageFactory.initElements(driver, ProductPage.class);
+    YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
 
     CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
 
-    YourInformationPage YourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
+    YourInformationPage yourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
 
-    CheckoutOverviewPage CheckoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+    CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
 
-    BackHomePage BackHomePage = PageFactory.initElements(driver, BackHomePage.class);
+    BackHomePage backHomePage = PageFactory.initElements(driver, BackHomePage.class);
 
     ReadFromExcel readFromExcel;
     {

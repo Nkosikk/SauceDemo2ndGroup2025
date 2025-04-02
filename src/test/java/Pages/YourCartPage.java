@@ -4,13 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
-public class CheckoutPage
+public class YourCartPage
 {
     WebDriver driver;
 
@@ -20,7 +19,7 @@ public class CheckoutPage
     @FindBy(id = "checkout")
     WebElement checkout_id;
 
-    public CheckoutPage(WebDriver driver)
+    public YourCartPage(WebDriver driver)
     {
         this.driver = driver;
     }
