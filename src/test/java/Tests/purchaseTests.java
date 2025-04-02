@@ -1,6 +1,6 @@
 package Tests;
 
-import Pages.AddToCart;
+import Pages.AddToCartPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -33,13 +33,13 @@ public class purchaseTests extends Base {
     @Test(dependsOnMethods = "ClickAddToCartTests")
     public void clickAddToCart() {
         takeScreenshots.takesSnapShot(driver, "Add to Cart");
-        AddToCart.clickAddToCart();
+        AddToCartPage.ClickAddToCart();
     }
 
     @Test(dependsOnMethods = "ClickShoppingCartTests")
     public void clickShoppingCart() {
         takeScreenshots.takesSnapShot(driver, "Shopping Cart");
-        AddToCart.clickShoppingCart();
+        AddToCartPage.clickShoppingCart();
     }
 
     @AfterTest

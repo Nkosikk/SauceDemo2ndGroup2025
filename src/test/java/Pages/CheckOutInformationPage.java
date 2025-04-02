@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CheckOutYourInformation {
+public class CheckOutInformationPage {
     WebDriver driver;
     @FindBy(id ="first-name")
     WebElement firstName_id;
@@ -18,7 +18,8 @@ public class CheckOutYourInformation {
     @FindBy(id ="continue")
     WebElement continue_id;
 
-    public  CheckOutYourInformation(WebDriver driver) {
+    public CheckOutInformationPage(WebDriver driver) {
         this.driver = driver;
     }
+
 }
