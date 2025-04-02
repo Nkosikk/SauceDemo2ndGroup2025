@@ -22,7 +22,11 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     AddtocartPage addtocartPage = PageFactory.initElements(driver, AddtocartPage.class);
+    ShoppingCartPage shoppingCartPage = PageFactory.initElements(driver, ShoppingCartPage.class);
+    CheckoutPage checkoutPage = PageFactory.initElements(driver, CheckoutPage.class);
+    ContinuePage continuePage = PageFactory.initElements(driver, ContinuePage.class);
     FinishPage finishPage = PageFactory.initElements(driver, FinishPage.class);
+    BackHomePage backHomePage = PageFactory.initElements(driver, BackHomePage.class);
     TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
 

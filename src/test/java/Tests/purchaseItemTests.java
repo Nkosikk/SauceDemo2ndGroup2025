@@ -38,6 +38,8 @@ public class purchaseItemTests extends Base{
         addtocartPage.clickaddtocartButton();
     }
 
+
+
     @AfterTest
     public void closeBrowser(){
         driver.quit();
