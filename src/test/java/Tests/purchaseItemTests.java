@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.FinishPage;
 import Pages.LoginPage;
+import Utils.ReadFromExcel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,15 +11,17 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import static Utils.ReadFromExcel.*;
+
 @Test
 public class purchaseItemTests extends Base {
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests(){
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -47,9 +50,9 @@ public class purchaseItemTests extends Base {
     }
     @Test(dependsOnMethods = "clickCart")
     public void enterDeliveryInfo(){
-        deliveryInfo.enterFirstName("Nozipho");
-        deliveryInfo.enterLastName("Mtsweni");
-        deliveryInfo.enterPostalCode("1020");
+        deliveryInfo.enterFirstName(name);
+        deliveryInfo.enterLastName(username);
+        deliveryInfo.enterPostalCode(postalCode);
         takeScreenshots.takesSnapShot(driver, "Delivery Info Page");
         deliveryInfo.clickContinueButton();
     }
