@@ -50,9 +50,7 @@ public class Base
 
 package Tests;
 
-import Pages.AddToCartPage;
-import Pages.LandingPage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -73,6 +71,8 @@ public class Base {
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
     AddToCartPage addToCartPage = PageFactory.initElements(driver, AddToCartPage.class);
+    YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
+    YourInformationPage yourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
 
     ReadFromExcel readFromExcel;
     {

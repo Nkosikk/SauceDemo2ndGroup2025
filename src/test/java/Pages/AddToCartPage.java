@@ -31,7 +31,6 @@ public class AddToCartPage {
     public void verifyYourCartText() {
         yourCartText_xpath.isDisplayed();
     }
-
      /* @Test
     public void Test()
     {

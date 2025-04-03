@@ -3,13 +3,10 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
-import java.time.Duration;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
-
-public class YourInformationPage {
+public class YourInformationPage
+{
     static WebDriver driver;
 
     @FindBy(id = "first-name")
@@ -18,7 +15,7 @@ public class YourInformationPage {
     @FindBy(id = "last-name")
     static WebElement lastname_id;
 
-    @FindBy(id = "zip/postal-code")
+    @FindBy(id = "postal-code")
     static WebElement postalcode_id;
 
     @FindBy(id = "continue-button")
@@ -28,30 +25,30 @@ public class YourInformationPage {
     {
         this.driver = driver;
     }
-
     //Input Firstname
-    public static void enterFirstname(String firstname)
+    public void enterFirstname(String firstname)
     {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
+       // new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
         firstname_id.sendKeys(firstname);
     }
-
     //Input Lastname
-    public static void enterLastname(String lastname)
+    public void enterLastname(String lastname)
     {
         lastname_id.sendKeys(lastname);
     }
-
     //Input PostalCode
-    public static void enterPostalCode
-    (String PostalCode) {
-        postalcode_id.sendKeys(PostalCode);
-    }
-
-    //Click Login Button
-    public static void clickContinueButton()
+    public void enterPostalcode(String postalcode)
     {
-        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(continueButton_id));
+        postalcode_id.sendKeys(postalcode);
+    }
+    //Click Continue Button
+    public void clickContinueButton()
+    {
         continueButton_id.click();
     }
+    /*@Test
+    public void Test()
+    {
+        System.out.println("Test");
+    }*/
 }

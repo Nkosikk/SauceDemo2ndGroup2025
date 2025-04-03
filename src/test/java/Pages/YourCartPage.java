@@ -3,20 +3,14 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class YourCartPage
 {
     WebDriver driver;
 
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
-    WebElement yourcartText_xpath;
-
+    //@FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    //WebElement yourCartText_xpath;
     @FindBy(id = "checkout")
     WebElement checkout_id;
 
@@ -24,19 +18,24 @@ public class YourCartPage
     {
         this.driver = driver;
     }
-    public void verifyYourCartText()
+    /*public void verifyYourCartText()
     {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourcartText_xpath));
-        yourcartText_xpath.isDisplayed();
+        yourCartText_xpath.isDisplayed();
+    }*/
+    public void clickCheckoutButton()
+    {
+        checkout_id.click();
     }
-            public void ClickCheckoutButton()
-            {
-                checkout_id.click();
-            }
 
-  /* @Test
+   // @Test(dependsOnMethods = "enterPasswordTests")
+   // public void clickLoginTests() {
+      //  takeScreenshots.takesSnapShot(driver, "Login Page");
+      //  loginPage.clickLoginButton();
+   // }
+
+    @Test
     public void Test()
     {
         System.out.println("Test");
-    }*/
+    }
 }

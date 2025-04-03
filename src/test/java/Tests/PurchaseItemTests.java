@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.AddToCartPage;
+import Pages.YourCartPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -29,25 +30,36 @@ public class PurchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
-    //Addtocart
+    //Add to Cart
     @Test(dependsOnMethods = "verifyLoginSuccess")
-    public void clickAddToCart() {
+    public void clickAddToCartTest() {
         addToCartPage.AddToCartBackPack("addtocartsaucelabsbackpack_id");
         addToCartPage.AddToCartBikeLight("addtocartsaucelabsbikelight_id");
         addToCartPage.clickShoppingCartContainer();
         takeScreenshots.takesSnapShot(driver, "Cart Page");
+    }
+    //View your cart
+    @Test(dependsOnMethods = "clickAddToCartTest")
+    public void clickCheckoutButtonTest()
+    {
+        yourCartPage.clickCheckoutButton();
+        takeScreenshots.takesSnapShot(driver, "Your Cart Page");
+    }
+
+    @Test(dependsOnMethods = "clickCheckoutButtonTest")
+    public void YourInformationPageTests()
+    {
+        yourInformationPage.enterFirstname("Babongile");
+        yourInformationPage.enterLastname("Mpungose");
+        yourInformationPage.enterPostalcode("2188");
+        yourInformationPage.clickContinueButton();
+        takeScreenshots.takesSnapShot(driver, "Your Information Page");
     }
 }
    /* @AfterTest
     public void closeBrowser(){
         driver.quit();
     }
-}
-@Test
-public void ShoppingCartContainerTests()
-{
-    addToCartPage.ClickAddToCart("shoppingcartcontainer_id");
-    //takeScreenshots.takesSnapShot(driver, "Your Cart");
 }
 public void YourCartTests()
 {
