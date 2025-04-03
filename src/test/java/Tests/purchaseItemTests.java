@@ -30,11 +30,70 @@ public class purchaseItemTests extends Base{
         landingPage.verifyProductText();
     }
 
-
-    @AfterTest
-    public void closeBrowser(){
-        driver.quit();
+    @Test(dependsOnMethods = "verifyLoginSuccess")
+    public void verifySuccessfulAddingOfBackpackItem(){
+        //
+        landingPage.verifyBackPackItem();
+        landingPage.addBackPackItemToCart();
+        takeScreenshots.takesSnapShot(driver,"Backpack Product Added");
     }
+    @Test(dependsOnMethods = "verifySuccessfulAddingOfBackpackItem")
+    public void verifySuccessfulRemovalofBackpackItem(){
+        //
+        landingPage.removeBackPackItemFromCart();
+        takeScreenshots.takesSnapShot(driver,"Backpack Product Removed");
+    }
+
+    @Test(dependsOnMethods = "verifySuccessfulRemovalofBackpackItem")
+    public void verifySuccessfulReAddingOfBackpackItem(){
+        //
+        landingPage.verifyBackPackItem();
+        landingPage.addBackPackItemToCart();
+        takeScreenshots.takesSnapShot(driver,"Backpack Product Re-Added");
+    }
+
+    @Test(dependsOnMethods = "verifySuccessfulReAddingOfBackpackItem")
+    public void clickCheckOutTest(){
+        //
+        landingPage.accessYourCart();
+    }
+
+    @Test(dependsOnMethods = "clickCheckOutTest")
+    public void verifyAccessCartSuccess(){
+        //
+        cartPage.verifyYourCartText();
+        takeScreenshots.takesSnapShot(driver,"Successfully Accessed Cart");
+    }
+
+    @Test(dependsOnMethods = "clickCheckOutTest")
+    public void verifyYourCartDetails(){
+        //
+        cartPage.verifyYourCartButtons();
+    }
+    @Test(dependsOnMethods = "clickCheckOutTest")
+    public void verifyBackpackProductAdded(){
+        //
+        cartPage.verifyProductDetails();
+        takeScreenshots.takesSnapShot(driver,"Backpack Displayed in Cart");
+    }
+
+    @Test(dependsOnMethods = "verifyBackpackProductAdded")
+
+    //public void clickRemoveButtonInCheckoutTest(){
+      //  cartPage.clickRemoveButtonInCart();
+   // }
+
+    // please help me figure out why this class is not working
+   public void clickCheckoutTest(){
+       cartPage.clickCheckOutButton();
+       takeScreenshots.takesSnapShot(driver,"Checkout:Your Information Page");}
+
+
+
+   // @AfterTest
+    //public void closeBrowser(){
+   //     driver.quit();
+    //}
 
 
 
