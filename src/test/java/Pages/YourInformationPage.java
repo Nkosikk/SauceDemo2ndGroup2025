@@ -23,7 +23,7 @@ public class YourInformationPage
 
     public YourInformationPage(WebDriver driver)
     {
-        this.driver = driver;
+        YourInformationPage.driver = driver;
     }
     //Input Firstname
     public void enterFirstname(String firstname)
@@ -46,7 +46,7 @@ public class YourInformationPage
     {
         continueButton_id.click();
     }
-    /*@Test
+   /* @Test
     public void Test()
     {
         System.out.println("Test");

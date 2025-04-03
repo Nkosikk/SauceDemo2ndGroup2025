@@ -26,16 +26,9 @@ public class YourCartPage
     {
         checkout_id.click();
     }
-
-   // @Test(dependsOnMethods = "enterPasswordTests")
-   // public void clickLoginTests() {
-      //  takeScreenshots.takesSnapShot(driver, "Login Page");
-      //  loginPage.clickLoginButton();
-   // }
-
-    @Test
+   /* @Test
     public void Test()
     {
         System.out.println("Test");
-    }
+    }*/
 }

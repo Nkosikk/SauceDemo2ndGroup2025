@@ -53,54 +53,37 @@ public class PurchaseItemTests extends Base {
         yourInformationPage.enterLastname("Mpungose");
         yourInformationPage.enterPostalcode("2188");
         yourInformationPage.clickContinueButton();
+    }
+   /* @Test(dependsOnMethods = "YourInformationPageTests")
+    public void clickContinueButtonTest()
+    {
+        yourInformationPage.clickContinueButton();
         takeScreenshots.takesSnapShot(driver, "Your Information Page");
-    }
+    }*/
 }
-   /* @AfterTest
-    public void closeBrowser(){
-        driver.quit();
-    }
-}
-public void YourCartTests()
-{
-    yourCartPage.ClickCheckoutButton();
-    takeScreenshots.takesSnapShot(driver, "Your Cart Page");
-}
-public void enterFirstnameTests()
-{
-    YourInformationPage.enterFirstname("Babongile");
-}
-@Test(dependsOnMethods = "enterFirstnameTests")
-public void enterLastnameTests()
-{
-    YourInformationPage.enterLastname("Mpungose");
-}
-@Test(dependsOnMethods = "enterLastnameTests")
-public void enterPostalCodeTests()
-{
-    YourInformationPage.enterPostalCode("2188");
-}
-public void clickContinueTests()
-{
-    takeScreenshots.takesSnapShot(driver,"YourInformation Page");
-    YourInformationPage.clickContinueButton();
-}
+/*
 @Test(dependsOnMethods = "clickContinueTests")
-public void verifyCheckoutOverview()
+public void verifyCheckoutOverviewTest()
 {
     takeScreenshots.takesSnapShot(driver,"Checkout Overview Page");
     CheckoutOverviewPage.verifyCheckoutOverviewText();
 }
-public void ClickFinishButtonTests()
+@Test(dependsOnMethods = "verifyCheckoutOverviewTest")
+public void clickFinishButtonTests()
 {
     takeScreenshots.takesSnapShot(driver,"BackHome Page");
     CheckoutOverviewPage.clickFinishButton();
 }
-public void ClickBackHomeButtonTests()
+@Test(dependsOnMethods = "clickFinishButtonTests")
+public void clickBackHomeButtonTests()
 {
     BackHomePage.ClickBackHomeButton();
     takeScreenshots.takesSnapShot(driver,"Product Page");
 }
-}*/
+@Test(dependsOnMethods = "clickBackHomeButtonTests")
+ @AfterTest
+    public void closeBrowser(){
+        driver.quit();
+    }*/
 
 
