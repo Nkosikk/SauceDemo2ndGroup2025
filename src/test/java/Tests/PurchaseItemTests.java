@@ -1,6 +1,8 @@
 package Tests;
 
 import Pages.AddToCartPage;
+import Pages.BackHomePage;
+import Pages.CheckoutOverviewPage;
 import Pages.YourCartPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -53,13 +55,26 @@ public class PurchaseItemTests extends Base {
         yourInformationPage.enterLastname("Mpungose");
         yourInformationPage.enterPostalcode("2188");
         yourInformationPage.clickContinueButton();
-    }
-   /* @Test(dependsOnMethods = "YourInformationPageTests")
-    public void clickContinueButtonTest()
-    {
-        yourInformationPage.clickContinueButton();
         takeScreenshots.takesSnapShot(driver, "Your Information Page");
-    }*/
+    }
+    @Test(dependsOnMethods = "YourInformationPageTests")
+    public void clickFinishButtonTests()
+    {
+        takeScreenshots.takesSnapShot(driver,"BackHome Page");
+        CheckoutOverviewPage.clickFinishButton();
+    }
+    @Test(dependsOnMethods = "clickFinishButtonTests")
+    public void clickBackHomeButtonTests()
+    {
+        backHomePage.ClickBackHomeButton();
+        takeScreenshots.takesSnapShot(driver,"Product Page");
+    }
+    @Test(dependsOnMethods = "clickBackHomeButtonTests")
+    @AfterTest
+    public void closeBrowser()
+    {
+        driver.quit();
+    }
 }
 /*
 @Test(dependsOnMethods = "clickContinueTests")
@@ -68,22 +83,6 @@ public void verifyCheckoutOverviewTest()
     takeScreenshots.takesSnapShot(driver,"Checkout Overview Page");
     CheckoutOverviewPage.verifyCheckoutOverviewText();
 }
-@Test(dependsOnMethods = "verifyCheckoutOverviewTest")
-public void clickFinishButtonTests()
-{
-    takeScreenshots.takesSnapShot(driver,"BackHome Page");
-    CheckoutOverviewPage.clickFinishButton();
-}
-@Test(dependsOnMethods = "clickFinishButtonTests")
-public void clickBackHomeButtonTests()
-{
-    BackHomePage.ClickBackHomeButton();
-    takeScreenshots.takesSnapShot(driver,"Product Page");
-}
-@Test(dependsOnMethods = "clickBackHomeButtonTests")
- @AfterTest
-    public void closeBrowser(){
-        driver.quit();
-    }*/
+*/
 
 

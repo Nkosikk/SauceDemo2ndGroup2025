@@ -22,16 +22,13 @@ public class CheckoutOverviewPage {
     {
         this.driver = driver;
     }
-
     public static void verifyCheckoutOverviewText()
     {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(checkoutoverviewText_xpath));
         checkoutoverviewText_xpath.isDisplayed();
     }
-
     public static void clickFinishButton()
     {
         finish_id.click();
     }
-
 }
