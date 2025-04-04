@@ -7,6 +7,8 @@ import Pages.YourCartPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import java.security.PublicKey;
+
 @Test
 public class PurchaseItemTests extends Base {
 
@@ -32,6 +34,7 @@ public class PurchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
+
     //Add to Cart
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void clickAddToCartTest() {
@@ -40,42 +43,53 @@ public class PurchaseItemTests extends Base {
         addToCartPage.clickShoppingCartContainer();
         takeScreenshots.takesSnapShot(driver, "Cart Page");
     }
+
     //View your cart
     @Test(dependsOnMethods = "clickAddToCartTest")
-    public void clickCheckoutButtonTest()
-    {
+    public void clickCheckoutButtonTest() {
         yourCartPage.clickCheckoutButton();
         takeScreenshots.takesSnapShot(driver, "Your Cart Page");
     }
 
     @Test(dependsOnMethods = "clickCheckoutButtonTest")
-    public void YourInformationPageTests()
-    {
+    public void YourInformationPageTests() {
         yourInformationPage.enterFirstname("Babongile");
         yourInformationPage.enterLastname("Mpungose");
         yourInformationPage.enterPostalcode("2188");
         yourInformationPage.clickContinueButton();
         takeScreenshots.takesSnapShot(driver, "Your Information Page");
     }
+
     @Test(dependsOnMethods = "YourInformationPageTests")
-    public void clickFinishButtonTests()
-    {
-        takeScreenshots.takesSnapShot(driver,"BackHome Page");
+    public void clickFinishButtonTests() {
+        takeScreenshots.takesSnapShot(driver, "BackHome Page");
         CheckoutOverviewPage.clickFinishButton();
     }
+
     @Test(dependsOnMethods = "clickFinishButtonTests")
-    public void clickBackHomeButtonTests()
-    {
+    public void clickBackHomeButtonTests() {
         backHomePage.ClickBackHomeButton();
-        takeScreenshots.takesSnapShot(driver,"Product Page");
+        takeScreenshots.takesSnapShot(driver, "Product Page");
     }
+
     @Test(dependsOnMethods = "clickBackHomeButtonTests")
+    public void clickReactBurgerMenuTests()
+    {
+        logoutPage.clickBurgerMenuBtn();
+        takeScreenshots.takesSnapShot(driver, "Logout Page");
+    }
+    @Test(dependsOnMethods = "clickReactBurgerMenuTests")
+    public void clickLogoutLinkTests()
+    {
+        logoutPage.clickLogoutSideBarLink();
+        takeScreenshots.takesSnapShot(driver, "Swag Labs Login Page");
+    }
+    @Test(dependsOnMethods = "clickLogoutLinkTests")
     @AfterTest
     public void closeBrowser()
     {
         driver.quit();
     }
-}
 /*
 @Test(dependsOnMethods = "clickContinueTests")
 public void verifyCheckoutOverviewTest()
@@ -84,5 +98,4 @@ public void verifyCheckoutOverviewTest()
     CheckoutOverviewPage.verifyCheckoutOverviewText();
 }
 */
-
-
+}

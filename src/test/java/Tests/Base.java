@@ -25,6 +25,7 @@ public class Base {
     YourInformationPage yourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
     CheckoutOverviewPage CheckoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
     BackHomePage backHomePage = PageFactory.initElements(driver, BackHomePage.class);
+    LogoutPage logoutPage = PageFactory.initElements(driver, LogoutPage.class);
 
     ReadFromExcel readFromExcel;
     {
