@@ -65,18 +65,16 @@ public class PurchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "BackHome Page");
         CheckoutOverviewPage.clickFinishButton();
     }
-
     @Test(dependsOnMethods = "clickFinishButtonTests")
     public void clickBackHomeButtonTests() {
         backHomePage.ClickBackHomeButton();
         takeScreenshots.takesSnapShot(driver, "Product Page");
     }
-
     @Test(dependsOnMethods = "clickBackHomeButtonTests")
     public void clickReactBurgerMenuTests()
     {
         logoutPage.clickBurgerMenuBtn();
-        takeScreenshots.takesSnapShot(driver, "Logout Page");
+        takeScreenshots.takesSnapShot(driver, "Burger Menu Page");
     }
     @Test(dependsOnMethods = "clickReactBurgerMenuTests")
     public void clickLogoutLinkTests()
