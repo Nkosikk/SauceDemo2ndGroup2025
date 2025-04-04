@@ -30,15 +30,19 @@ public class LoginPage {
     public void enterUsername(String username) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(username_id));
         username_id.sendKeys(username);
+        username_id.isDisplayed();
+
     }
 
     //Input Password
     public void enterPassword(String password) {
         password_id.sendKeys(password);
+
     }
 
     //Click Login Button
     public void clickLoginButton() {
         loginButton_id.click();
     }
+
 }
