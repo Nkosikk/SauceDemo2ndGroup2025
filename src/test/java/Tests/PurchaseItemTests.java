@@ -72,7 +72,7 @@ public class PurchaseItemTests extends Base {
     public void clickCheckoutButtonTest()
       {
         yourCartPage.clickCheckoutButton();
-        takeScreenshots.takesSnapShot(driver, "Your Cart Page");
+        takeScreenshots.takesSnapShot(driver, "Your Information Page");
       }
     @Test(dependsOnMethods = "clickCheckoutButtonTest")
     public void verifyInformationTestSuccess()
@@ -85,8 +85,9 @@ public class PurchaseItemTests extends Base {
         yourInformationPage.enterFirstname("Babongile");
         yourInformationPage.enterLastname("Mpungose");
         yourInformationPage.enterPostalcode("2188");
+        takeScreenshots.takesSnapShot(driver, "Your Information Display Page");
         yourInformationPage.clickContinueButton();
-        takeScreenshots.takesSnapShot(driver, "Your Information Page");
+        takeScreenshots.takesSnapShot(driver, "Checkout Overview Page");
     }
     //verifycheckoutoverviewscreen
     @Test(dependsOnMethods =  "YourInformationPageTests")
