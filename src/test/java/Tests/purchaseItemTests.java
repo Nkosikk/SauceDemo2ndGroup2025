@@ -1,6 +1,5 @@
 package Tests;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -86,14 +85,44 @@ public class purchaseItemTests extends Base {
     public void verifyTotalItem() {
         CheckoutOverviewPage.verifyTotalItem();
     }
+
     @Test(dependsOnMethods = "verifyTotalItem")
     public void clickFinish() {
         CheckoutOverviewPage.clickFinish();
     }
 
+    @Test(dependsOnMethods = "clickFinish")
+    public void verifyCheckoutComplete() {
+        checkoutCompletePage.verifyCheckoutCompleteText();
+        takeScreenshots.takesSnapShot(driver, "Checkout Complete");
+    }
+
+    @Test(dependsOnMethods = "verifyCheckoutComplete")
+    public void clickBackToProducts() {
+        checkoutCompletePage.clickBackToProducts();
+    }
+
+    @Test(dependsOnMethods = "clickBackToProducts")
+    public void verifyBackToProducts() {
+        landingPage.verifyProductText();
+        takeScreenshots.takesSnapShot(driver, "Landing Page");
+    }
+
+    @Test(dependsOnMethods = "verifyBackToProducts")
+    public void clickMenuButton() {
+        takeScreenshots.takesSnapShot(driver, "Landing Page");
+        landingPage.clickReact_Burger_Menu_Btn();
+    }
+
+    @Test(dependsOnMethods = "clickMenuButton")
+    public void clickLogoutButton() {
+        landingPage.clickLogout_Sidebar_LinkButton();
+    }
+
     @AfterTest
     public void closeBrowser() {
-//        driver.quit();
+        driver.quit();
+        System.out.println("Browser closed");
     }
 
 

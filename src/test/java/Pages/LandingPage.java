@@ -24,9 +24,17 @@ public class LandingPage {
     @FindBy(id = "shopping_cart_container")
     WebElement shopping_cart_container;
 
+    @FindBy(id = "react-burger-menu-btn")
+    WebElement react_burger_menu_btn;
+
+    @FindBy(id = "logout_sidebar_link")
+    WebElement logout_sidebar_link;
+
+
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
+
     public void verifyProductText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
@@ -41,6 +49,13 @@ public class LandingPage {
 
     public void clickShopping_Cart_Container() {
         shopping_cart_container.click();
+    }
+    public void clickReact_Burger_Menu_Btn() {
+        react_burger_menu_btn.click();
+    }
+    public void clickLogout_Sidebar_LinkButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(logout_sidebar_link));
+        logout_sidebar_link.click();
     }
 }
 

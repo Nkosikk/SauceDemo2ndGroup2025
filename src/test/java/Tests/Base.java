@@ -23,6 +23,8 @@ public class Base {
     YourInformationPage yourInformationPage = PageFactory.initElements(driver, YourInformationPage.class);
 
     CheckoutOverviewPage CheckoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
+
+    CheckoutCompletePage checkoutCompletePage = PageFactory.initElements(driver, CheckoutCompletePage.class);
     ReadFromExcel readFromExcel;
 
     {

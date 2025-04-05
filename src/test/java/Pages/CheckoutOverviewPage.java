@@ -30,6 +30,9 @@ public class CheckoutOverviewPage {
     @FindBy(xpath = "//*[@id='checkout_summary_container']/div/div[2]/div[8]")
     WebElement total;
 
+    @FindBy(id = "cancel")
+    WebElement cancelButton;
+
     @FindBy(id = "finish")
     WebElement finishButton;
 
@@ -47,6 +50,7 @@ public class CheckoutOverviewPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(sauceLabsBikeLight_xpath));
         sauceLabsBikeLight_xpath.isDisplayed();
     }
+
     public void verifyTotalItem() {
         String itemTotalText = itemTotal.getText(); //get text of the element and store it in a string
         String[] expectedText = itemTotalText.split("\\$");//split the string and store it in an array
@@ -68,18 +72,30 @@ public class CheckoutOverviewPage {
         System.out.println("Total item is: " + actualTotal);
 
         Assert.assertEquals(actualTotal, expectedTotalSum, "Total is not correct.");
+
+//        // Check if the actual total matches the expected total
+//        if (actualTotal == expectedTotalSum) {
+//            finishButton.click();
+//        } else {
+//            cancelButton.click();
+//        }
+
     }
+
+//    public void clickCancelButton() {
+//        cancelButton.click();
+//    }
 
     public void clickFinish() {
         finishButton.click();
-
-
-
     }
-
-
-
 }
+
+
+
+
+
+
 
 
 
