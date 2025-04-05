@@ -88,7 +88,13 @@ public class PurchaseItemTests extends Base {
         yourInformationPage.clickContinueButton();
         takeScreenshots.takesSnapShot(driver, "Your Information Page");
     }
-    @Test(dependsOnMethods = "YourInformationPageTests")
+    //verifycheckoutoverviewscreen
+    @Test(dependsOnMethods =  "YourInformationPageTests")
+    public void verifyCheckoutOverviewTestSuccess()
+    {
+        CheckoutOverviewPage.verifyCheckoutOverviewText();
+    }
+    @Test(dependsOnMethods = "verifyCheckoutOverviewTestSuccess")
     public void clickFinishButtonTests() {
         takeScreenshots.takesSnapShot(driver, "BackHome Page");
         CheckoutOverviewPage.clickFinishButton();
