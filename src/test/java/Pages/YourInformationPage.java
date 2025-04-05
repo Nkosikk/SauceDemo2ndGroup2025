@@ -14,6 +14,9 @@ public class YourInformationPage
 {
     static WebDriver driver;
 
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    WebElement yourInformationText_xpath;
+
     @FindBy(id = "first-name")
     static WebElement firstname_id;
 
@@ -28,12 +31,18 @@ public class YourInformationPage
 
     public YourInformationPage(WebDriver driver)
     {
-        YourInformationPage.driver = driver;
+        this.driver = driver;
+    }
+    //Verify Your Information Text
+    public void verifyYourInformationText()
+    {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourInformationText_xpath));
+        yourInformationText_xpath.isDisplayed();
     }
     //Input Firstname
     public void enterFirstname(String firstname)
     {
-       // new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
+       //new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(firstname_id));
         firstname_id.sendKeys(firstname);
     }
     //Input Lastname
@@ -43,6 +52,7 @@ public class YourInformationPage
     }
     //Input PostalCode
     public void enterPostalcode(String postalcode)
+
     {
         postalcode_id.sendKeys(postalcode);
     }

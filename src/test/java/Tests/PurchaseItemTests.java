@@ -75,6 +75,11 @@ public class PurchaseItemTests extends Base {
         takeScreenshots.takesSnapShot(driver, "Your Cart Page");
       }
     @Test(dependsOnMethods = "clickCheckoutButtonTest")
+    public void verifyInformationTestSuccess()
+    {
+        yourInformationPage.verifyYourInformationText();
+    }
+    @Test(dependsOnMethods = "verifyInformationTestSuccess")
     public void YourInformationPageTests()
     {
         yourInformationPage.enterFirstname("Babongile");
@@ -105,7 +110,7 @@ public class PurchaseItemTests extends Base {
         logoutPage.clickLogoutSideBarLink();
         takeScreenshots.takesSnapShot(driver, "Swag Labs Login Page");
     }
-    @Test(dependsOnMethods = "clickLogoutLinkTests")
+   @Test(dependsOnMethods = "clickLogoutLinkTests")
     @AfterTest
     public void closeBrowser()
     {
