@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.AddToCart;
-import Pages.LandingPage;
-import Pages.LoginPage;
-import Pages.VerifyYourCartPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
 import Utils.TakeScreenshots;
@@ -19,10 +16,9 @@ public class Base {
     final WebDriver driver = browserFactory.startBrowser("chrome", "https://www.saucedemo.com/");
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
-
     AddToCart addToCart = PageFactory.initElements(driver, AddToCart.class);
     VerifyYourCartPage verifyYourCartPage = PageFactory.initElements(driver, VerifyYourCartPage.class);
-
+    VerifyInformationPage verifyInformationPage = PageFactory.initElements(driver, VerifyInformationPage.class);
     ReadFromExcel readFromExcel;
 
     {

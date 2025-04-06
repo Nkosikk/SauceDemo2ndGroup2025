@@ -3,7 +3,7 @@ package Tests;
 import Pages.LandingPage;
 import org.testng.annotations.Test;
 
-public class purchaseItemTests extends Base {
+public class purchaseItemTest extends Base {
 
     @Test
     public void enterUsernameTest() {
@@ -27,5 +27,10 @@ public class purchaseItemTests extends Base {
 
         takeScreenshots.takesSnapShot(driver, "LandingPage");
     }
+}@Test(dependsOnMethods ="enterPasswordTest")
+public void clickAddToCartButtonTest(){
+    addToCart.clickAddToCartButton();
+
+    takeScreenshots.takesSnapShot(driver, "AddToCart");
 }
 
