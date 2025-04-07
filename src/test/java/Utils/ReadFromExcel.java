@@ -32,4 +32,9 @@ public class ReadFromExcel {
 
     public static String username = sheet != null ? sheet.getRow(1).getCell(0).getStringCellValue() : null;
     public static String password = sheet != null ? sheet.getRow(1).getCell(1).getStringCellValue() : null;
+
+   public static String firstname = sheet != null ? sheet.getRow(6).getCell(0).getStringCellValue() : null;
+    public static String lastname = sheet != null ? sheet.getRow(7).getCell(0).getStringCellValue() : null;
+    public static String postalCode = sheet != null ? sheet.getRow(8).getCell(0).getStringCellValue() : null;
+
 }

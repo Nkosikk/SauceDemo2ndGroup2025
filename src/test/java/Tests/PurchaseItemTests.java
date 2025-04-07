@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.CheckoutDetailsPage;
 import Utils.ReadFromExcel;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -24,8 +25,7 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
-        takeScreenshots.takesSnapShot(driver, "Landing Page");
-        landingPage.verifyProductText();
+                landingPage.verifyProductText();
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
@@ -45,6 +45,31 @@ public class PurchaseItemTests extends Base {
         cartPage.clickCheckoutButton();
     }
 
+
+@Test (dependsOnMethods = "clickCheckoutTests")
+  public void enterFirstNameTests ()
+{checkoutDetailsPage.enterFirstName(ReadFromExcel.firstname);}
+
+    @Test (dependsOnMethods = "enterFirstNameTests")
+    public void enterLastNameTests ()
+    {checkoutDetailsPage.enterLastName(ReadFromExcel.lastname);}
+
+    @Test (dependsOnMethods = "enterLastNameTests")
+    public void enterPostalCodeTests ()
+    {checkoutDetailsPage.enterPostalCode(ReadFromExcel.postalCode);
+     takeScreenshots.takesSnapShot(driver, "CheckoutDetails Page");}
+
+    @Test (dependsOnMethods = "enterPostalCodeTests")
+    public void clickContinueButtonTests ()
+    {
+        checkoutDetailsPage.clickContinueButton();
+    }
+
+    @Test (dependsOnMethods = "clickContinueButtonTests")
+    public void clickFinishButtonTests ()
+    {
+        checkoutOverviewPage.clickFinishButton();
+    }
 
 
     @AfterTest
