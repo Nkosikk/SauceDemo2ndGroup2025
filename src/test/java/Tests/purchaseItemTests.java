@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.UserInfo;
 import Utils.ReadFromExcel;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -9,29 +10,19 @@ import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-
-@Test
+import java.util.concurrent.TimeUnit;
 public class purchaseItemTests extends Base {
+    @Test
+    public void enterUsernameTests() throws IOException, InterruptedException {
+        Thread.sleep(2000);
+        loginPage.enterUsername(readFromExcel.username);
 
-
-    public void enterUsernameTests() throws IOException {
-        loginPage.enterUsername(ReadFromExcel.username);
-        try (InputStream fis = new FileInputStream("src/test/resources/ExcelData.xlsx");
-        XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
-            XSSFSheet sheet = workbook.getSheet("Sheet1");
-            String username = sheet.getRow(1).getCell(0).getStringCellValue();
-        }
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() throws IOException {
-        loginPage.enterPassword(ReadFromExcel.password);
-        try (InputStream fis = new FileInputStream("src/test/resources/ExcelData.xlsx");
-        XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
-        XSSFSheet sheet = workbook.getSheet("Sheet1");
-        String password = sheet.getRow(1).getCell(1).getStringCellValue();
-        }
+        loginPage.enterPassword(readFromExcel.password);
+
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -77,18 +68,19 @@ public class purchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickCheckOutButton")
-    public void enterFirstName() {
-        continueButton.enterFirstName("Sifiso");
+    public void enterFirstName()throws IOException {
+        continueButton.enterFirstName(readFromExcel.firstName);
     }
 
     @Test(dependsOnMethods = "enterFirstName")
-    public void enterLastName() {
-        continueButton.enterLastName("Qwabe");
+
+    public void enterLastName()throws IOException {
+        continueButton.enterLastName(readFromExcel.lastName);
     }
 
     @Test(dependsOnMethods = "enterLastName")
-    public void enterPostalCode() {
-        continueButton.enterPostalCode("3950");
+    public void enterPostalCode()throws IOException {
+        continueButton.enterPostalCode(readFromExcel.postalCode);
     }
 
     @Test(dependsOnMethods = "enterPostalCode")
@@ -100,12 +92,6 @@ public class purchaseItemTests extends Base {
 
     }
 
-    @Test(dependsOnMethods = "clickContinue")
-    public void clickFinish() throws InterruptedException {
-        Thread.sleep(2000);
-        checkoutInfo.clickFinishButton();
-        takeScreenshots.takesSnapShot(driver, "Finish Page");
-    }
 
 
     @AfterTest

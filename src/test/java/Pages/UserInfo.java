@@ -26,6 +26,7 @@ public class UserInfo {
     WebElement ContinueButton_id;
 
     public UserInfo(WebDriver driver) {
+
         this.driver = driver;
     }
 
@@ -36,16 +37,19 @@ public class UserInfo {
     }
 
     public void enterLastName(String lastName) {
+
         lastName_id.sendKeys(lastName);
     }
 
     public void enterPostalCode(String postalCode) {
+
         postalCode_id.sendKeys(postalCode);
     }
 
 
 
     public void clickContinueButton() {
+
         ContinueButton_id.click();
     }
 

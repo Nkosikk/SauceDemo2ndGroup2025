@@ -37,7 +37,6 @@ public class Base {
     ShoppingCart shoppingCart = PageFactory.initElements(driver, ShoppingCart.class);
     CheckOut checkoutButton = PageFactory.initElements(driver, CheckOut.class);
     UserInfo continueButton = PageFactory.initElements(driver, UserInfo.class);
-    PriceCalculator checkoutInfo = PageFactory.initElements(driver, PriceCalculator.class);
 
 
 }
