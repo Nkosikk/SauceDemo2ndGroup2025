@@ -15,6 +15,9 @@ public class LandingPage {
     @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
     WebElement AddToCartSauceLabsFleeceJacket_id;
 
+    @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a/span")
+    WebElement CartText_xpath;
+
     @FindBy(id = "shopping_cart_container")
     WebElement ShoppingCart_id;
 
@@ -31,6 +34,12 @@ public class LandingPage {
 
     public void clickAddToCartSauceLabsFleeceJacket() {
         AddToCartSauceLabsFleeceJacket_id.click();
+    }
+
+    //Verify that items are added to cart
+    public int getNumberOfItemsInCart() {
+        String cartText = CartText_xpath.getText();
+        return Integer.parseInt(cartText);
     }
 
     public void clickShoppingCart() {
