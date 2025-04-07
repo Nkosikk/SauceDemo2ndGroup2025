@@ -7,8 +7,9 @@ import org.testng.annotations.Test;
 @Test
 public class purchaseItemTests extends Base{
 
-
-
+    String firstnameValue = "Lothando";
+    String lastnamevalue = "Khumalo";
+    String postalcodeValue = "1234";
     public void enterUsernameTests(){
         loginPage.enterUsername(readFromExcel.username);
     }
@@ -26,8 +27,8 @@ public class purchaseItemTests extends Base{
 
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess(){
-        takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
+        takeScreenshots.takesSnapShot(driver,"Landing Page");
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
@@ -89,15 +90,48 @@ public class purchaseItemTests extends Base{
        takeScreenshots.takesSnapShot(driver,"Checkout:Your Information Page");}
 
 
+    @Test(dependsOnMethods = "clickCheckoutTest")
+    public void verifyCheckoutPageText(){
+        checkoutPage.verifyCheckoutText();
+        takeScreenshots.takesSnapShot(driver,"Checkout:Your Information Page");
+    }
 
-   // @AfterTest
-    //public void closeBrowser(){
-   //     driver.quit();
-    //}
+    @Test(dependsOnMethods = "verifyCheckoutPageText")
+    public void enterFirstNameTest(){
+        checkoutPage.enterFirstName(firstnameValue);
+    }
 
+    @Test(dependsOnMethods = "enterFirstNameTest")
+    public void enterLastNameTest(){
+        checkoutPage.enterLastName(lastnamevalue);
+    }
 
+    @Test(dependsOnMethods = "enterLastNameTest")
+    public void enterPostalCodeTest(){
+        checkoutPage.enterPostalCode(postalcodeValue);
+    }
 
+    @Test(dependsOnMethods = "enterPostalCodeTest")
+    public void clickContinueCheckoutButtonTest(){
+        checkoutPage.clickContinueCheckOutButton();
+    }
 
+    @Test(dependsOnMethods = "clickContinueCheckoutButtonTest")
+    public void verifyCheckoutOverviewPage(){
+        checkoutOverviewPage.verifyCheckOutOverviewText();
+        takeScreenshots.takesSnapShot(driver,"Checkout:Overview Page");
+    }
+
+    @Test(dependsOnMethods = "verifyCheckoutOverviewPage")
+    public void verifyTotalPrice(){
+        checkoutOverviewPage.validateTotalAmount();
+       // takeScreenshots.takesSnapShot(driver,"Checkout:Overview Page");
+    }
+
+    @AfterTest
+    public void closeBrowser(){
+        driver.quit();
+    }
 
 
 }

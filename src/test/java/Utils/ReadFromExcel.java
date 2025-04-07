@@ -41,4 +41,11 @@ public class ReadFromExcel {
     public static String password=sheet.getRow(1).getCell(1).getStringCellValue();
 
 
+//    static XSSFSheet sheet2 =workbook.getSheet("User Information");
+//
+//    public static String firstname =sheet2.getRow(1).getCell(0).getStringCellValue();
+//    public static String lastname =sheet2.getRow(1).getCell(1).getStringCellValue();
+//
+//    public static String postalcode =sheet2.getRow(1).getCell(2).getStringCellValue();
+//
 }

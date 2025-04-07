@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -17,8 +16,6 @@ public class CartPage {
     @FindBy(xpath = "//span[contains(.,'Your Cart')]")
     WebElement yourCartText_xpath;
 
-    //identifying the elements for backpack
-
     @FindBy(xpath = "//div[contains(@data-test,'inventory-item-name')]")
     WebElement backpackProductNameInCart_xpath;
     @FindBy(xpath = "//div[contains(@data-test,'inventory-item-desc')]")
@@ -26,10 +23,8 @@ public class CartPage {
     @FindBy(xpath = "//div[contains(@class,'inventory_item_price')]")
     WebElement backpackProductPriceInCart_xpath;
 
-
     @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
     WebElement removeBackpackFromCartButton_xpath;
-
 
     @FindBy(xpath = "//button[@id='continue-shopping']")
     WebElement continueShoppingButton_xpath;
@@ -39,8 +34,6 @@ public class CartPage {
 
     @FindBy(xpath = "//button[@id='checkout']")
     WebElement checkoutButton_xpath;
-
-
 
     public void verifyYourCartText() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(yourCartText_xpath));
@@ -61,13 +54,10 @@ public class CartPage {
         Assert.assertEquals(backpackDescriptionText, "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.");
 
         String backpackPriceText = backpackProductPriceInCart_xpath.getText();
-        Assert.assertEquals(backpackPriceText, "R29.99");
-
-
+        Assert.assertEquals(backpackPriceText, "$29.99");
     }
 
     public void verifyYourCartButtons() {
-
         String removeBackpackFromButton = removeBackpackFromCartButton_xpath.getText();
         Assert.assertEquals(removeBackpackFromButton, "Remove");
 
@@ -76,14 +66,13 @@ public class CartPage {
 
         String checkoutButton = checkoutButton_xpath.getText();
         Assert.assertEquals(checkoutButton, "Checkout");
-
-
     }
-    public void clickRemoveButtonInCart(){
+
+    public void clickRemoveButtonInCart() {
         removeBackpackFromCartButtonProductLevel_xpath.click();
     }
-    public void clickCheckOutButton(){
+
+    public void clickCheckOutButton() {
         checkoutButton_xpath.click();
     }
-
 }
