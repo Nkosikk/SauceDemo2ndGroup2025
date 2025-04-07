@@ -52,7 +52,6 @@ public class YourInformationPage
     }
     //Input PostalCode
     public void enterPostalcode(String postalcode)
-
     {
         postalcode_id.sendKeys(postalcode);
     }

@@ -94,7 +94,14 @@ public class PurchaseItemTests extends Base {
     public void verifyCheckoutOverviewTestSuccess()
     {
         CheckoutOverviewPage.verifyCheckoutOverviewText();
+        //Pages.CheckoutOverviewPage.validateTotal();
     }
+    /*validatetotal
+    @Test(dependsOnMethods = "YourInformationPageTests")
+    public void validateTotalTestSuccess()
+    {
+        CheckoutOverviewPage.validateTotal();
+    }*/
     @Test(dependsOnMethods = "verifyCheckoutOverviewTestSuccess")
     public void clickFinishButtonTests() {
         takeScreenshots.takesSnapShot(driver, "BackHome Page");

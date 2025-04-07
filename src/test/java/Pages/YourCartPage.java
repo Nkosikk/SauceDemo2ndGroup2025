@@ -35,12 +35,12 @@ public class YourCartPage
     }
     public void verifyAddedPackCart(String xpath)
     {
-        WebElement SauceLabsBackpack_xpath = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div"));
+       // WebElement SauceLabsBackpack_xpath = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div"));
         SauceLabsBackpack_xpath.isDisplayed();
     }
     public void verifyAddedLightCart(String xpath)
     {
-        WebElement SauceLabsBikeLight_xpath = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div"));
+       // WebElement SauceLabsBikeLight_xpath = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div"));
         SauceLabsBikeLight_xpath.isDisplayed();
     }
     public void clickCheckoutButton()

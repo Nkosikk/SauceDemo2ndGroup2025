@@ -25,8 +25,8 @@ public class LogoutPage
     }
     public void clickBurgerMenuBtn()
     {
-        reactburgermenubtn_id.click();
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(visibilityOf(reactburgermenubtn_id));
+        reactburgermenubtn_id.click();
     }
     public void clickLogoutSideBarLink()
     {

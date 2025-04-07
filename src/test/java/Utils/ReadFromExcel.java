@@ -21,7 +21,6 @@ public class ReadFromExcel {
             throw new RuntimeException(e);
         }
     }
-
     static XSSFWorkbook workbook;
 
     static {
