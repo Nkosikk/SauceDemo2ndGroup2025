@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.LandingPage;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class purchaseItemTest extends Base {
@@ -27,10 +28,83 @@ public class purchaseItemTest extends Base {
 
         takeScreenshots.takesSnapShot(driver, "LandingPage");
     }
-}@Test(dependsOnMethods ="enterPasswordTest")
-public void clickAddToCartButtonTest(){
-    addToCart.clickAddToCartButton();
+    @Test(dependsOnMethods = "verifyProductTextTest")
+    public void clickAddToCartTest() {
+        addToCart.clickAddToCart();
 
-    takeScreenshots.takesSnapShot(driver, "AddToCart");
+        takeScreenshots.takesSnapShot(driver, "AddToCart");
+    }
+    @Test(dependsOnMethods = "clickAddToCartTest")
+    public void verifyYourCartTest() {
+        verifyYourCartPage.VerifyItemsDisplayed();
+
+    takeScreenshots.takesSnapShot(driver, "VerifyYourCart");
+    }
+    @Test(dependsOnMethods = "verifyYourCartTest")
+    public void verifyCheckOutPageTest() {
+        verifyCheckOutPage.clickCheckout();
+
+        takeScreenshots.takesSnapShot(driver, "CheckOutButton");
+    }
+    @Test(dependsOnMethods = "verifyCheckOutPageTest")
+    public void verifyInformationPageTest() {
+
+    takeScreenshots.takesSnapShot(driver, "verifyInformationPage");
+
+    }
+    @Test(dependsOnMethods = "clickCheckoutTest")
+    public void enterFirstNameTest() {
+        verifyInformationPage.enterFirstName(readFromExcel.firstName);
+
+        takeScreenshots.takesSnapShot(driver, "FirstName");
+    }
+
+    @Test(dependsOnMethods = "verifInformationPageTest")
+    public void enterLastNameTest() {
+        verifyInformationPage.enterLastName(readFromExcel.lastName);
+    }
+
+    @Test(dependsOnMethods = "verifyInformationPageTest")
+    public void enterPostalCodeTest() {
+        verifyInformationPage.enterPostalCode(readFromExcel.postalCode);
+
+        takeScreenshots.takesSnapShot(driver, "Details");
+    }
+    @Test(dependsOnMethods = {"enterFirstNameTests","enterLastNameTests","enterPostalCodeTest"})
+    public void clickContinueButtonTest() {
+        verifyInformationPage.clickContinueButton();
+
+        takeScreenshots.takesSnapShot(driver, "ContinueButton");
+
+    }
+
+    @Test(dependsOnMethods = "verifySauceLabsBackpackProductIsDisplayedInCheckOverviewPageTest")
+    public void verifyItemTotalPlusTaxTest(){
+        checkOutOverviewPage.verifyItemTotalPlusTax();
+
+        takeScreenshots.takesSnapShot(driver, "ItemTotalPlusTax");
+    }
+
+    @Test(dependsOnMethods = "verifyItemTotalPlusTaxTest")
+    public void clickFinishButtonTest(){
+        checkOutOverviewPage.clickFinishButton();
+    }
+
+   @Test(dependsOnMethods = "clickFinishButtonTest")
+   public void clickBackHomeTest(){
+        verifyCompletePurchasePage.clickBackHomeButton();
+
+       takeScreenshots.takesSnapShot(driver, "BackHomeButton");
+
+    }
+
+    @Test(dependsOnMethods = {"clickBackHomeTest"})
+    public void clickBurgerMenuButtonTest() {
+        verifyCompletePurchasePage.clickBurgerMenuButton();
+    }
+
+    @Test(dependsOnMethods = {"clickBurgerMenuButtonTest"})
+    public void clickLogoutFromBurgerMenu() {
+        verifyCompletePurchasePage.clickLogoutButton();
+    }
 }
-

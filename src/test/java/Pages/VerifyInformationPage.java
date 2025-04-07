@@ -20,13 +20,13 @@ public class VerifyInformationPage {
     public VerifyInformationPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void setFirst_name_id(WebElement first_name_id) {
+    public void enterFirst_name_id(WebElement first_name_id) {
         this.first_name_id = first_name_id;
     }
-    public void setLast_name_id(WebElement last_name_id) {
+    public void enterLast_name_id(WebElement last_name_id) {
         this.last_name_id = last_name_id;
     }
-    public void setPostal_code_id(WebElement postal_code_id) {
+    public void enterPostal_code_id(WebElement postal_code_id) {
         this.postal_code_id = postal_code_id;
     }
     public void clickContinue_id(WebElement continue_id) {

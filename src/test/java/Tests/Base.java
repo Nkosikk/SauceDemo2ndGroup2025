@@ -19,6 +19,9 @@ public class Base {
     AddToCart addToCart = PageFactory.initElements(driver, AddToCart.class);
     VerifyYourCartPage verifyYourCartPage = PageFactory.initElements(driver, VerifyYourCartPage.class);
     VerifyInformationPage verifyInformationPage = PageFactory.initElements(driver, VerifyInformationPage.class);
+    CheckOutOverviewPage checkOutOverviewPage = PageFactory.initElements(driver, CheckOutOverviewPage.class);
+    VerifyCompletePurchasePage verifyCompletePurchasePage = PageFactory.initElements(driver, VerifyCompletePurchasePage.class);
+    VerifyCheckOutPage verifyCheckOutPage = PageFactory.initElements(driver, VerifyCheckOutPage.class);
     ReadFromExcel readFromExcel;
 
     {
