@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,12 +19,27 @@ public class VerifyCompletePurchasePage {
         this.driver = driver;
     }
 
-    public void verifyCompletePurchaseText() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(completePurchaseText_xpath));
-        completePurchaseText_xpath.isDisplayed();
+    public void clickBackHomeButton() {
+        // Locate and click the back home button
+        driver.findElement(By.id("back-to-products")).click();
     }
-    public String getCompletePurchaseText() {
-        return completePurchaseText_xpath.getText();
+
+    public void clickBurgerMenuButton() {
+        // Locate and click the burger menu button
+        driver.findElement(By.id("react-burger-menu-btn")).click();
+    }
+
+    public void clickLogoutButton() {
+        // Locate and click the logout button
+        driver.findElement(By.id("logout_sidebar_link")).click();
     }
 }
+//    public void verifyCompletePurchaseText() {
+//        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(completePurchaseText_xpath));
+//        completePurchaseText_xpath.isDisplayed();
+//    }
+//    public String getCompletePurchaseText() {
+//        return completePurchaseText_xpath.getText();
+//    }
+//}
 

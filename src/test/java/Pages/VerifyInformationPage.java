@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,28 +9,48 @@ public class VerifyInformationPage {
 
     WebDriver driver;
 
-    @FindBy (id = "first-name")
+    @FindBy(id = "first-name")
     WebElement first_name_id;
-    @FindBy (id = "last-name")
+    @FindBy(id = "last-name")
     WebElement last_name_id;
-    @FindBy (id = "postal-code")
+    @FindBy(id = "postal-code")
     WebElement postal_code_id;
-    @FindBy (id = "continue")
+    @FindBy(id = "continue")
     WebElement continue_id;
 
-    public VerifyInformationPage(WebDriver driver) {
-        this.driver = driver;
+    public void enterFirstName(String firstName) {
+        // Locate the first name input field and send the value
+        driver.findElement(By.id("first-name")).sendKeys(firstName);
     }
-    public void enterFirst_name_id(WebElement first_name_id) {
-        this.first_name_id = first_name_id;
+
+    public void enterLastName(String lastName) {
+        // Locate the last name input field and send the value
+        driver.findElement(By.id("last-name")).sendKeys(lastName);
     }
-    public void enterLast_name_id(WebElement last_name_id) {
-        this.last_name_id = last_name_id;
+
+    public void enterPostalCode(String postalCode) {
+        // Locate the postal code input field and send the value
+        driver.findElement(By.id("postal-code")).sendKeys(postalCode);
     }
-    public void enterPostal_code_id(WebElement postal_code_id) {
-        this.postal_code_id = postal_code_id;
+
+    public void clickContinueButton() {
+        // Locate and click the continue button
+        driver.findElement(By.id("continue")).click();
     }
-    public void clickContinue_id(WebElement continue_id) {
-        this.continue_id = continue_id;
-    }
-        }
+}
+// //   public VerifyInformationPage(WebDriver driver) {
+//        this.driver = driver;
+//    }
+//    public void enterFirst_name_id(WebElement first_name_id) {
+//        this.first_name_id = first_name_id;
+//    }
+//    public void enterLast_name_id(WebElement last_name_id) {
+//        this.last_name_id = last_name_id;
+//    }
+//    public void enterPostal_code_id(WebElement postal_code_id) {
+//        this.postal_code_id = postal_code_id;
+//    }
+//    public void clickContinue_id(WebElement continue_id) {
+//        this.continue_id = continue_id;
+//    }
+//        }

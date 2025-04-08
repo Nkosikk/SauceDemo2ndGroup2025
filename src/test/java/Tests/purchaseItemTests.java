@@ -4,7 +4,7 @@ import Pages.LandingPage;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class purchaseItemTest extends Base {
+public class purchaseItemTests extends Base {
 
     @Test
     public void enterUsernameTest() {
@@ -52,21 +52,21 @@ public class purchaseItemTest extends Base {
     takeScreenshots.takesSnapShot(driver, "verifyInformationPage");
 
     }
-    @Test(dependsOnMethods = "clickCheckoutTest")
+    @Test(dependsOnMethods = "verifyInformationPageTest")
     public void enterFirstNameTest() {
-        verifyInformationPage.enterFirstName(readFromExcel.firstName);
+        verifyInformationPage.enterFirstName(readFromExcel.firstname);
 
         takeScreenshots.takesSnapShot(driver, "FirstName");
     }
 
     @Test(dependsOnMethods = "verifInformationPageTest")
     public void enterLastNameTest() {
-        verifyInformationPage.enterLastName(readFromExcel.lastName);
+        verifyInformationPage.enterLastName(readFromExcel.lastname);
     }
 
     @Test(dependsOnMethods = "verifyInformationPageTest")
     public void enterPostalCodeTest() {
-        verifyInformationPage.enterPostalCode(readFromExcel.postalCode);
+        verifyInformationPage.enterPostalCode(readFromExcel.zip);
 
         takeScreenshots.takesSnapShot(driver, "Details");
     }
