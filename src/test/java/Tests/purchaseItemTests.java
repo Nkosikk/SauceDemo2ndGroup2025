@@ -32,7 +32,7 @@ public class purchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickLoginButtonTest")
     public void verifyLoginSuccessTest() {
         String ProductText = loginPage.getLoginSuccessText();
-        Assert.assertEquals(ProductText, "Products");
+        Assert.assertEquals(ProductText, "Products", "Login was not successful.");
         System.out.println("Test passed: User has successfully logged in.");
     }
 
