@@ -20,11 +20,13 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "enterPasswordTests")
     public void clickLoginButtonTests() {
+        takeScreenshots.takesSnapShot(driver, "Login Page");
         loginPage.clickLoginButton();
     }
 
     @Test(dependsOnMethods = "clickLoginButtonTests")
     public void verifyLoginSuccessTests() {
+        takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyLoginSuccess();
     }
 
