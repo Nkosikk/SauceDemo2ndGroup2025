@@ -22,16 +22,13 @@ public class LandingPage {
     public LandingPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void verifyProductText(){
+
+    public void verifyLoginSuccess() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(productText_xpath));
         productText_xpath.isDisplayed();
 
-//        String productText = productText_xpath.getText();
-//        Assert.assertEquals(productText, "Products");
+        String productText = productText_xpath.getText();
+        Assert.assertEquals(productText, "Products");
+
     }
-
-
-
-
-
 }

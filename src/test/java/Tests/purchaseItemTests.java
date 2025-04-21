@@ -3,42 +3,33 @@ package Tests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-
 @Test
-public class purchaseItemTests extends Base{
+public class purchaseItemTests extends Base {
 
 
-
-    public void enterUsernameTests(){
-        loginPage.enterUsername(readFromExcel.username);
+    @Test(priority = 0)
+    public void enterUsernameTests() {
+        loginPage.enterUsername("standard_user");
     }
 
+    // Ensures that the username is entered before entering the password
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests(){
-        loginPage.enterPassword(readFromExcel.password);
+    public void enterPasswordTests() {
+        loginPage.enterPassword("secret_sauce");
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
-    public void clickLoginTests(){
-        takeScreenshots.takesSnapShot(driver,"Login Page");
+    public void clickLoginButtonTests() {
         loginPage.clickLoginButton();
     }
 
-    @Test(dependsOnMethods = "clickLoginTests")
-    public void verifyLoginSuccess(){
-        takeScreenshots.takesSnapShot(driver,"Landing Page");
-        landingPage.verifyProductText();
+    @Test(dependsOnMethods = "clickLoginButtonTests")
+    public void verifyLoginSuccessTests() {
+        landingPage.verifyLoginSuccess();
     }
-
 
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
-
-
-
-
-
-
 }
