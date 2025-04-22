@@ -14,13 +14,13 @@ public class purchaseItemTests extends Base {
     @Test(priority = 0)
     public void enterUsernameTest() {
         takeScreenshots("LoginPage");
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
 
     @Test(dependsOnMethods = "enterUsernameTest")
     public void enterPasswordTest() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTest")
