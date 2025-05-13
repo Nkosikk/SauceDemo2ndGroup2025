@@ -3,6 +3,8 @@ package Tests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 
 @Test
 public class purchaseItemTests extends Base{
@@ -19,13 +21,13 @@ public class purchaseItemTests extends Base{
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
-    public void clickLoginTests(){
+    public void clickLoginTests() throws IOException {
         takeScreenshots.takesSnapShot(driver,"Login Page");
         loginPage.clickLoginButton();
     }
 
     @Test(dependsOnMethods = "clickLoginTests")
-    public void verifyLoginSuccess(){
+    public void verifyLoginSuccess() throws IOException {
         takeScreenshots.takesSnapShot(driver,"Landing Page");
         landingPage.verifyProductText();
     }
