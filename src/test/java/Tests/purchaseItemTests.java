@@ -7,6 +7,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+import static Utils.ReadFromExcel.password;
+import static Utils.ReadFromExcel.username;
+
 @Test
 public class purchaseItemTests extends Base {
 
@@ -14,13 +17,13 @@ public class purchaseItemTests extends Base {
     @Test(priority = 0)
     public void enterUsernameTest() {
         takeScreenshots("LoginPage");
-        loginPage.enterUsername(readFromExcel.username);
+        loginPage.enterUsername(username);
     }
 
 
     @Test(dependsOnMethods = "enterUsernameTest")
     public void enterPasswordTest() {
-        loginPage.enterPassword(readFromExcel.password);
+        loginPage.enterPassword(password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTest")
@@ -90,17 +93,17 @@ public class purchaseItemTests extends Base {
     @Test(dependsOnMethods = "verifyInfoPageTest")
     public void enterFirstNameTest() {
         takeScreenshots("InformationPage");
-        checkoutInfoPage.enterFirstName("John");
+        checkoutInfoPage.enterFirstName("firstName");
     }
 
     @Test(dependsOnMethods = "enterFirstNameTest")
     public void enterLastNameTest() {
-        checkoutInfoPage.enterLastName("Doe");
+        checkoutInfoPage.enterLastName("lastName");
     }
 
     @Test(dependsOnMethods = "enterLastNameTest")
     public void enterZipCodeTest() {
-        checkoutInfoPage.enterZipCode("12345");
+        checkoutInfoPage.enterZipCode("postalCode");
     }
 
     @Test(dependsOnMethods = "enterZipCodeTest")

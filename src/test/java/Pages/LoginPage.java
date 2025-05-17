@@ -48,7 +48,6 @@ public class LoginPage {
     }
 
     //verifying successful login
-
     public String getLoginSuccessText() {
         return loginSuccess_xpath.getText();
     }

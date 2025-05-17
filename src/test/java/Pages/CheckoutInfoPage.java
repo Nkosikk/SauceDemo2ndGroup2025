@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static Utils.ReadFromExcel.*;
+
 public class CheckoutInfoPage {
     WebDriver driver;
 
@@ -36,15 +38,15 @@ public class CheckoutInfoPage {
     //Actions
     public void enterFirstName(String FirstName) {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(FirstName_id));
-        FirstName_id.sendKeys(FirstName);
+        FirstName_id.sendKeys(firstName);
     }
 
     public void enterLastName(String LastName) {
-        LastName_id.sendKeys(LastName);
+        LastName_id.sendKeys(lastName);
     }
 
     public void enterZipCode(String ZipCode) {
-        ZipCode_id.sendKeys(ZipCode);
+        ZipCode_id.sendKeys(postalCode);
     }
 
     public String getInfoPageHeader() {
@@ -54,4 +56,6 @@ public class CheckoutInfoPage {
     public void clickContinueButton() {
         ContinueButton_xpath.click();
     }
+
+
 }
