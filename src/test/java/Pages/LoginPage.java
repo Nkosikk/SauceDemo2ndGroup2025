@@ -14,7 +14,7 @@ public class LoginPage {
 
     WebDriver driver;
 
-    @FindBy(id="user-dropdown")
+    @FindBy(xpathp="user-dropdown")
     WebElement userDropdown_id;
 
     @FindBy(xpath = "//*[@id='sub-inner-user']/a[2]")
