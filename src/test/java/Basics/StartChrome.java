@@ -23,14 +23,14 @@ public class StartChrome {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"btn-profile\"]/span"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='sub-inner-user']/a[2]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"EmailAddress\"]"))).sendKeys("phelo@techsys.co.za");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputPassword"))).sendKeys("Welcome123");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputPassword"))).sendKeys("Welcome123!");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"login\"]/div[5]/div/button"))).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"btn-profile\"]"))).click();
 
-        String LOG_OUTText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"header_container\"]/div[2]/span"))).getText();
+        String LOG_OUTText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/section[3]/div/form/button"))).getText();
         Assert.assertEquals(LOG_OUTText.trim().toLowerCase(), "LOG OUT".toLowerCase());
 
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("/html/body/section[3]/div/form/button")).isDisplayed());
     }
 
     @AfterTest

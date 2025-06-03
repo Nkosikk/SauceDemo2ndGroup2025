@@ -14,13 +14,13 @@ public class LoginPage {
 
     WebDriver driver;
 
-    @FindBy(xpathp="user-dropdown")
-    WebElement userDropdown_id;
+    @FindBy(xpath="//*[@id=\"btn-profile\"]/span")
+    WebElement userDropdown_xpath;
 
     @FindBy(xpath = "//*[@id='sub-inner-user']/a[2]")
     WebElement loginLink_xpath;
 
-    @FindBy(id="EmailAddress")
+    @FindBy(xpath="//*[@id=\"EmailAddress\"]")
     WebElement emailAddress_id;
 
     @FindBy( id="inputPassword")
@@ -29,7 +29,7 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"login\"]/div[5]/div/button")
     WebElement loginButton_xpath;
 
-    @FindBy(xpath = "//*[@id=\"sub-inner-user\"]/form/button")
+    @FindBy(xpath = "//*[@id=\"btn-profile\"]")
     WebElement logoutText_xpath;
 
 
@@ -47,8 +47,8 @@ public class LoginPage {
 
     //Click User Dropdown
     public void clickUserDropdown() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(userDropdown_id));
-        userDropdown_id.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(userDropdown_xpath));
+        userDropdown_xpath.click();
     }
 
     //Click Login Link
