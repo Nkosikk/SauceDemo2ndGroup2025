@@ -24,36 +24,36 @@ public class TakeScreenshots {
         File src;
         File destination;
 
-//        if (driver.getClass().getSimpleName().equals("ChromeDriver")
-//                || driver.getClass().getSimpleName().equals("EdgeDriver") || driver.getClass().getSimpleName().equals("SafariDriver")){
-//            //Option 1
-//            // Use AShot to take a full-page screenshot
-//            Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000))
-//                    .takeScreenshot(driver);
-//            // Save the screenshot
-//            ImageIO.write(screenshot.getImage(), "jpeg", new File(screenshotDir, ScreenshotName + ".jpeg"));
-//
-//        } else {
-//            //Option 2
-//            src = ((FirefoxDriver) driver).getFullPageScreenshotAs(OutputType.FILE);
-//            destination = new File(screenshotDir, ScreenshotName + ".jpeg");
-//
-//            try {
-//                FileUtils.copyFile(src, destination);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (driver.getClass().getSimpleName().equals("ChromeDriver")
+                || driver.getClass().getSimpleName().equals("EdgeDriver") || driver.getClass().getSimpleName().equals("SafariDriver")){
+            //Option 1
+            // Use AShot to take a full-page screenshot
+            Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000))
+                    .takeScreenshot(driver);
+            // Save the screenshot
+            ImageIO.write(screenshot.getImage(), "jpeg", new File(screenshotDir, ScreenshotName + ".jpeg"));
 
-         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-         src = takesScreenshot.getScreenshotAs(OutputType.FILE);
-         destination = new File(screenshotDir, ScreenshotName + ".jpeg");
+        } else {
+            //Option 2
+            src = ((FirefoxDriver) driver).getFullPageScreenshotAs(OutputType.FILE);
+            destination = new File(screenshotDir, ScreenshotName + ".jpeg");
 
-        try {
-            FileUtils.copyFile(src, destination);
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                FileUtils.copyFile(src, destination);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+//         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+//         src = takesScreenshot.getScreenshotAs(OutputType.FILE);
+//         destination = new File(screenshotDir, ScreenshotName + ".jpeg");
+//
+//        try {
+//            FileUtils.copyFile(src, destination);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
