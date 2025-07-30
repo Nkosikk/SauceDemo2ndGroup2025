@@ -34,12 +34,14 @@ public class purchaseItemTests extends Base {
 
     @Test (dependsOnMethods = "verifyLoginSuccessTests")
     public void inventoryItemTests(){
-        productsPage.verifyInventoryItemName("Sauce Labs Fleece Jacket");
+        productsPage.verifyInventoryItemName("Sauce Labs Backpack");
     }
 
     @Test (dependsOnMethods = "inventoryItemTests")
     public void addToCartTests(){
-        productsPage.clickAddToCartForItem("Sauce Labs Fleece Jacket");
+        productsPage.clickAddToCartForItem("Sauce Labs Backpack");
+        productsPage.clickAddToCartForItem("Sauce Labs Bike Light");
+        productsPage.clickAddToCartForItem("Sauce Labs Bolt T-Shirt");
     }
 
 
@@ -57,7 +59,7 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "verifyCartPageTests")
     public void verifyInventoryItemNameTests() {
-        cartPage.verifyInventoryItemName("Sauce Labs Fleece Jacket");
+        cartPage.verifyInventoryItemName("Sauce Labs Backpack");
     }
 
     @Test (dependsOnMethods = "verifyInventoryItemNameTests")
