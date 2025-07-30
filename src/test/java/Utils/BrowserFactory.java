@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class  BrowserFactory {
 
-    static WebDriver driver;
+    public static WebDriver driver;
 
    // @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
