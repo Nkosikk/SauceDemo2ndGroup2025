@@ -1,21 +1,27 @@
 package Tests;
 
+import Utils.DatabaseConnection;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-
 
 
 @Test
 public class purchaseItemTests extends Base{
 
 
+
     public void enterUsernameTests(){
-        loginPage.enterUsername("standard_user");
+        DatabaseConnection.User user = DatabaseConnection.getUserById(2); // use the desired user id
+        if (user != null) {
+            loginPage.enterUsername(user.getUsername());
+        } else {
+            throw new RuntimeException("User not found in database");
+        }
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests(){
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")

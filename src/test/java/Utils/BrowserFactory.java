@@ -16,7 +16,7 @@ public class  BrowserFactory {
 
     static WebDriver driver;
 
-    @BeforeTest
+   // @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("ChrOME")) {
             ChromeOptions chromeOptions = new ChromeOptions();
