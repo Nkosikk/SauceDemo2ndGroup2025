@@ -1,6 +1,5 @@
 package Tests;
 
-import Utils.DatabaseConnection;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -8,20 +7,13 @@ import org.testng.annotations.Test;
 @Test
 public class purchaseItemTests extends Base{
 
-
-
     public void enterUsernameTests(){
-        DatabaseConnection.User user = DatabaseConnection.getUserById(2); // use the desired user id
-        if (user != null) {
-            loginPage.enterUsername(user.getUsername());
-        } else {
-            throw new RuntimeException("User not found in database");
-        }
+        enterUsernameFromDatabase(3);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests(){
-        loginPage.enterPassword(readFromExcel.password);
+        enterPasswordFromDatabase(3);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -41,10 +33,5 @@ public class purchaseItemTests extends Base{
     public void closeBrowser(){
         driver.quit();
     }
-
-
-
-
-
 
 }
