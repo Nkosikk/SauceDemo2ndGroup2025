@@ -11,7 +11,7 @@ public class purchaseItemTests extends Base{
 
 
     public void enterUsernameTests(){
-        DatabaseConnection.User user = DatabaseConnection.getUserById(2); // use the desired user id
+        DatabaseConnection.User user = DatabaseConnection.getUserById(3); // use the desired user id
         if (user != null) {
             loginPage.enterUsername(user.getUsername());
         } else {
