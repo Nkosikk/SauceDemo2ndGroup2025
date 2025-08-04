@@ -31,7 +31,6 @@ public class purchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
-        TakeScreenshots takeScreenshots = new TakeScreenshots();
         takeScreenshots.takesSnapShot(driver, "Landing Page");
         landingPage.verifyProductText();
     }
