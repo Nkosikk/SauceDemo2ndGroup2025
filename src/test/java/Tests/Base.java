@@ -3,6 +3,7 @@ package Tests;
 import Pages.LandingPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
+import Utils.ReadFromExcel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,6 +14,8 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     LandingPage landingPage = PageFactory.initElements(driver,LandingPage.class);
+
+    ReadFromExcel readFromExcel;
 
 }
 

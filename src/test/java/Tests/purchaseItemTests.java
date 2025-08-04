@@ -13,14 +13,12 @@ import java.io.IOException;
 public class purchaseItemTests extends Base {
 
 
-    public void enterUsernameTests() throws IOException {
-        ReadFromExcel readFromExcel = new ReadFromExcel();
+    public void enterUsernameTests()  {
         loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests() throws IOException {
-        ReadFromExcel readFromExcel = new ReadFromExcel();
+    public void enterPasswordTests()  {
         loginPage.enterPassword(readFromExcel.password);
     }
 
