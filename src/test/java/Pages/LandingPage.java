@@ -12,10 +12,11 @@ import java.time.Duration;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class LandingPage {
-<<<<<<< HEAD
+
     WebDriver driver;
     @FindBy(className = "product_label")
     WebElement productLabel_class;
+
 
     public void landingPage(WebDriver driver){
         this.driver = driver;
@@ -27,9 +28,7 @@ public class LandingPage {
 
 
     }
-=======
 
-    WebDriver driver;
 
     @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
     WebElement productText_xpath;
@@ -48,7 +47,4 @@ public class LandingPage {
 
 
 
-
-
->>>>>>> 8709f51151c6920cc2276c212e4fff0c36cedeeb
 }
