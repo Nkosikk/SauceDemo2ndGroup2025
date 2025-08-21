@@ -18,6 +18,15 @@ public class LandingPage {
     @FindBy(xpath = "//*[@id='header_container']/div[2]/span")
     WebElement productText_xpath;
 
+    @FindBy(id= "add-to-cart-sauce-labs-backpack")
+    WebElement Backpack;
+
+    @FindBy(id= "add-to-cart-sauce-labs-bolt-t-shirt")
+    WebElement TShirt;
+
+    @FindBy(id="shopping_cart_container")
+    WebElement cart_container_id;
+// Verifying the landing page by checking the product text
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -30,8 +39,13 @@ public class LandingPage {
 //        Assert.assertEquals(productText, "Products");
     }
 
+    public void addItemToCart() {
+        Backpack.click();
+        TShirt.click();
+    }
 
-
-
-
+    public void NavigateToCart (){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(cart_container_id));
+        cart_container_id.click();
+    }
 }
