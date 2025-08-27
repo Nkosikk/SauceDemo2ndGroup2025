@@ -1,7 +1,5 @@
 package Utils;
 
-import org.testng.annotations.Test;
-
 import java.sql.*;
 
 public class DatabaseConnection {
